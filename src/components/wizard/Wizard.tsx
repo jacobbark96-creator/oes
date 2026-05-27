@@ -1,0 +1,404 @@
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronRight, ChevronLeft, Send, Upload, CheckCircle2 } from 'lucide-react';
+
+type FormData = {
+  name: string;
+  address: string;
+  isBusiness: 'Yes' | 'No';
+  mobile: string;
+  email: string;
+  evInterest: 'Yes' | 'No';
+  roofMaterial: string;
+  roofCondition: string;
+  phaseType: 'Three Phase' | 'Single Phase' | "I don't know";
+  energySpend: string;
+  financeOption: 'PPA' | 'Finance' | 'CAPEX';
+  billFile?: FileList;
+};
+
+const steps = [
+  { id: 1, title: 'Personal Info' },
+  { id: 2, title: 'Property Details' },
+  { id: 3, title: 'Roof & Phase' },
+  { id: 4, title: 'Energy & Finance' },
+  { id: 5, title: 'Confirmation' },
+];
+
+export const Wizard: React.FC = () => {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { register, handleSubmit, watch, formState: { errors }, trigger } = useForm<FormData>();
+
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    
+    try {
+      const formData = new window.FormData();
+      // Required fields for Web3Forms
+      formData.append("access_key", "60361693-2cba-4b66-a0da-121ca0055889");
+      formData.append("subject", `New Solar Lead: ${data.name}`);
+      formData.append("from_name", data.name);
+      formData.append("email", data.email);
+      
+      // Data fields
+      formData.append("Name", data.name);
+      formData.append("Address", data.address);
+      formData.append("Is Business", data.isBusiness);
+      formData.append("Mobile", data.mobile);
+      formData.append("Interested in EV", data.evInterest);
+      formData.append("Roof Material", data.roofMaterial);
+      formData.append("Roof Condition", data.roofCondition);
+      formData.append("Phase Type", data.phaseType);
+      formData.append("Monthly Energy Spend (£)", data.energySpend);
+      formData.append("Finance Option", data.financeOption);
+
+      // File attachment
+      if (data.billFile && data.billFile.length > 0) {
+        formData.append("attachment", data.billFile[0]);
+      }
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        alert("Something went wrong submitting the form. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Failed to submit form. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const nextStep = async () => {
+    let fieldsToValidate: (keyof FormData)[] = [];
+    if (currentStep === 1) fieldsToValidate = ['name', 'email', 'mobile'];
+    if (currentStep === 2) fieldsToValidate = ['address', 'isBusiness'];
+    if (currentStep === 3) fieldsToValidate = ['roofMaterial', 'roofCondition', 'phaseType'];
+    if (currentStep === 4) fieldsToValidate = ['energySpend', 'evInterest', 'financeOption'];
+
+    const isValid = await trigger(fieldsToValidate);
+    if (isValid) {
+      setCurrentStep((prev) => Math.min(prev + 1, steps.length));
+    }
+  };
+
+  const prevStep = () => {
+    setCurrentStep((prev) => Math.max(prev - 1, 1));
+  };
+
+  if (isSubmitted) {
+    return (
+      <div className="bg-white p-12 rounded-3xl shadow-2xl text-center max-w-xl mx-auto border border-orange-50">
+        <div className="flex justify-center mb-6">
+          <div className="bg-green-100 p-4 rounded-full">
+            <CheckCircle2 size={48} className="text-green-600" />
+          </div>
+        </div>
+        <h2 className="text-3xl font-bold text-solar-dark mb-4">Application Sent!</h2>
+        <p className="text-gray-600 mb-8">
+          Thank you for your interest. A solar expert from Open Energy Solutions will review your details and contact you shortly at {watch('email')}.
+        </p>
+        <button 
+          onClick={() => window.location.reload()}
+          className="bg-solar-orange text-white px-8 py-3 rounded-xl font-bold hover:bg-orange-600 transition-all"
+        >
+          Back to Home
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-white/20 w-full max-w-2xl mx-auto overflow-hidden">
+      <div className="mb-8">
+        <div className="flex justify-between items-center mb-4">
+          <span className="text-sm font-bold text-solar-orange uppercase tracking-wider">Step {currentStep} of 5</span>
+          <span className="text-sm font-medium text-gray-400">{steps[currentStep - 1].title}</span>
+        </div>
+        <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+          <motion.div 
+            className="h-full bg-solar-orange"
+            initial={{ width: 0 }}
+            animate={{ width: `${(currentStep / steps.length) * 100}%` }}
+            transition={{ duration: 0.5 }}
+          />
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <AnimatePresence mode="wait">
+          {currentStep === 1 && (
+            <motion.div
+              key="step1"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="space-y-6"
+            >
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Full Name</label>
+                <input
+                  {...register('name', { required: 'Name is required' })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
+                  placeholder="John Doe"
+                />
+                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Email Address</label>
+                <input
+                  {...register('email', { 
+                    required: 'Email is required',
+                    pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' }
+                  })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
+                  placeholder="john@example.com"
+                />
+                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Mobile Number</label>
+                <input
+                  {...register('mobile', { required: 'Mobile is required' })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
+                  placeholder="+44 7123 456789"
+                />
+                {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile.message}</p>}
+              </div>
+            </motion.div>
+          )}
+
+          {currentStep === 2 && (
+            <motion.div
+              key="step2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="space-y-6"
+            >
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Installation Address</label>
+                <textarea
+                  {...register('address', { required: 'Address is required' })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all h-24"
+                  placeholder="Street, City, Postcode"
+                />
+                {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address.message}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Are you a business?</label>
+                <div className="grid grid-cols-2 gap-4">
+                  {['Yes', 'No'].map((option) => (
+                    <label key={option} className={`
+                      cursor-pointer border-2 rounded-xl p-4 flex items-center justify-center font-bold transition-all
+                      ${watch('isBusiness') === option ? 'border-solar-orange bg-orange-50 text-solar-orange' : 'border-gray-100 hover:border-gray-200'}
+                    `}>
+                      <input
+                        type="radio"
+                        {...register('isBusiness', { required: 'Please select an option' })}
+                        value={option}
+                        className="hidden"
+                      />
+                      {option}
+                    </label>
+                  ))}
+                </div>
+                {errors.isBusiness && <p className="text-red-500 text-xs mt-1">{errors.isBusiness.message}</p>}
+              </div>
+            </motion.div>
+          )}
+
+          {currentStep === 3 && (
+            <motion.div
+              key="step3"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="space-y-6"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-solar-dark mb-2">Roof Material</label>
+                  <select
+                    {...register('roofMaterial', { required: 'Required' })}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none bg-white"
+                  >
+                    <option value="">Select Material</option>
+                    <option value="Tile">Tile</option>
+                    <option value="Slate">Slate</option>
+                    <option value="Metal">Metal</option>
+                    <option value="Flat">Flat Roof</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-solar-dark mb-2">Roof Condition</label>
+                  <select
+                    {...register('roofCondition', { required: 'Required' })}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none bg-white"
+                  >
+                    <option value="">Select Condition</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Needs Repair">Needs Repair</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Electrical Phase Type</label>
+                <div className="grid grid-cols-1 gap-3">
+                  {['Single Phase', 'Three Phase', "I don't know"].map((option) => (
+                    <label key={option} className={`
+                      cursor-pointer border-2 rounded-xl p-4 flex items-center font-bold transition-all
+                      ${watch('phaseType') === option ? 'border-solar-orange bg-orange-50 text-solar-orange' : 'border-gray-100 hover:border-gray-200'}
+                    `}>
+                      <input
+                        type="radio"
+                        {...register('phaseType', { required: 'Required' })}
+                        value={option}
+                        className="hidden"
+                      />
+                      {option}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {currentStep === 4 && (
+            <motion.div
+              key="step4"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="space-y-6"
+            >
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Monthly Energy Spend (£)</label>
+                <input
+                  type="number"
+                  {...register('energySpend', { required: 'Required' })}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none"
+                  placeholder="e.g. 150"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Interested in EV Chargers?</label>
+                <div className="grid grid-cols-2 gap-4">
+                  {['Yes', 'No'].map((option) => (
+                    <label key={option} className={`
+                      cursor-pointer border-2 rounded-xl p-4 flex items-center justify-center font-bold transition-all
+                      ${watch('evInterest') === option ? 'border-solar-orange bg-orange-50 text-solar-orange' : 'border-gray-100 hover:border-gray-200'}
+                    `}>
+                      <input
+                        type="radio"
+                        {...register('evInterest', { required: 'Required' })}
+                        value={option}
+                        className="hidden"
+                      />
+                      {option}
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-solar-dark mb-2">Preferred Finance Option</label>
+                <div className="grid grid-cols-3 gap-3">
+                  {['PPA', 'Finance', 'CAPEX'].map((option) => (
+                    <label key={option} className={`
+                      cursor-pointer border-2 rounded-xl p-3 flex items-center justify-center text-sm font-bold transition-all
+                      ${watch('financeOption') === option ? 'border-solar-orange bg-orange-50 text-solar-orange' : 'border-gray-100 hover:border-gray-200'}
+                    `}>
+                      <input
+                        type="radio"
+                        {...register('financeOption', { required: 'Required' })}
+                        value={option}
+                        className="hidden"
+                      />
+                      {option}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {currentStep === 5 && (
+            <motion.div
+              key="step5"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="space-y-6"
+            >
+              <div className="relative border-2 border-dashed border-gray-200 rounded-3xl p-10 text-center hover:border-solar-orange transition-colors cursor-pointer group">
+                <input
+                  type="file"
+                  {...register('billFile')}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  id="bill-upload"
+                  title="Upload Bill"
+                />
+                <div className="pointer-events-none">
+                  <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <Upload className="text-solar-orange" size={28} />
+                  </div>
+                  <h3 className="font-bold text-solar-dark mb-1">
+                    {watch('billFile')?.[0]?.name || 'Upload Recent Bill'}
+                  </h3>
+                  <p className="text-gray-400 text-sm">PDF, JPG or PNG (Optional)</p>
+                </div>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-xl text-xs text-gray-500 flex items-start gap-3">
+                <CheckCircle2 size={16} className="text-green-500 flex-shrink-0 mt-0.5" />
+                <p>By submitting, you agree to our privacy policy and consent to being contacted regarding your solar quote.</p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="flex gap-4 mt-10">
+          {currentStep > 1 && (
+            <button
+              type="button"
+              onClick={prevStep}
+              className="flex-1 px-6 py-4 rounded-2xl border-2 border-gray-100 font-bold text-gray-400 hover:border-gray-200 hover:text-gray-600 transition-all flex items-center justify-center gap-2"
+            >
+              <ChevronLeft size={20} />
+              Back
+            </button>
+          )}
+          {currentStep < steps.length ? (
+            <button
+              type="button"
+              onClick={nextStep}
+              className="flex-[2] bg-solar-orange text-white px-6 py-4 rounded-2xl font-bold hover:bg-orange-600 transition-all shadow-xl shadow-orange-200 flex items-center justify-center gap-2"
+            >
+              Next Step
+              <ChevronRight size={20} />
+            </button>
+          ) : (
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="flex-[2] bg-solar-green text-white px-6 py-4 rounded-2xl font-bold hover:bg-green-600 transition-all shadow-xl shadow-green-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? 'Sending...' : 'Submit Application'}
+              {!isSubmitting && <Send size={20} />}
+            </button>
+          )}
+        </div>
+      </form>
+    </div>
+  );
+};
