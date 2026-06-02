@@ -205,7 +205,7 @@ export const Wizard: React.FC = () => {
               <div>
                 <label className="block text-sm font-bold text-solar-dark mb-2">Installation Address</label>
                 <Autocomplete
-                  apiKey="" // Google Maps API key (optional for basic testing, but required for production)
+                  apiKey="AIzaSyCnvPS7oFR7nUWkE008r9DafN2iCgnCQZA"
                   options={{
                     types: ['address'],
                     componentRestrictions: { country: 'gb' },
