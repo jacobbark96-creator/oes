@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Send, Upload, CheckCircle2 } from 'lucide-react';
+import Autocomplete from 'react-google-autocomplete';
 
 type FormData = {
   name: string;
@@ -23,14 +24,14 @@ const steps = [
   { id: 2, title: 'Property Details' },
   { id: 3, title: 'Roof & Phase' },
   { id: 4, title: 'Energy & Finance' },
-  { id: 5, title: 'Confirmation' },
+  { id: 5, title: 'Upload Bill' },
 ];
 
 export const Wizard: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { register, handleSubmit, watch, formState: { errors }, trigger } = useForm<FormData>();
+  const { register, handleSubmit, watch, formState: { errors }, trigger, setValue } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -165,7 +166,10 @@ export const Wizard: React.FC = () => {
                 <input
                   {...register('email', { 
                     required: 'Email is required',
-                    pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' }
+                    pattern: { 
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 
+                      message: 'Please enter a valid email address' 
+                    }
                   })}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
                   placeholder="john@example.com"
@@ -175,9 +179,15 @@ export const Wizard: React.FC = () => {
               <div>
                 <label className="block text-sm font-bold text-solar-dark mb-2">Mobile Number</label>
                 <input
-                  {...register('mobile', { required: 'Mobile is required' })}
+                  {...register('mobile', { 
+                    required: 'Mobile number is required',
+                    pattern: {
+                      value: /^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$|^(\+44|0)[1-9][0-9\s\-]{8,12}$/,
+                      message: 'Please enter a valid phone number (e.g. 07123 456789)'
+                    }
+                  })}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
-                  placeholder="+44 7123 456789"
+                  placeholder="07123 456789"
                 />
                 {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile.message}</p>}
               </div>
@@ -194,10 +204,20 @@ export const Wizard: React.FC = () => {
             >
               <div>
                 <label className="block text-sm font-bold text-solar-dark mb-2">Installation Address</label>
-                <textarea
+                <Autocomplete
+                  apiKey="" // Google Maps API key (optional for basic testing, but required for production)
+                  options={{
+                    types: ['address'],
+                    componentRestrictions: { country: 'gb' },
+                  }}
+                  onPlaceSelected={(place) => {
+                    if (place.formatted_address) {
+                      setValue('address', place.formatted_address, { shouldValidate: true });
+                    }
+                  }}
                   {...register('address', { required: 'Address is required' })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all h-24"
-                  placeholder="Street, City, Postcode"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
+                  placeholder="Start typing your address..."
                 />
                 {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address.message}</p>}
               </div>
@@ -394,14 +414,26 @@ export const Wizard: React.FC = () => {
               <ChevronRight size={20} />
             </button>
           ) : (
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="flex-[2] bg-solar-green text-white px-6 py-4 rounded-2xl font-bold hover:bg-green-600 transition-all shadow-xl shadow-green-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? 'Sending...' : 'Submit Application'}
-              {!isSubmitting && <Send size={20} />}
-            </button>
+            <div className="flex-[2] flex gap-3">
+              {!watch('billFile')?.[0] ? (
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-gray-200 text-gray-700 px-4 py-4 rounded-2xl font-bold hover:bg-gray-300 transition-all flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Sending...' : 'Skip & Submit'}
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-solar-green text-white px-4 py-4 rounded-2xl font-bold hover:bg-green-600 transition-all shadow-xl shadow-green-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Sending...' : 'Submit with Bill'}
+                  {!isSubmitting && <Send size={20} />}
+                </button>
+              )}
+            </div>
           )}
         </div>
       </form>
