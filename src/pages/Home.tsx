@@ -16,7 +16,7 @@ export const Home: React.FC = () => {
         <meta property="og:title" content="Open Energy Solutions | UK Premium Solar Installer" />
         <meta property="og:description" content="Switch to solar with OES. Professional installation and flexible finance options for homes and businesses." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80" />
-        <link rel="canonical" href="https://openlead.co.uk" />
+        <link rel="canonical" href="https://openenergy.co.uk" />
       </Helmet>
 
       <Navbar />
