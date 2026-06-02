@@ -49,6 +49,10 @@ export const Footer: React.FC = () => {
                 <Mail size={20} className="text-solar-orange" />
                 <span>welcome@openenergy.co.uk</span>
               </li>
+              <li className="flex items-center gap-3">
+                <Phone size={20} className="text-solar-orange" />
+                <span>+44 161 524 5535</span>
+              </li>
               <li className="flex items-center gap-3 text-sm">
                 <MapPin size={24} className="text-solar-orange flex-shrink-0" />
                 <span>20 Wenlock Road, London, N1 7GU</span>
