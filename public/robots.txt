@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://openenergy.co.uk/sitemap.xml
+Sitemap: https://openenergyservices.co.uk/sitemap.xml
