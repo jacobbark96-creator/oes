@@ -29,7 +29,7 @@ export const Home: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?auto=format&fit=crop&w=800&q=80" 
+                  src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" 
                   alt="Solar Home" 
                   className="rounded-3xl shadow-2xl relative z-10"
                 />

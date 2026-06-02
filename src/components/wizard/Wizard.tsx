@@ -367,6 +367,16 @@ export const Wizard: React.FC = () => {
               exit={{ opacity: 0, x: -20 }}
               className="space-y-6"
             >
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-solar-orange mb-4">
+                  <Upload size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-solar-dark mb-2">Upload Your Energy Bill <span className="text-gray-400 text-lg font-normal">(Optional)</span></h3>
+                <p className="text-gray-500">
+                  Uploading your recent bill helps us design the most accurate system for your needs.
+                  You can skip this if you don't have it handy!
+                </p>
+              </div>
               <div className="relative border-2 border-dashed border-gray-200 rounded-3xl p-10 text-center hover:border-solar-orange transition-colors cursor-pointer group">
                 <input
                   type="file"
