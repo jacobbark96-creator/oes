@@ -4,62 +4,69 @@ import { ShieldCheck, Zap, TrendingDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen pt-20 flex items-center overflow-hidden">
-      {/* Background with overlay */}
+    <section className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden bg-solar-dark pt-20">
+      {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80" 
+          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=80" 
           alt="Solar Panels" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-40 mix-blend-overlay"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-solar-dark/90 via-solar-dark/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-solar-dark via-solar-dark/95 to-solar-dark/80" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-solar-orange/10 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-500/10 blur-[120px] rounded-full -translate-x-1/3 translate-y-1/3" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
-          <div className="text-white">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-solar-orange/20 rounded-full border border-solar-orange/30 mb-8">
-              <Zap size={18} className="text-solar-orange" />
-              <span className="text-sm font-bold uppercase tracking-widest text-solar-orange">Premium Solar Installations</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full h-full flex flex-col justify-center py-10 md:py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+          
+          {/* Left Text Content */}
+          <div className="lg:col-span-7 text-white order-1 lg:order-1 mt-24 lg:mt-0">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm mb-6">
+              <span className="flex h-2 w-2 rounded-full bg-solar-orange animate-pulse"></span>
+              <span className="text-xs font-bold uppercase tracking-widest text-gray-300">UK's #1 Solar Installer</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-              Power Your Home <br />
-              <span className="text-solar-orange">For Free.</span>
+            
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
+              Power your home <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-solar-orange to-amber-400">
+                for free.
+              </span>
             </h1>
-            <p className="text-xl text-gray-300 mb-10 max-w-lg leading-relaxed">
-              Open Energy Solutions provides state-of-the-art solar systems designed to slash your bills and carbon footprint. Join thousands of UK homeowners going green.
+            
+            <p className="text-lg sm:text-xl text-gray-400 mb-10 max-w-xl leading-relaxed font-light">
+              State-of-the-art solar systems designed to slash your bills and carbon footprint. Join thousands of UK homeowners going green today.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-white/10 rounded-lg">
-                  <ShieldCheck className="text-solar-orange" size={24} />
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+              <div className="flex flex-col gap-2">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-solar-orange backdrop-blur-md">
+                  <ShieldCheck size={24} />
                 </div>
-                <span className="font-medium">25 Year Warranty</span>
+                <span className="font-medium text-sm text-gray-300">25 Year Warranty</span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-white/10 rounded-lg">
-                  <TrendingDown className="text-solar-orange" size={24} />
+              <div className="flex flex-col gap-2">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-solar-orange backdrop-blur-md">
+                  <TrendingDown size={24} />
                 </div>
-                <span className="font-medium">Up to 70% Savings</span>
+                <span className="font-medium text-sm text-gray-300">Up to 70% Savings</span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-white/10 rounded-lg">
-                  <Zap className="text-solar-orange" size={24} />
+              <div className="flex flex-col gap-2">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-solar-orange backdrop-blur-md">
+                  <Zap size={24} />
                 </div>
-                <span className="font-medium">Smart Battery Ready</span>
+                <span className="font-medium text-sm text-gray-300">Smart Battery Ready</span>
               </div>
             </div>
           </div>
 
-          <div className="w-full">
+          {/* Right Wizard Form */}
+          <div className="lg:col-span-5 w-full order-2 lg:order-2 z-20 mb-20 lg:mb-0">
             <Wizard />
           </div>
+          
         </div>
       </div>
-
-      {/* Decorative element */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-solar-orange/20 blur-[120px] rounded-full -mr-32 -mb-32" />
     </section>
   );
 };

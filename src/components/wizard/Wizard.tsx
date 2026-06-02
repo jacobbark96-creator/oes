@@ -39,6 +39,12 @@ export const Wizard: React.FC = () => {
       const formData = new window.FormData();
       // Required fields for Web3Forms
       formData.append("access_key", "60361693-2cba-4b66-a0da-121ca0055889");
+      // To send to a specific email using Web3Forms without changing the account email,
+      // it's best to configure it on the Web3Forms dashboard. Alternatively, if your key 
+      // is not locked to a single email, you can try routing it, but usually the key ITSELF
+      // dictates the recipient inbox.
+      // 
+      // Assuming you will link the key to jake@openenergyservices.co.uk in Web3Forms:
       formData.append("subject", `New Solar Lead: ${data.name}`);
       formData.append("from_name", data.name);
       formData.append("email", data.email);

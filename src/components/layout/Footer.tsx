@@ -7,8 +7,9 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-8">
-              <img src="/OEMLogo.png" alt="Open Energy Solutions" className="w-64 md:w-96 lg:w-[450px] h-auto brightness-0 invert object-contain" />
+            <div className="flex items-center gap-1 mb-8">
+              <span className="text-3xl font-bold tracking-tight text-white">Openenergy</span>
+              <span className="text-4xl font-black text-solar-orange leading-none translate-y-[2px]">.</span>
             </div>
             <p className="text-gray-400 mb-6">
               Leading the UK transition to clean, sustainable energy with professional solar installations and innovative energy solutions.

@@ -8,12 +8,9 @@ export const Navbar: React.FC = () => {
     <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
-          <div className="relative flex items-center w-40 sm:w-[200px] md:w-[270px] lg:w-[315px] h-full">
-            <img 
-              src="/OEMLogo.png" 
-              alt="Open Energy Solutions" 
-              className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-auto object-contain pointer-events-none scale-125 origin-left" 
-            />
+          <div className="flex items-center gap-1">
+            <span className="text-2xl md:text-3xl font-bold tracking-tight text-black">Openenergy</span>
+            <span className="text-3xl md:text-4xl font-black text-solar-orange leading-none translate-y-[2px]">.</span>
           </div>
           
           <div className="hidden md:flex items-center gap-8">
