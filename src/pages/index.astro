@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Hero } from '../components/sections/Hero';
+import { Services } from '../components/sections/Services';
+import { Finance } from '../components/sections/Finance';
+import { AboutSection } from '../components/sections/About';
+import { CTASection } from '../components/sections/CTA';
+import { ScrollProgress } from '../components/layout/ScrollProgress';
+---
+
+<Layout 
+  title="Home" 
+  description="Open Energy Solutions (OES) provides top-tier solar installations, battery storage, and EV charging solutions across the UK. Get a free quote today!"
+>
+  <ScrollProgress client:load />
+  <Hero client:load />
+  <AboutSection client:visible />
+  <Services client:visible />
+  <Finance client:visible />
+  <CTASection client:visible />
+</Layout>

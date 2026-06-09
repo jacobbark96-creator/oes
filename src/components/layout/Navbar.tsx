@@ -22,20 +22,21 @@ export const Navbar: React.FC = () => {
     >
       <div className="container-wide">
         <div className="flex justify-between items-center">
-          <motion.div 
+          <motion.a 
+            href="/"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-1 group cursor-pointer"
           >
             <span className={`text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-500 ${scrolled ? 'text-black' : 'text-white'}`}>Openenergy</span>
             <span className="text-3xl md:text-4xl font-black text-solar-orange leading-none translate-y-[2px] group-hover:scale-125 transition-transform duration-300">.</span>
-          </motion.div>
+          </motion.a>
           
           <div className="hidden md:flex items-center gap-10">
             {['Services', 'Finance', 'About'].map((item) => (
               <motion.a 
                 key={item}
-                href={`#${item.toLowerCase()}`} 
+                href={`/${item.toLowerCase()}`} 
                 whileHover={{ y: -2 }}
                 className={`text-sm font-bold tracking-wide uppercase transition-colors duration-500 ${
                   scrolled ? 'text-gray-600 hover:text-solar-orange' : 'text-white/80 hover:text-white'
@@ -80,7 +81,7 @@ export const Navbar: React.FC = () => {
               {['Services', 'Finance', 'About'].map((item) => (
                 <a 
                   key={item}
-                  href={`#${item.toLowerCase()}`} 
+                  href={`/${item.toLowerCase()}`} 
                   className="block px-4 py-3 text-lg font-bold text-gray-900 hover:bg-gray-50 rounded-2xl transition-colors"
                   onClick={() => setIsOpen(false)}
                 >

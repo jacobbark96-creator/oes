@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Finance } from '../components/sections/Finance';
+import { CTASection } from '../components/sections/CTA';
+---
+
+<Layout 
+  title="Solar Finance Options" 
+  description="Affordable clean energy for everyone. Learn about our PPA, Solar Finance, and Direct Purchase options."
+>
+  <div class="pt-24">
+    <Finance client:load />
+  </div>
+  <CTASection client:visible />
+</Layout>

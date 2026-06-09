@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AboutSection } from '../components/sections/About';
+import { CTASection } from '../components/sections/CTA';
+---
+
+<Layout 
+  title="About Us" 
+  description="Driving the transition to clean energy since 2010. Learn about our mission and our commitment to excellence."
+>
+  <div class="pt-24">
+    <AboutSection client:load />
+  </div>
+  <CTASection client:visible />
+</Layout>

@@ -25,10 +25,10 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-4 text-gray-400">
-              <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="#finance" className="hover:text-white transition-colors">Finance Options</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/services" className="hover:text-white transition-colors">Services</a></li>
+              <li><a href="/finance" className="hover:text-white transition-colors">Finance Options</a></li>
+              <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
+              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
 

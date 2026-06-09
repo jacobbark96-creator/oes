@@ -1,0 +1,56 @@
+---
+import { Navbar } from '../components/layout/Navbar';
+import { Footer } from '../components/layout/Footer';
+import '../index.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Open Energy Solutions provides state-of-the-art solar systems, battery storage, and EV charging designed to slash your bills and carbon footprint across the UK." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title} | Open Energy Solutions</title>
+    <meta name="title" content={`${title} | Open Energy Solutions`} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="solar installation, UK solar installer, solar panels, EV chargers, solar finance, PPA solar, battery storage, clean energy" />
+    <meta name="author" content="Open Energy Solutions" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, "https://openenergyservices.co.uk").href} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={`${title} | Open Energy Solutions`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/OEMLogo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={`${title} | Open Energy Solutions`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/OEMLogo.png" />
+
+    <!-- Preload / Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body class="bg-white text-solar-dark overflow-x-hidden">
+    <Navbar client:load />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

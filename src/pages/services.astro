@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Services } from '../components/sections/Services';
+import { CTASection } from '../components/sections/CTA';
+---
+
+<Layout 
+  title="Our Services" 
+  description="Explore our range of clean energy solutions including residential and commercial solar, EV charging, and battery storage."
+>
+  <div class="pt-24">
+    <Services client:load />
+  </div>
+  <CTASection client:visible />
+</Layout>
