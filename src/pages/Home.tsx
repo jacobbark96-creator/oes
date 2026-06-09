@@ -169,7 +169,7 @@ export const Home: React.FC = () => {
               Join 5,000+ happy customers who have switched to clean, renewable energy with Open Energy Solutions.
             </motion.p>
             <motion.button 
-              whileHover={{ scale: 1.05, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="bg-white text-solar-dark px-12 py-5 rounded-[2rem] font-bold text-xl hover:bg-gray-50 transition-all shadow-2xl"

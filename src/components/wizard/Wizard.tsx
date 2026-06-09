@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Send, Upload, CheckCircle2 } from 'lucide-react';
+// @ts-ignore
 import Autocomplete from 'react-google-autocomplete';
 
 type FormData = {
