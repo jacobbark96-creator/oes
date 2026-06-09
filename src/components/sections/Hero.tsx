@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
           {/* Left Text Content */}
-          <div className="lg:col-span-7 text-white order-1">
+          <div className="lg:col-span-8 text-white order-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 w-full order-2 relative"
+            className="lg:col-span-4 w-full order-2 relative"
           >
             <div className="absolute inset-0 bg-solar-orange/20 blur-[100px] rounded-full z-0" />
             <div className="relative z-10 bg-white/5 backdrop-blur-2xl border border-white/10 p-1 rounded-[2.5rem] shadow-2xl">

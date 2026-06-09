@@ -127,11 +127,11 @@ export const Wizard: React.FC = () => {
   }
 
   return (
-    <div className="bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-white/20 w-full max-w-2xl mx-auto overflow-hidden">
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-4">
-          <span className="text-sm font-bold text-solar-orange uppercase tracking-wider">Step {currentStep} of 5</span>
-          <span className="text-sm font-medium text-gray-400">{steps[currentStep - 1].title}</span>
+    <div className="bg-white/95 backdrop-blur-xl p-6 md:p-8 rounded-3xl shadow-2xl border border-white/20 w-full max-w-xl mx-auto overflow-hidden">
+      <div className="mb-6">
+        <div className="flex justify-between items-center mb-3">
+          <span className="text-xs font-bold text-solar-orange uppercase tracking-wider">Step {currentStep} of 5</span>
+          <span className="text-xs font-medium text-gray-400">{steps[currentStep - 1].title}</span>
         </div>
         <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
           <motion.div 
@@ -151,19 +151,19 @@ export const Wizard: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="space-y-6"
+              className="space-y-4"
             >
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Full Name</label>
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Full Name</label>
                 <input
                   {...register('name', { required: 'Name is required' })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all text-sm"
                   placeholder="John Doe"
                 />
-                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                {errors.name && <p className="text-red-500 text-[10px] mt-1">{errors.name.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Email Address</label>
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Email Address</label>
                 <input
                   {...register('email', { 
                     required: 'Email is required',
@@ -172,13 +172,13 @@ export const Wizard: React.FC = () => {
                       message: 'Please enter a valid email address' 
                     }
                   })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all text-sm"
                   placeholder="john@example.com"
                 />
-                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                {errors.email && <p className="text-red-500 text-[10px] mt-1">{errors.email.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Mobile Number</label>
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Mobile Number</label>
                 <input
                   {...register('mobile', { 
                     required: 'Mobile number is required',
@@ -187,10 +187,10 @@ export const Wizard: React.FC = () => {
                       message: 'Please enter a valid phone number (e.g. 07123 456789)'
                     }
                   })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all text-sm"
                   placeholder="07123 456789"
                 />
-                {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile.message}</p>}
+                {errors.mobile && <p className="text-red-500 text-[10px] mt-1">{errors.mobile.message}</p>}
               </div>
             </motion.div>
           )}
@@ -201,10 +201,10 @@ export const Wizard: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="space-y-6"
+              className="space-y-4"
             >
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Installation Address</label>
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Installation Address</label>
                 <Autocomplete
                   apiKey="AIzaSyCnvPS7oFR7nUWkE008r9DafN2iCgnCQZA"
                   options={{
@@ -217,17 +217,17 @@ export const Wizard: React.FC = () => {
                     }
                   }}
                   {...register('address', { required: 'Address is required' })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-solar-orange focus:ring-2 focus:ring-orange-100 outline-none transition-all text-sm"
                   placeholder="Start typing your address..."
                 />
-                {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address.message}</p>}
+                {errors.address && <p className="text-red-500 text-[10px] mt-1">{errors.address.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Are you a business?</label>
-                <div className="grid grid-cols-2 gap-4">
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Are you a business?</label>
+                <div className="grid grid-cols-2 gap-3">
                   {['Yes', 'No'].map((option) => (
                     <label key={option} className={`
-                      cursor-pointer border-2 rounded-xl p-4 flex items-center justify-center font-bold transition-all
+                      cursor-pointer border-2 rounded-xl p-3 flex items-center justify-center font-bold text-sm transition-all
                       ${watch('isBusiness') === option ? 'border-solar-orange bg-orange-50 text-solar-orange' : 'border-gray-100 hover:border-gray-200'}
                     `}>
                       <input
@@ -240,7 +240,7 @@ export const Wizard: React.FC = () => {
                     </label>
                   ))}
                 </div>
-                {errors.isBusiness && <p className="text-red-500 text-xs mt-1">{errors.isBusiness.message}</p>}
+                {errors.isBusiness && <p className="text-red-500 text-[10px] mt-1">{errors.isBusiness.message}</p>}
               </div>
             </motion.div>
           )}
@@ -251,14 +251,14 @@ export const Wizard: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="space-y-6"
+              className="space-y-4"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-bold text-solar-dark mb-2">Roof Material</label>
+                  <label className="block text-xs font-bold text-solar-dark mb-1.5">Roof Material</label>
                   <select
                     {...register('roofMaterial', { required: 'Required' })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none bg-white"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 outline-none bg-white text-sm"
                   >
                     <option value="">Select Material</option>
                     <option value="Tile">Tile</option>
@@ -268,10 +268,10 @@ export const Wizard: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-solar-dark mb-2">Roof Condition</label>
+                  <label className="block text-xs font-bold text-solar-dark mb-1.5">Roof Condition</label>
                   <select
                     {...register('roofCondition', { required: 'Required' })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none bg-white"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 outline-none bg-white text-sm"
                   >
                     <option value="">Select Condition</option>
                     <option value="Excellent">Excellent</option>
@@ -281,11 +281,11 @@ export const Wizard: React.FC = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Electrical Phase Type</label>
-                <div className="grid grid-cols-1 gap-3">
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Electrical Phase Type</label>
+                <div className="grid grid-cols-1 gap-2">
                   {['Single Phase', 'Three Phase', "I don't know"].map((option) => (
                     <label key={option} className={`
-                      cursor-pointer border-2 rounded-xl p-4 flex items-center font-bold transition-all
+                      cursor-pointer border-2 rounded-xl p-3 flex items-center font-bold text-sm transition-all
                       ${watch('phaseType') === option ? 'border-solar-orange bg-orange-50 text-solar-orange' : 'border-gray-100 hover:border-gray-200'}
                     `}>
                       <input
@@ -308,23 +308,23 @@ export const Wizard: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="space-y-6"
+              className="space-y-4"
             >
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Monthly Energy Spend (£)</label>
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Monthly Energy Spend (£)</label>
                 <input
                   type="number"
                   {...register('energySpend', { required: 'Required' })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 outline-none text-sm"
                   placeholder="e.g. 150"
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Interested in EV Chargers?</label>
-                <div className="grid grid-cols-2 gap-4">
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Interested in EV Chargers?</label>
+                <div className="grid grid-cols-2 gap-3">
                   {['Yes', 'No'].map((option) => (
                     <label key={option} className={`
-                      cursor-pointer border-2 rounded-xl p-4 flex items-center justify-center font-bold transition-all
+                      cursor-pointer border-2 rounded-xl p-3 flex items-center justify-center font-bold text-sm transition-all
                       ${watch('evInterest') === option ? 'border-solar-orange bg-orange-50 text-solar-orange' : 'border-gray-100 hover:border-gray-200'}
                     `}>
                       <input
@@ -339,11 +339,11 @@ export const Wizard: React.FC = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-bold text-solar-dark mb-2">Preferred Finance Option</label>
-                <div className="grid grid-cols-3 gap-3">
+                <label className="block text-xs font-bold text-solar-dark mb-1.5">Preferred Finance Option</label>
+                <div className="grid grid-cols-3 gap-2">
                   {['PPA', 'Finance', 'CAPEX'].map((option) => (
                     <label key={option} className={`
-                      cursor-pointer border-2 rounded-xl p-3 flex items-center justify-center text-sm font-bold transition-all
+                      cursor-pointer border-2 rounded-xl p-2.5 flex items-center justify-center text-xs font-bold transition-all
                       ${watch('financeOption') === option ? 'border-solar-orange bg-orange-50 text-solar-orange' : 'border-gray-100 hover:border-gray-200'}
                     `}>
                       <input
@@ -366,19 +366,18 @@ export const Wizard: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className="space-y-6"
+              className="space-y-4"
             >
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-solar-orange mb-4">
-                  <Upload size={32} />
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orange-100 text-solar-orange mb-3">
+                  <Upload size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-solar-dark mb-2">Upload Your Energy Bill <span className="text-gray-400 text-lg font-normal">(Optional)</span></h3>
-                <p className="text-gray-500">
-                  Uploading your recent bill helps us design the most accurate system for your needs.
-                  You can skip this if you don't have it handy!
+                <h3 className="text-xl font-bold text-solar-dark mb-1.5">Upload Your Energy Bill <span className="text-gray-400 text-base font-normal">(Optional)</span></h3>
+                <p className="text-sm text-gray-500">
+                  Helping us design the most accurate system for your needs.
                 </p>
               </div>
-              <div className="relative border-2 border-dashed border-gray-200 rounded-3xl p-10 text-center hover:border-solar-orange transition-colors cursor-pointer group">
+              <div className="relative border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center hover:border-solar-orange transition-colors cursor-pointer group">
                 <input
                   type="file"
                   {...register('billFile')}
@@ -387,31 +386,31 @@ export const Wizard: React.FC = () => {
                   title="Upload Bill"
                 />
                 <div className="pointer-events-none">
-                  <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Upload className="text-solar-orange" size={28} />
+                  <div className="bg-orange-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                    <Upload className="text-solar-orange" size={24} />
                   </div>
-                  <h3 className="font-bold text-solar-dark mb-1">
+                  <h3 className="font-bold text-solar-dark mb-1 text-sm">
                     {watch('billFile')?.[0]?.name || 'Upload Recent Bill'}
                   </h3>
-                  <p className="text-gray-400 text-sm">PDF, JPG or PNG (Optional)</p>
+                  <p className="text-gray-400 text-[10px]">PDF, JPG or PNG (Optional)</p>
                 </div>
               </div>
-              <div className="bg-gray-50 p-4 rounded-xl text-xs text-gray-500 flex items-start gap-3">
-                <CheckCircle2 size={16} className="text-green-500 flex-shrink-0 mt-0.5" />
+              <div className="bg-gray-50 p-3 rounded-xl text-[10px] text-gray-500 flex items-start gap-2">
+                <CheckCircle2 size={14} className="text-green-500 flex-shrink-0 mt-0.5" />
                 <p>By submitting, you agree to our privacy policy and consent to being contacted regarding your solar quote.</p>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        <div className="flex gap-4 mt-10">
+        <div className="flex gap-3 mt-8">
           {currentStep > 1 && (
             <button
               type="button"
               onClick={prevStep}
-              className="flex-1 px-6 py-4 rounded-2xl border-2 border-gray-100 font-bold text-gray-400 hover:border-gray-200 hover:text-gray-600 transition-all flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-3 rounded-xl border-2 border-gray-100 font-bold text-gray-400 hover:border-gray-200 hover:text-gray-600 transition-all flex items-center justify-center gap-1.5 text-sm"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={18} />
               Back
             </button>
           )}
@@ -419,18 +418,18 @@ export const Wizard: React.FC = () => {
             <button
               type="button"
               onClick={nextStep}
-              className="flex-[2] bg-solar-orange text-white px-6 py-4 rounded-2xl font-bold hover:bg-orange-600 transition-all shadow-xl shadow-orange-200 flex items-center justify-center gap-2"
+              className="flex-[2] bg-solar-orange text-white px-4 py-3 rounded-xl font-bold hover:bg-orange-600 transition-all shadow-lg shadow-orange-100 flex items-center justify-center gap-1.5 text-sm"
             >
               Next Step
-              <ChevronRight size={20} />
+              <ChevronRight size={18} />
             </button>
           ) : (
-            <div className="flex-[2] flex gap-3">
+            <div className="flex-[2] flex gap-2">
               {!watch('billFile')?.[0] ? (
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-gray-200 text-gray-700 px-4 py-4 rounded-2xl font-bold hover:bg-gray-300 transition-all flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="flex-1 bg-gray-200 text-gray-700 px-3 py-3 rounded-xl font-bold hover:bg-gray-300 transition-all flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed text-sm"
                 >
                   {isSubmitting ? 'Sending...' : 'Skip & Submit'}
                 </button>
@@ -438,10 +437,10 @@ export const Wizard: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-solar-green text-white px-4 py-4 rounded-2xl font-bold hover:bg-green-600 transition-all shadow-xl shadow-green-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="flex-1 bg-solar-green text-white px-3 py-3 rounded-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-100 flex items-center justify-center gap-1.5 disabled:opacity-70 disabled:cursor-not-allowed text-sm"
                 >
                   {isSubmitting ? 'Sending...' : 'Submit with Bill'}
-                  {!isSubmitting && <Send size={20} />}
+                  {!isSubmitting && <Send size={18} />}
                 </button>
               )}
             </div>
