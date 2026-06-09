@@ -51,7 +51,7 @@ export const Services: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-solar-dark mb-8 tracking-tight"
+            className="text-[clamp(2rem,4vw,3.25rem)] font-bold text-solar-dark mb-8 tracking-tight"
           >
             Complete Energy Independence
           </motion.h2>

@@ -92,7 +92,7 @@ export const Home: React.FC = () => {
                 <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-solar-orange uppercase bg-solar-orange/10 rounded-full">
                   About Us
                 </div>
-                <h2 className="text-5xl md:text-6xl font-bold text-solar-dark mb-8 leading-[1.1] tracking-tight">
+                <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold text-solar-dark mb-8 leading-[1.2] tracking-tight">
                   Driving the transition to <span className="text-solar-orange">Clean Energy</span> since 2010.
                 </h2>
                 <p className="text-xl text-gray-500 mb-12 leading-relaxed">
@@ -152,11 +152,11 @@ export const Home: React.FC = () => {
         
         <div className="container-wide text-center relative z-10">
           <motion.h2 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-[clamp(2.5rem,6vw,5rem)] font-bold text-white mb-8 tracking-tight"
-          >
+             initial={{ opacity: 0, scale: 0.9 }}
+             whileInView={{ opacity: 1, scale: 1 }}
+             viewport={{ once: true }}
+             className="text-[clamp(2rem,5vw,3.75rem)] font-bold text-white mb-8 tracking-tight"
+           >
             Ready to start your <br /> solar journey?
           </motion.h2>
             <motion.p 

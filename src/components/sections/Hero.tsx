@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
                 <span className="text-sm font-semibold tracking-wide uppercase">UK's Most Trusted Solar Provider</span>
               </div>
               
-              <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[1.05] mb-8 tracking-tight">
+              <h1 className="text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.1] mb-8 tracking-tight">
                 Power your home <br />
                 <motion.span 
                   initial={{ backgroundPosition: "0% 50%" }}
