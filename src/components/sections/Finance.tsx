@@ -48,7 +48,7 @@ export const Finance: React.FC = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-wide relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-12">
           <div className="max-w-3xl">
             <motion.div
@@ -64,7 +64,7 @@ export const Finance: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight"
+              className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white mb-8 tracking-tight"
             >
               Solar made affordable <br />
               <span className="text-solar-orange">for everyone.</span>

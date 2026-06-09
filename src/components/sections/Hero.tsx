@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
         />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full h-full flex flex-col justify-center py-12 md:py-20">
+      <div className="container-wide relative z-10 w-full h-full flex flex-col justify-center py-12 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
           {/* Left Text Content */}
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
                 <span className="text-sm font-semibold tracking-wide uppercase">UK's Most Trusted Solar Provider</span>
               </div>
               
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] mb-8 tracking-tight">
+              <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[1.05] mb-8 tracking-tight">
                 Power your home <br />
                 <motion.span 
                   initial={{ backgroundPosition: "0% 50%" }}

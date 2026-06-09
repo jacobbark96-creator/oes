@@ -20,7 +20,7 @@ export const Navbar: React.FC = () => {
         scrolled ? 'py-4 bg-white/80 backdrop-blur-xl shadow-lg border-b border-gray-100' : 'py-6 bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container-wide">
         <div className="flex justify-between items-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}

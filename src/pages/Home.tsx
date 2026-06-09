@@ -40,7 +40,7 @@ export const Home: React.FC = () => {
         
         {/* About Section Upgrade */}
         <section id="about" className="py-32 bg-white relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container-wide">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
@@ -147,18 +147,18 @@ export const Home: React.FC = () => {
               rotate: [360, 0],
             }}
             transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-            className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] border border-white/10 rounded-full" 
-          />
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <motion.h2 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight"
-            >
-              Ready to start your <br /> solar journey?
-            </motion.h2>
+          className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] border border-white/10 rounded-full" 
+        />
+        
+        <div className="container-wide text-center relative z-10">
+          <motion.h2 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="text-[clamp(2.5rem,6vw,5rem)] font-bold text-white mb-8 tracking-tight"
+          >
+            Ready to start your <br /> solar journey?
+          </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
