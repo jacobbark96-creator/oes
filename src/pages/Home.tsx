@@ -5,8 +5,17 @@ import { Footer } from '../components/layout/Footer';
 import { Hero } from '../components/sections/Hero';
 import { Services } from '../components/sections/Services';
 import { Finance } from '../components/sections/Finance';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { CheckCircle2, TrendingUp, Users, ShieldCheck } from 'lucide-react';
 
 export const Home: React.FC = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
     <>
       <Helmet>
@@ -19,49 +28,104 @@ export const Home: React.FC = () => {
         <link rel="canonical" href="https://openenergyservices.co.uk" />
       </Helmet>
 
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1.5 bg-solar-orange z-[60] origin-left"
+        style={{ scaleX }}
+      />
+
       <Navbar />
       
-      <main>
+      <main className="overflow-x-hidden">
         <Hero />
         
-        <section id="about" className="py-24 bg-white overflow-hidden">
+        {/* About Section Upgrade */}
+        <section id="about" className="py-32 bg-white relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" 
-                  alt="Solar Home" 
-                  className="rounded-3xl shadow-2xl relative z-10"
-                />
-                <div className="absolute -top-10 -left-10 w-40 h-40 bg-solar-orange/10 rounded-full blur-3xl" />
-                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-solar-green/10 rounded-full blur-3xl" />
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative"
+              >
+                <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80" 
+                    alt="Solar Home" 
+                    className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                
+                {/* Floating Card */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="absolute -bottom-10 -right-10 z-20 bg-white p-8 rounded-3xl shadow-2xl max-w-[280px] border border-gray-100"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-solar-orange/10 rounded-2xl flex items-center justify-center text-solar-orange">
+                      <TrendingUp size={24} />
+                    </div>
+                    <div>
+                      <p className="text-3xl font-bold text-solar-dark">70%</p>
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Avg. Savings</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    Our customers save an average of 70% on their annual electricity costs.
+                  </p>
+                </motion.div>
+
+                <div className="absolute -top-10 -left-10 w-64 h-64 bg-solar-orange/10 rounded-full blur-3xl -z-10" />
+              </motion.div>
               
-              <div>
-                <h2 className="text-sm font-bold text-solar-orange uppercase tracking-widest mb-4">About Us</h2>
-                <h3 className="text-4xl font-bold text-solar-dark mb-6 leading-tight">
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-solar-orange uppercase bg-solar-orange/10 rounded-full">
+                  About Us
+                </div>
+                <h2 className="text-5xl md:text-6xl font-bold text-solar-dark mb-8 leading-[1.1] tracking-tight">
                   Driving the transition to <span className="text-solar-orange">Clean Energy</span> since 2010.
-                </h3>
-                <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+                </h2>
+                <p className="text-xl text-gray-500 mb-12 leading-relaxed">
                   Open Energy Solutions is dedicated to making solar power accessible, affordable, and efficient. We handle everything from the initial consultation and custom design to professional installation and ongoing maintenance.
                 </p>
                 
-                <div className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
                   {[
-                    'MCS Certified Installers',
-                    'Leading efficiency solar panels',
-                    'Dedicated project management',
-                    'Transparent pricing & finance'
+                    { label: 'MCS Certified Installers', icon: ShieldCheck },
+                    { label: 'Leading Efficiency Panels', icon: CheckCircle2 },
+                    { label: 'Dedicated Project Management', icon: Users },
+                    { label: 'Transparent Finance', icon: TrendingUp }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-4">
-                      <div className="w-6 h-6 bg-solar-orange/10 rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-solar-orange rounded-full" />
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-solar-orange/20 transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-solar-orange shadow-sm group-hover:scale-110 transition-transform">
+                        <item.icon size={20} />
                       </div>
-                      <span className="font-bold text-solar-dark">{item}</span>
-                    </div>
+                      <span className="font-bold text-solar-dark">{item.label}</span>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+
+                <button className="px-8 py-4 bg-solar-dark text-white rounded-2xl font-bold hover:bg-solar-orange transition-all shadow-xl shadow-solar-dark/10">
+                  Read Our Full Story
+                </button>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -69,26 +133,49 @@ export const Home: React.FC = () => {
         <Services />
         <Finance />
         
-        <section className="py-24 bg-solar-orange relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
-              </pattern>
-              <rect width="100" height="100" fill="url(#grid)" />
-            </svg>
-          </div>
+        {/* CTA Section Upgrade */}
+        <section className="py-32 bg-solar-orange relative overflow-hidden">
+          <motion.div 
+            animate={{ 
+              rotate: [0, 360],
+            }}
+            transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] border border-white/10 rounded-full" 
+          />
+          <motion.div 
+            animate={{ 
+              rotate: [360, 0],
+            }}
+            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+            className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] border border-white/10 rounded-full" 
+          />
+          
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Ready to start your solar journey?</h2>
-            <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight"
+            >
+              Ready to start your <br /> solar journey?
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-2xl text-white/80 mb-12 max-w-2xl mx-auto font-light"
+            >
               Join 5,000+ happy customers who have switched to clean, renewable energy with Open Energy Solutions.
-            </p>
-            <button 
+            </motion.p>
+            <motion.button 
+              whileHover={{ scale: 1.05, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="bg-white text-solar-orange px-10 py-4 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl"
+              className="bg-white text-solar-dark px-12 py-5 rounded-[2rem] font-bold text-xl hover:bg-gray-50 transition-all shadow-2xl"
             >
               Get My Free Quote
-            </button>
+            </motion.button>
           </div>
         </section>
       </main>
