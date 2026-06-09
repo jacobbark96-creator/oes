@@ -49,11 +49,6 @@ export const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8">
-                <Star className="text-solar-orange fill-solar-orange" size={16} />
-                <span className="text-sm font-semibold tracking-wide uppercase">UK's Most Trusted Solar Provider</span>
-              </div>
-              
               <h1 className="text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.1] mb-8 tracking-tight">
                 Power your home <br />
                 <motion.span 
