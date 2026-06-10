@@ -13,12 +13,20 @@ export const Hero: React.FC = () => {
         transition={{ duration: 2, ease: "easeOut" }}
         className="absolute inset-0 z-0"
       >
+        {/* Base Architecture Image */}
         <img 
-          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=80" 
-          alt="Solar Panels" 
-          className="w-full h-full object-cover opacity-30 mix-blend-overlay"
+          src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern+luxury+home+with+sleek+black+solar+panels+at+sunset+professional+architectural+photography+premium+lighting&image_size=landscape_16_9" 
+          alt="Premium Solar Home" 
+          className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-solar-dark via-solar-dark/95 to-solar-dark" />
+        
+        {/* Subtle Texture/Grid Overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
+             style={{ backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`, backgroundSize: '40px 40px' }} />
+        
+        {/* Gradient Mask */}
+        <div className="absolute inset-0 bg-gradient-to-b from-solar-dark/80 via-solar-dark/95 to-solar-dark" />
+        <div className="absolute inset-0 bg-gradient-to-r from-solar-dark via-transparent to-transparent opacity-60" />
         
         {/* Animated Glow Orbs */}
         <motion.div 
