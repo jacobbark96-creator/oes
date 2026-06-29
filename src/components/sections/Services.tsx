@@ -7,28 +7,28 @@ const services = [
     title: 'Residential Solar',
     description: 'Bespoke solar panel installations tailored to your home\'s energy needs and roof type.',
     icon: Sun,
-    image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format,compress&fit=crop&w=800&q=60',
     color: 'from-orange-500 to-amber-500'
   },
   {
     title: 'Commercial Solar',
     description: 'Large-scale energy solutions for businesses to reduce overheads and meet ESG goals.',
     icon: LineChart,
-    image: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format,compress&fit=crop&w=800&q=60',
     color: 'from-blue-500 to-cyan-500'
   },
   {
     title: 'EV Charging',
     description: 'Fast, smart electric vehicle charging points integrated with your solar system.',
     icon: Car,
-    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format,compress&fit=crop&w=800&q=60',
     color: 'from-emerald-500 to-teal-500'
   },
   {
     title: 'Battery Storage',
     description: 'Store excess solar energy for use at night or during peak price periods.',
     icon: Battery,
-    image: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format,compress&fit=crop&w=800&q=60',
     color: 'from-purple-500 to-indigo-500'
   }
 ];

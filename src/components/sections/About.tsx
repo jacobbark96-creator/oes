@@ -16,10 +16,10 @@ export const AboutSection: React.FC = () => {
           >
             <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80" 
-                alt="Solar Home" 
-                className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
-              />
+                  src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format,compress&fit=crop&w=800&q=60" 
+                  alt="Solar Installation" 
+                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
             

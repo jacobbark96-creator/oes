@@ -11,20 +11,20 @@ export const Footer: React.FC = () => {
               <span className="text-3xl font-bold tracking-tight text-white">Openenergy</span>
               <span className="text-4xl font-black text-solar-orange leading-none translate-y-[2px]">.</span>
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-300 mb-6">
               Leading the UK transition to clean, sustainable energy with professional solar installations and innovative energy solutions.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-gray-800 rounded-lg hover:bg-solar-orange transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="p-2 bg-gray-800 rounded-lg hover:bg-solar-orange transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="p-2 bg-gray-800 rounded-lg hover:bg-solar-orange transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="p-2 bg-gray-800 rounded-lg hover:bg-solar-orange transition-colors"><Linkedin size={20} /></a>
+              <a href="#" aria-label="Facebook" className="p-2 bg-gray-800 rounded-lg hover:bg-solar-orange transition-colors"><Facebook size={20} /></a>
+              <a href="#" aria-label="Twitter" className="p-2 bg-gray-800 rounded-lg hover:bg-solar-orange transition-colors"><Twitter size={20} /></a>
+              <a href="#" aria-label="Instagram" className="p-2 bg-gray-800 rounded-lg hover:bg-solar-orange transition-colors"><Instagram size={20} /></a>
+              <a href="#" aria-label="LinkedIn" className="p-2 bg-gray-800 rounded-lg hover:bg-solar-orange transition-colors"><Linkedin size={20} /></a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-4 text-gray-400">
+            <h2 className="text-lg font-semibold mb-6">Quick Links</h2>
+            <ul className="space-y-4 text-gray-300">
               <li><a href="/services" className="hover:text-white transition-colors">Services</a></li>
               <li><a href="/finance" className="hover:text-white transition-colors">Finance Options</a></li>
               <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
@@ -33,8 +33,8 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-6">Services</h4>
-            <ul className="space-y-4 text-gray-400">
+            <h2 className="text-lg font-semibold mb-6">Services</h2>
+            <ul className="space-y-4 text-gray-300">
               <li><a href="#" className="hover:text-white transition-colors">Residential Solar</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Commercial Solar</a></li>
               <li><a href="#" className="hover:text-white transition-colors">EV Charging</a></li>
@@ -43,8 +43,8 @@ export const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
-            <ul className="space-y-4 text-gray-400">
+            <h2 className="text-lg font-semibold mb-6">Contact Us</h2>
+            <ul className="space-y-4 text-gray-300">
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-solar-orange" />
                 <span>welcome@openenergy.co.uk</span>
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-300">
           <p>© {new Date().getFullYear()} Open Energy Solutions. All rights reserved.</p>
           <p>Open energy is proudly a part of the Open Group of companies</p>
         </div>

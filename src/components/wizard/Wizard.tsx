@@ -372,7 +372,7 @@ export const Wizard: React.FC = () => {
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orange-100 text-solar-orange mb-3">
                   <Upload size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-solar-dark mb-1.5">Upload Your Energy Bill <span className="text-gray-400 text-base font-normal">(Optional)</span></h3>
+                <h2 className="text-xl font-bold text-solar-dark mb-1.5">Upload Your Energy Bill <span className="text-gray-400 text-base font-normal">(Optional)</span></h2>
                 <p className="text-sm text-gray-500">
                   Helping us design the most accurate system for your needs.
                 </p>
@@ -389,9 +389,9 @@ export const Wizard: React.FC = () => {
                   <div className="bg-orange-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                     <Upload className="text-solar-orange" size={24} />
                   </div>
-                  <h3 className="font-bold text-solar-dark mb-1 text-sm">
+                  <p className="font-bold text-solar-dark mb-1 text-sm">
                     {watch('billFile')?.[0]?.name || 'Upload Recent Bill'}
-                  </h3>
+                  </p>
                   <p className="text-gray-400 text-[10px]">PDF, JPG or PNG (Optional)</p>
                 </div>
               </div>
@@ -418,7 +418,7 @@ export const Wizard: React.FC = () => {
             <button
               type="button"
               onClick={nextStep}
-              className="flex-[2] bg-solar-orange text-white px-4 py-3 rounded-xl font-bold hover:bg-orange-600 transition-all shadow-lg shadow-orange-100 flex items-center justify-center gap-1.5 text-sm"
+              className="flex-[2] bg-orange-700 text-white px-4 py-3 rounded-xl font-bold hover:bg-orange-800 transition-all shadow-lg shadow-orange-100 flex items-center justify-center gap-1.5 text-sm"
             >
               Next Step
               <ChevronRight size={18} />
