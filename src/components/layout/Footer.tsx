@@ -60,6 +60,24 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
+
+        <div className="border-t border-gray-800 py-12">
+          <h2 className="text-lg font-semibold mb-8">Areas We Serve</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {[
+              'London', 'Manchester', 'Birmingham', 'Leeds', 'Glasgow', 
+              'Liverpool', 'Newcastle', 'Sheffield', 'Bristol', 'Edinburgh'
+            ].map((city) => (
+              <a 
+                key={city} 
+                href={`/solar-panels-${city.toLowerCase()}`}
+                className="text-gray-400 hover:text-solar-orange text-sm transition-colors"
+              >
+                Solar Panels {city}
+              </a>
+            ))}
+          </div>
+        </div>
         
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-300">
           <p>© {new Date().getFullYear()} Open Energy Solutions. All rights reserved.</p>

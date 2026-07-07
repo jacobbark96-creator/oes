@@ -33,7 +33,12 @@ const services = [
   }
 ];
 
-export const Services: React.FC = () => {
+interface ServicesProps {
+  titleTag?: 'h1' | 'h2';
+}
+
+export const Services: React.FC<ServicesProps> = ({ titleTag = 'h2' }) => {
+  const Title = motion[titleTag];
   return (
     <section id="services" className="py-32 bg-white relative overflow-hidden">
       <div className="container-wide relative z-10">
@@ -46,7 +51,7 @@ export const Services: React.FC = () => {
           >
             Our Services
           </motion.div>
-          <motion.h2 
+          <Title 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -54,7 +59,7 @@ export const Services: React.FC = () => {
             className="text-[clamp(2rem,4vw,3.25rem)] font-bold text-solar-dark mb-8 tracking-tight"
           >
             Complete Energy Independence
-          </motion.h2>
+          </Title>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -2,7 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, TrendingUp, Users, ShieldCheck } from 'lucide-react';
 
-export const AboutSection: React.FC = () => {
+interface AboutProps {
+  titleTag?: 'h1' | 'h2';
+}
+
+export const AboutSection: React.FC<AboutProps> = ({ titleTag = 'h2' }) => {
+  const Title = motion[titleTag];
   return (
     <section id="about" className="py-32 bg-white relative">
       <div className="container-wide">
@@ -56,9 +61,9 @@ export const AboutSection: React.FC = () => {
             <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-solar-orange uppercase bg-solar-orange/10 rounded-full">
               About Us
             </div>
-            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold text-solar-dark mb-8 leading-[1.2] tracking-tight">
+            <Title className="text-[clamp(2rem,4vw,3.25rem)] font-bold text-solar-dark mb-8 leading-[1.2] tracking-tight">
               Driving the transition to <span className="text-solar-orange">Clean Energy</span> since 2010.
-            </h2>
+            </Title>
             <p className="text-xl text-gray-500 mb-12 leading-relaxed">
               Open Energy Solutions is dedicated to making solar power accessible, affordable, and efficient. We handle everything from the initial consultation and custom design to professional installation and ongoing maintenance.
             </p>

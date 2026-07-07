@@ -35,7 +35,12 @@ const options = [
   }
 ];
 
-export const Finance: React.FC = () => {
+interface FinanceProps {
+  titleTag?: 'h1' | 'h2';
+}
+
+export const Finance: React.FC<FinanceProps> = ({ titleTag = 'h2' }) => {
+  const Title = motion[titleTag];
   return (
     <section id="finance" className="py-32 bg-solar-dark relative overflow-hidden">
       {/* Background patterns */}
@@ -59,7 +64,7 @@ export const Finance: React.FC = () => {
             >
               Finance Options
             </motion.div>
-            <motion.h2 
+            <Title 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -68,7 +73,7 @@ export const Finance: React.FC = () => {
             >
               Solar made affordable <br />
               <span className="text-solar-orange">for everyone.</span>
-            </motion.h2>
+            </Title>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

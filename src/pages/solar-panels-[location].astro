@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Hero } from '../components/sections/Hero';
+import { Services } from '../components/sections/Services';
+import { Finance } from '../components/sections/Finance';
+import { AboutSection } from '../components/sections/About';
+import { CTASection } from '../components/sections/CTA';
+import { locations } from '../data/locations';
+
+export async function getStaticPaths() {
+  return locations.map((loc) => ({
+    params: { location: loc.slug },
+    props: { location: loc },
+  }));
+}
+
+const { location } = Astro.props;
+---
+
+<Layout 
+  title={`Expert Solar Panel Installation in ${location.city} | Open Energy Solutions`} 
+  description={`Looking for professional solar panel installation in ${location.city}, ${location.county}? Open Energy Solutions provides top-tier solar, battery storage, and EV charging across ${location.city}. Get a free quote today!`}
+>
+  <div class="pt-24">
+    <section class="bg-solar-dark py-20 text-white overflow-hidden relative">
+      <div class="container-wide relative z-10">
+        <div class="max-w-4xl">
+          <div class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-solar-orange uppercase bg-solar-orange/10 rounded-full">
+            Local Solar Experts in {location.city}
+          </div>
+          <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold mb-8 leading-[1.1] tracking-tighter">
+            Premium Solar Panel Installation in <span class="text-solar-orange">{location.city}</span>
+          </h1>
+          <p class="text-xl text-gray-400 mb-10 max-w-2xl font-light leading-relaxed">
+            Join the clean energy revolution in {location.city}. We provide bespoke solar solutions designed to maximize efficiency and savings for {location.county} homeowners and businesses.
+          </p>
+          <div class="flex flex-wrap gap-6">
+            <button class="px-8 py-4 bg-solar-orange text-white rounded-2xl font-bold hover:scale-105 transition-all shadow-xl shadow-solar-orange/20">
+              Get Your {location.city} Quote
+            </button>
+            <div class="flex items-center gap-4 text-sm font-bold text-gray-400 uppercase tracking-widest">
+              <span class="w-8 h-[1px] bg-gray-700"></span>
+              MCS Certified Installers
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-solar-orange/5 to-transparent -z-0"></div>
+    </section>
+
+    <AboutSection client:visible />
+    
+    <section class="py-24 bg-gray-50">
+      <div class="container-wide">
+        <div class="max-w-3xl">
+          <h2 class="text-4xl font-bold text-solar-dark mb-6">Why Choose OES for Solar in {location.city}?</h2>
+          <p class="text-lg text-gray-600 mb-8">
+            As a leading solar installer serving {location.city} and the wider {location.county} area, we understand the local climate and energy needs. Our systems are engineered to perform optimally in the UK, ensuring you get the best return on your investment.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-solar-orange/10 rounded-full flex items-center justify-center text-solar-orange mt-1">✓</div>
+              <p><strong>Local Knowledge:</strong> Our teams are based near {location.city}, ensuring fast response times and local expertise.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-solar-orange/10 rounded-full flex items-center justify-center text-solar-orange mt-1">✓</div>
+              <p><strong>Bespoke Design:</strong> We tailor every system to the specific orientation and roof type of your {location.city} property.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-solar-orange/10 rounded-full flex items-center justify-center text-solar-orange mt-1">✓</div>
+              <p><strong>Flexible Finance:</strong> Access {location.city}-specific grants and our nationwide finance options including PPA.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Services client:visible />
+    <Finance client:visible />
+    <CTASection client:visible />
+  </div>
+</Layout>

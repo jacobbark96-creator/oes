@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { Hero } from '../components/sections/Hero';
@@ -18,16 +17,6 @@ export const Home: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Open Energy Solutions | UK Premium Solar Installer</title>
-        <meta name="description" content="Open Energy Solutions (OES) provides top-tier solar installations, battery storage, and EV charging solutions across the UK. Get a free quote today!" />
-        <meta name="keywords" content="solar installation, uk solar installer, solar panels, ev chargers, battery storage, renewable energy, solar finance, ppa solar" />
-        <meta property="og:title" content="Open Energy Solutions | UK Premium Solar Installer" />
-        <meta property="og:description" content="Switch to solar with OES. Professional installation and flexible finance options for homes and businesses." />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80" />
-        <link rel="canonical" href="https://openenergyservices.co.uk" />
-      </Helmet>
-
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-solar-orange z-[60] origin-left"
         style={{ scaleX }}
