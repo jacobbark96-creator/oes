@@ -1,11 +1,11 @@
 import React from 'react';
 import { Wizard } from '../wizard/Wizard';
-import { ShieldCheck, Zap, TrendingDown, Star, Award, Users } from 'lucide-react';
+import { ShieldCheck, Zap, TrendingDown, Star, Award, Users, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden bg-solar-dark pt-20">
+    <section className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden bg-slate-50 pt-20">
       {/* Dynamic Background with Parallax effect */}
       <motion.div 
         initial={{ scale: 1.1 }}
@@ -15,18 +15,18 @@ export const Hero: React.FC = () => {
       >
         {/* Base Architecture Image */}
         <img 
-          src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern+luxury+home+with+sleek+black+solar+panels+at+sunset+professional+architectural+photography+premium+lighting&image_size=landscape_16_9" 
+          src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=bright+modern+minimalist+luxury+home+exterior+with+solar+panels+daytime+clear+sky+professional+architectural+photography+bright+lighting&image_size=landscape_16_9" 
           alt="Premium Solar Home" 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-[0.15]"
         />
         
         {/* Subtle Texture/Grid Overlay */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
-             style={{ backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`, backgroundSize: '40px 40px' }} />
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay" 
+             style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #000 1px, transparent 0)`, backgroundSize: '40px 40px' }} />
         
         {/* Gradient Mask */}
-        <div className="absolute inset-0 bg-gradient-to-b from-solar-dark/80 via-solar-dark/95 to-solar-dark" />
-        <div className="absolute inset-0 bg-gradient-to-r from-solar-dark via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 via-slate-50/95 to-slate-50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent opacity-90" />
         
         {/* Animated Glow Orbs */}
         <motion.div 
@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
             y: [0, 50, 0],
           }}
           transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-500/10 blur-[120px] rounded-full -translate-x-1/3 translate-y-1/3" 
+          className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-slate-300/40 blur-[120px] rounded-full -translate-x-1/3 translate-y-1/3" 
         />
       </motion.div>
 
@@ -51,65 +51,65 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
           {/* Left Text Content */}
-          <div className="lg:col-span-8 text-white order-1">
+          <div className="lg:col-span-8 text-slate-900 order-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-[clamp(2.25rem,5vw,3.75rem)] font-bold leading-[1.1] mb-8 tracking-tight">
-                Power your home <br />
-                <motion.span 
-                  initial={{ backgroundPosition: "0% 50%" }}
-                  animate={{ backgroundPosition: "100% 50%" }}
-                  transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-solar-orange via-amber-400 to-solar-orange bg-[length:200%_auto]"
-                >
-                  for free.
-                </motion.span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
+                <CheckCircle2 size={16} className="text-solar-orange" />
+                <span className="text-sm font-bold tracking-tight text-slate-700">100% Free Matching Service. No hidden fees.</span>
+              </div>
+
+              <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[1.05] mb-8 tracking-tighter text-slate-900">
+                Find your perfect <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-solar-orange to-amber-500">
+                  vetted installer.
+                </span>
               </h1>
               
-              <p className="text-xl sm:text-2xl text-gray-400 mb-12 max-w-xl leading-relaxed font-light">
-                Premium solar solutions that eliminate electricity bills and reduce carbon emissions. Join 5,000+ UK homeowners who have already switched.
+              <p className="text-xl sm:text-2xl text-slate-600 mb-12 max-w-xl leading-relaxed font-medium tracking-tight">
+                We are not an installer. We are your independent partner helping you compare quotes from top-rated UK solar professionals—completely free of charge.
               </p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
                 {[
-                  { icon: ShieldCheck, label: "25 Year Warranty", desc: "Performance guaranteed" },
-                  { icon: TrendingDown, label: "Up to 70% Savings", desc: "Immediate bill reduction" },
-                  { icon: Zap, label: "Smart Battery Ready", desc: "Future-proof systems" }
+                  { icon: ShieldCheck, label: "Vetted Partners", desc: "MCS certified only" },
+                  { icon: TrendingDown, label: "Compare Quotes", desc: "Save up to 30%" },
+                  { icon: Zap, label: "Independent Advice", desc: "Zero bias, 100% free" }
                 ].map((item, i) => (
                   <motion.div 
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 + i * 0.1 }}
-                    className="flex flex-col gap-3 group"
+                    className="flex flex-col gap-2 group p-4 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-solar-orange/30 hover:shadow-md transition-all duration-300"
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-solar-orange backdrop-blur-md group-hover:bg-solar-orange group-hover:text-white transition-all duration-300">
-                      <item.icon size={28} />
+                    <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-solar-orange group-hover:scale-110 transition-transform duration-300">
+                      <item.icon size={20} strokeWidth={2.5} />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">{item.label}</h3>
-                      <p className="text-xs text-gray-500">{item.desc}</p>
+                      <h3 className="font-bold text-slate-900 text-sm tracking-tight">{item.label}</h3>
+                      <p className="text-xs text-slate-500 font-medium">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
               {/* Trust Bar */}
-              <div className="pt-8 border-t border-white/10 flex flex-wrap items-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+              <div className="pt-8 flex flex-wrap items-center gap-8 text-slate-400">
                 <div className="flex items-center gap-2">
-                  <Award size={24} />
-                  <span className="font-bold text-lg">MCS Certified</span>
+                  <Award size={20} />
+                  <span className="font-bold text-sm tracking-tight">MCS Certified Partners</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Users size={24} />
-                  <span className="font-bold text-lg">HIES Member</span>
+                  <Users size={20} />
+                  <span className="font-bold text-sm tracking-tight">HIES Members</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Star size={24} />
-                  <span className="font-bold text-lg">RECC Approved</span>
+                  <Star size={20} />
+                  <span className="font-bold text-sm tracking-tight">RECC Approved</span>
                 </div>
               </div>
             </motion.div>
@@ -122,8 +122,8 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="lg:col-span-4 w-full order-2 relative"
           >
-            <div className="absolute inset-0 bg-solar-orange/20 blur-[100px] rounded-full z-0" />
-            <div className="relative z-10 bg-white/5 backdrop-blur-2xl border border-white/10 p-1 rounded-[2.5rem] shadow-2xl">
+            <div className="absolute inset-0 bg-solar-orange/10 blur-[100px] rounded-full z-0" />
+            <div className="relative z-10">
               <Wizard />
             </div>
           </motion.div>

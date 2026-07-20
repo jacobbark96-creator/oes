@@ -5,28 +5,28 @@ import { motion } from 'framer-motion';
 const services = [
   {
     title: 'Residential Solar',
-    description: 'Bespoke solar panel installations tailored to your home\'s energy needs and roof type.',
+    description: 'Find installers offering bespoke solar panel systems tailored to your home\'s unique energy needs.',
     icon: Sun,
     image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format,compress&fit=crop&w=800&q=60',
     color: 'from-orange-500 to-amber-500'
   },
   {
     title: 'Commercial Solar',
-    description: 'Large-scale energy solutions for businesses to reduce overheads and meet ESG goals.',
+    description: 'Connect with specialists in large-scale energy solutions to reduce business overheads and meet ESG goals.',
     icon: LineChart,
     image: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format,compress&fit=crop&w=800&q=60',
     color: 'from-blue-500 to-cyan-500'
   },
   {
     title: 'EV Charging',
-    description: 'Fast, smart electric vehicle charging points integrated with your solar system.',
+    description: 'Compare quotes for fast, smart electric vehicle charging points integrated with your solar system.',
     icon: Car,
     image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format,compress&fit=crop&w=800&q=60',
     color: 'from-emerald-500 to-teal-500'
   },
   {
     title: 'Battery Storage',
-    description: 'Store excess solar energy for use at night or during peak price periods.',
+    description: 'Get matched with experts who can add battery storage to store excess solar energy for use at night.',
     icon: Battery,
     image: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format,compress&fit=crop&w=800&q=60',
     color: 'from-purple-500 to-indigo-500'
@@ -40,66 +40,65 @@ interface ServicesProps {
 export const Services: React.FC<ServicesProps> = ({ titleTag = 'h2' }) => {
   const Title = motion[titleTag];
   return (
-    <section id="services" className="py-32 bg-white relative overflow-hidden">
+    <section id="services" className="py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="container-wide relative z-10">
-        <div className="text-center mb-24">
+        <div className="text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-solar-orange uppercase bg-solar-orange/10 rounded-full"
+            className="inline-flex items-center px-3 py-1 mb-6 text-xs font-bold tracking-widest text-slate-600 uppercase bg-slate-100 rounded-full border border-slate-200"
           >
-            Our Services
+            What we help you find
           </motion.div>
           <Title 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[clamp(2rem,4vw,3.25rem)] font-bold text-solar-dark mb-8 tracking-tight"
+            className="text-[clamp(2rem,4vw,3rem)] font-black text-slate-900 mb-6 tracking-tighter leading-[1.1]"
           >
             Complete Energy Independence
           </Title>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium tracking-tight"
           >
-            From panels to plugs, we provide the full ecosystem for a sustainable, low-cost energy future.
+            From panels to plugs, we match you with the best professionals providing the full ecosystem for a sustainable future.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group relative bg-gray-50 rounded-[2.5rem] overflow-hidden border border-gray-100 transition-all duration-500"
+              whileHover={{ y: -5 }}
+              className="group relative bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              <div className="h-64 overflow-hidden relative">
+              <div className="h-48 overflow-hidden relative">
                 <img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${service.color} opacity-0 group-hover:opacity-40 transition-opacity duration-500`} />
-                <div className="absolute top-6 right-6 p-3 bg-white/20 backdrop-blur-md rounded-2xl border border-white/30 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                  <ArrowUpRight size={20} />
+                <div className={`absolute inset-0 bg-gradient-to-t ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
+                <div className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-xl border border-white/50 text-slate-900 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <ArrowUpRight size={16} />
                 </div>
               </div>
-              <div className="p-10">
-                <div className={`w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-                  <service.icon className="text-solar-orange" size={28} />
+              <div className="p-6">
+                <div className={`w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300`}>
+                  <service.icon className="text-solar-orange" size={20} strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-solar-dark mb-4 group-hover:text-solar-orange transition-colors">{service.title}</h3>
-                <p className="text-gray-500 leading-relaxed mb-6">{service.description}</p>
-                <div className="w-12 h-1 bg-gray-200 group-hover:w-full group-hover:bg-solar-orange transition-all duration-500" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight group-hover:text-solar-orange transition-colors">{service.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed font-medium">{service.description}</p>
               </div>
             </motion.div>
           ))}
@@ -107,8 +106,8 @@ export const Services: React.FC<ServicesProps> = ({ titleTag = 'h2' }) => {
       </div>
       
       {/* Background Decorative Elements */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-solar-orange/5 blur-3xl rounded-full -translate-x-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-solar-green/5 blur-3xl rounded-full translate-x-1/3 translate-y-1/3" />
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-orange-50 blur-3xl rounded-full -translate-x-1/2 -z-10" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-50 blur-3xl rounded-full translate-x-1/3 translate-y-1/3 -z-10" />
     </section>
   );
 };

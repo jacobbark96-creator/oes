@@ -17,7 +17,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled ? 'py-4 bg-white/80 backdrop-blur-xl shadow-lg border-b border-gray-100' : 'py-6 bg-transparent'
+        scrolled ? 'py-4 bg-white/80 backdrop-blur-xl shadow-sm border-b border-slate-200' : 'py-6 bg-transparent'
       }`}
     >
       <div className="container-wide">
@@ -28,7 +28,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-1 group cursor-pointer"
           >
-            <span className={`text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-500 ${scrolled ? 'text-black' : 'text-white'}`}>Openenergy</span>
+            <span className="text-2xl md:text-3xl font-black tracking-tighter text-slate-900 transition-colors duration-500">Openenergy</span>
             <span className="text-3xl md:text-4xl font-black text-solar-orange leading-none translate-y-[2px] group-hover:scale-125 transition-transform duration-300">.</span>
           </motion.a>
           
@@ -38,8 +38,8 @@ export const Navbar: React.FC = () => {
                 key={item}
                 href={`/${item.toLowerCase()}`} 
                 whileHover={{ y: -2 }}
-                className={`text-sm font-bold tracking-wide uppercase transition-colors duration-500 ${
-                  scrolled ? 'text-gray-600 hover:text-solar-orange' : 'text-white/80 hover:text-white'
+                className={`text-sm font-bold tracking-tight transition-colors duration-500 ${
+                  scrolled ? 'text-slate-600 hover:text-solar-orange' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {item}
@@ -48,12 +48,11 @@ export const Navbar: React.FC = () => {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative group overflow-hidden bg-solar-orange text-white px-8 py-3 rounded-2xl font-bold text-sm tracking-widest uppercase shadow-xl shadow-orange-500/20"
+              className="relative group overflow-hidden bg-slate-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Get Started <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </motion.button>
           </div>
 
@@ -61,7 +60,7 @@ export const Navbar: React.FC = () => {
             <button 
               onClick={() => setIsOpen(!isOpen)} 
               aria-label="Toggle menu"
-              className={`p-2 rounded-xl transition-colors ${scrolled ? 'text-gray-900 bg-gray-100' : 'text-white bg-white/10'}`}
+              className="p-2 rounded-xl transition-colors text-slate-900 bg-slate-100 hover:bg-slate-200"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -76,21 +75,22 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+            className="md:hidden bg-white border-b border-slate-100 overflow-hidden shadow-xl absolute top-full left-0 w-full"
           >
             <div className="px-4 pt-4 pb-8 space-y-4">
               {['Services', 'Finance', 'About'].map((item) => (
                 <a 
                   key={item}
                   href={`/${item.toLowerCase()}`} 
-                  className="block px-4 py-3 text-lg font-bold text-gray-900 hover:bg-gray-50 rounded-2xl transition-colors"
+                  className="block px-4 py-3 text-lg font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-colors tracking-tight"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
                 </a>
               ))}
-              <button className="w-full bg-solar-orange text-white px-6 py-4 rounded-[2rem] font-bold text-lg shadow-xl shadow-orange-500/20">
+              <button className="w-full bg-slate-900 text-white px-6 py-4 rounded-xl font-bold text-lg shadow-md flex justify-center items-center gap-2">
                 Get Started
+                <ArrowRight size={20} />
               </button>
             </div>
           </motion.div>
