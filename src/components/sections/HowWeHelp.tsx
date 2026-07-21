@@ -40,14 +40,6 @@ export const HowWeHelp: React.FC = () => {
     <section id="how-we-help" className="py-24 bg-white relative overflow-hidden">
       <div className="container relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 mb-6 text-sm font-semibold tracking-tight text-emerald bg-emerald-light rounded-full"
-          >
-            How We Help
-          </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -41,9 +41,6 @@ export const WhyOES: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center px-4 py-2 mb-6 text-sm font-semibold tracking-tight text-emerald bg-emerald-light rounded-full">
-              Why Open Energy Services
-            </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-navy mb-8 tracking-tight leading-tight">
               The smart way to improve your property.
             </h2>

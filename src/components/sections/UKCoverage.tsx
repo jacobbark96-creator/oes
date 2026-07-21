@@ -14,9 +14,6 @@ export const UKCoverage: React.FC = () => {
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <div className="inline-flex items-center px-4 py-2 mb-6 text-sm font-semibold tracking-tight text-emerald bg-emerald-light rounded-full">
-              UK Coverage
-            </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-navy mb-6 tracking-tight leading-tight">
               Our trusted installer network covers the UK.
             </h2>
