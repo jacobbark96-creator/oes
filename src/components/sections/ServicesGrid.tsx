@@ -5,41 +5,49 @@ import { motion } from 'framer-motion';
 export const ServicesGrid: React.FC = () => {
   const services = [
     {
+      id: 'loft',
       title: 'Loft Insulation',
       description: 'We connect you with accredited specialists to trap heat and lower your energy bills.',
       icon: Home,
     },
     {
+      id: 'wall',
       title: 'Cavity Wall Insulation',
       description: 'Get matched with trusted installers to prevent heat loss through your property walls.',
       icon: Wind,
     },
     {
+      id: 'solid-wall',
       title: 'Solid Wall Insulation',
       description: 'Access experts who provide internal and external solid wall insulation solutions.',
       icon: ThermometerSnowflake,
     },
     {
+      id: 'heat-pumps',
       title: 'Heat Pumps',
       description: 'We find you accredited partners for Air Source and Ground Source Heat Pump installations.',
       icon: Settings,
     },
     {
+      id: 'solar',
       title: 'Solar Panels',
       description: 'Connect with top-rated solar professionals to generate your own clean, renewable energy.',
       icon: Sun,
     },
     {
+      id: 'battery',
       title: 'Battery Storage',
       description: 'We match you with experts who can add battery storage to maximize your solar investment.',
       icon: Battery,
     },
     {
+      id: 'boiler',
       title: 'Boiler Upgrades',
       description: 'Find trusted engineers for high-efficiency boiler replacements and central heating upgrades.',
       icon: Flame,
     },
     {
+      id: 'retrofit',
       title: 'Retrofit Assessments',
       description: 'Comprehensive property evaluations by independent, certified retrofit assessors.',
       icon: ClipboardList,
@@ -82,6 +90,7 @@ export const ServicesGrid: React.FC = () => {
           {services.map((service, index) => (
             <motion.div 
               key={index}
+              id={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

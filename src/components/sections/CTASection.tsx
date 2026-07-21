@@ -41,7 +41,7 @@ export const CTASection: React.FC = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a 
-              href="/#eligibility"
+              href="/eligibility"
               className="w-full sm:w-auto bg-emerald text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-emerald-600 transition-all shadow-lg hover:shadow-emerald/20 flex items-center justify-center gap-2"
             >
               Check My Eligibility

@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
               
               <div className="flex flex-wrap items-center gap-4 mb-12">
                 <a 
-                  href="/#eligibility"
+                  href="/eligibility"
                   className="bg-emerald text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-600 transition-all shadow-soft hover:shadow-lg hover:shadow-emerald/20 flex items-center gap-2"
                 >
                   Check My Eligibility

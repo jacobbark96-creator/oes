@@ -40,12 +40,14 @@ export const Footer: React.FC = () => {
 
               <div className="hidden sm:block w-px h-8 bg-slate-700"></div>
 
+              {/* Social icons removed until real URLs exist to prevent dead links
               <div className="flex gap-3">
                 <a href="#" aria-label="Facebook" className="p-2 bg-primary-dark rounded-lg hover:bg-emerald transition-colors text-slate-300 hover:text-white"><Facebook size={16} /></a>
                 <a href="#" aria-label="Twitter" className="p-2 bg-primary-dark rounded-lg hover:bg-emerald transition-colors text-slate-300 hover:text-white"><Twitter size={16} /></a>
                 <a href="#" aria-label="Instagram" className="p-2 bg-primary-dark rounded-lg hover:bg-emerald transition-colors text-slate-300 hover:text-white"><Instagram size={16} /></a>
                 <a href="#" aria-label="LinkedIn" className="p-2 bg-primary-dark rounded-lg hover:bg-emerald transition-colors text-slate-300 hover:text-white"><Linkedin size={16} /></a>
               </div>
+              */}
             </div>
           </div>
 

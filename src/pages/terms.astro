@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Terms of Service | Open Energy Services" 
+  description="Terms of Service for Open Energy Services."
+>
+  <div class="pt-32 pb-24 bg-white min-h-[60vh]">
+    <div class="container max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary-navy mb-8 tracking-tight">
+        Terms of Service
+      </h1>
+      <div class="prose prose-slate max-w-none text-slate-600 font-medium">
+        <p class="mb-4">Last updated: {new Date().toLocaleDateString('en-GB')}</p>
+        <p class="mb-4">
+          Welcome to Open Energy Services. By accessing or using our website, you agree to be bound by these Terms of Service.
+        </p>
+        <h2 class="text-2xl font-bold text-primary-navy mt-8 mb-4">1. Our Service</h2>
+        <p class="mb-4">Open Energy Services acts as an independent energy consultancy and matching service. We do not carry out installations ourselves. Any contract for installation work is formed directly between you and the installation partner.</p>
+        
+        <h2 class="text-2xl font-bold text-primary-navy mt-8 mb-4">2. Advice and Information</h2>
+        <p class="mb-4">While we strive to ensure all information provided regarding government funding and energy efficiency is accurate and up-to-date, schemes and eligibility criteria can change. We cannot guarantee funding approval until a formal assessment is complete.</p>
+
+        <h2 class="text-2xl font-bold text-primary-navy mt-8 mb-4">3. User Responsibilities</h2>
+        <p class="mb-4">You agree to provide accurate information when using our eligibility checking services to ensure we can correctly assess your property and match you with appropriate partners.</p>
+      </div>
+    </div>
+  </div>
+</Layout>

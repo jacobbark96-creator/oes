@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
               </motion.a>
             ))}
             <motion.a 
-              href="/#eligibility"
+              href="/eligibility"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="relative group overflow-hidden bg-emerald text-white px-6 py-2.5 rounded-xl font-semibold text-[15px] shadow-soft hover:shadow-lg hover:shadow-emerald/20 transition-all"
@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
                 </a>
               ))}
               <a 
-                href="/#eligibility"
+                href="/eligibility"
                 onClick={() => setIsOpen(false)}
                 className="w-full bg-emerald text-white px-6 py-4 rounded-xl font-bold text-lg shadow-soft flex justify-center items-center gap-2 mt-4"
               >
