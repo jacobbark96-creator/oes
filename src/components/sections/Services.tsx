@@ -40,7 +40,7 @@ interface ServicesProps {
 export const Services: React.FC<ServicesProps> = ({ titleTag = 'h2' }) => {
   const Title = motion[titleTag];
   return (
-    <section id="services" className="py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section id="services" className="py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="container-wide relative z-10">
         <div className="text-center mb-16">
           <motion.div

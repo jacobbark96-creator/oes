@@ -36,7 +36,7 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 bg-bg-grey relative">
+    <section id="how-it-works" className="py-16 md:py-20 lg:py-24 bg-bg-grey relative">
       <div className="container max-w-5xl relative z-10">
         <div className="text-center mb-16">
           <motion.h2 
@@ -70,7 +70,7 @@ export const HowItWorks: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-16 ${
+                className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-8 md:gap-12 lg:gap-16 ${
                   index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
               >

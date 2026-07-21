@@ -29,7 +29,7 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-white relative">
+    <section id="faq" className="py-16 md:py-20 lg:py-24 bg-white relative">
       <div className="container max-w-4xl">
         <div className="text-center mb-16">
           <motion.h2 

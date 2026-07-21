@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full min-h-[100dvh] flex items-center overflow-hidden bg-bg-grey pt-32 pb-20">
+    <section className="relative w-full min-h-[100dvh] lg:min-h-[85vh] flex items-center overflow-hidden bg-bg-grey pt-28 pb-12 md:py-16 md:pt-32">
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald/5 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3" />
@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           
           {/* Left Content */}
           <div className="lg:col-span-6 text-text order-2 lg:order-1">

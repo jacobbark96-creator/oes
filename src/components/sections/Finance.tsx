@@ -42,7 +42,7 @@ interface FinanceProps {
 export const Finance: React.FC<FinanceProps> = ({ titleTag = 'h2' }) => {
   const Title = motion[titleTag];
   return (
-    <section id="finance" className="py-20 lg:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
+    <section id="finance" className="py-16 md:py-20 lg:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">

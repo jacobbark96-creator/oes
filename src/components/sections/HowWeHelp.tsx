@@ -37,7 +37,7 @@ export const HowWeHelp: React.FC = () => {
   ];
 
   return (
-    <section id="how-we-help" className="py-24 bg-white relative overflow-hidden">
+    <section id="how-we-help" className="py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="container relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 

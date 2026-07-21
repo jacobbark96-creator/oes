@@ -55,7 +55,7 @@ export const ServicesGrid: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-white relative">
+    <section id="services" className="py-16 md:py-20 lg:py-24 bg-white relative">
       <div className="container relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <motion.h2 

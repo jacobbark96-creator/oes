@@ -28,7 +28,7 @@ export const Home: React.FC = () => {
         <Hero />
         
         {/* About Section Upgrade - High Density Light Theme */}
-        <section id="about" className="py-20 lg:py-24 bg-white relative border-y border-slate-100">
+        <section id="about" className="py-16 md:py-20 lg:py-24 bg-white relative border-y border-slate-100">
           <div className="container-wide">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div 
@@ -125,7 +125,7 @@ export const Home: React.FC = () => {
         <Finance />
         
         {/* CTA Section Upgrade - Light Theme */}
-        <section className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
+        <section className="py-16 md:py-20 lg:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
           <div className="absolute inset-0 z-0">
              <img 
                 src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format,compress&fit=crop&w=1920&q=80" 

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const CTASection: React.FC = () => {
   return (
-    <section className="py-24 bg-primary-navy relative overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 bg-primary-navy relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-emerald/10 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />

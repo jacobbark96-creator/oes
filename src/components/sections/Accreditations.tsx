@@ -12,7 +12,7 @@ export const Accreditations: React.FC = () => {
   ];
 
   return (
-    <section id="accreditations" className="py-16 bg-white border-y border-slate-100">
+    <section id="accreditations" className="py-12 md:py-16 bg-white border-y border-slate-100">
       <div className="container">
         <div className="text-center mb-10">
           <p className="text-sm font-bold tracking-widest uppercase text-slate-400 mb-2">
