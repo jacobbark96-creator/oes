@@ -36,11 +36,13 @@ export const Navbar: React.FC = () => {
             href="/"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-3 group cursor-pointer"
           >
-            <div className="w-8 h-8 bg-primary-navy rounded-lg flex items-center justify-center">
-              <CheckCircle className="text-emerald w-5 h-5" />
-            </div>
+            <img 
+              src="/OEMLogo.png" 
+              alt="Open Energy Services Logo" 
+              className="h-8 w-auto object-contain"
+            />
             <span className="text-xl font-bold tracking-tight text-primary-navy transition-colors duration-500">
               Open Energy Services
             </span>
