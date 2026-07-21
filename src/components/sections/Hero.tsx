@@ -21,11 +21,6 @@ export const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
-                <ShieldCheck size={16} className="text-emerald" />
-                <span className="text-sm font-semibold tracking-tight text-primary-navy">Independent Energy Advice</span>
-              </div>
-
               <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.05] mb-6 tracking-tighter text-primary-navy">
                 Better energy solutions, <br />
                 <span className="text-emerald">the right way.</span>
