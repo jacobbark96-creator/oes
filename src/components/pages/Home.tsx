@@ -40,7 +40,7 @@ export const Home: React.FC = () => {
               >
                 <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-xl border border-slate-100">
                   <img 
-                    src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern+office+meeting+two+people+discussing+solar+panels+blueprint+bright+daylight+professional+photography+light+theme&image_size=landscape_4_3" 
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format,compress&fit=crop&w=800&q=80" 
                     alt="Solar Consultation" 
                     className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700"
                   />
@@ -128,7 +128,7 @@ export const Home: React.FC = () => {
         <section className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
           <div className="absolute inset-0 z-0">
              <img 
-                src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=abstract+light+theme+geometric+shapes+white+and+very+light+orange+subtle+shadows+modern+minimalist&image_size=landscape_16_9" 
+                src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format,compress&fit=crop&w=1920&q=80" 
                 alt="Background Pattern" 
                 className="w-full h-full object-cover opacity-30"
               />

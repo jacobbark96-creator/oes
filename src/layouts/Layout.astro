@@ -9,6 +9,8 @@ interface Props {
 }
 
 const { title, description = "Open Energy Solutions provides state-of-the-art solar systems, battery storage, and EV charging designed to slash your bills and carbon footprint across the UK." } = Astro.props;
+
+const formattedTitle = title.includes('Open Energy Solutions') ? title : `${title} | Open Energy Solutions`;
 ---
 
 <!DOCTYPE html>
@@ -20,8 +22,8 @@ const { title, description = "Open Energy Solutions provides state-of-the-art so
     <meta name="generator" content={Astro.generator} />
     
     <!-- Primary Meta Tags -->
-    <title>{title} | Open Energy Solutions</title>
-    <meta name="title" content={`${title} | Open Energy Solutions`} />
+    <title>{formattedTitle}</title>
+    <meta name="title" content={formattedTitle} />
     <meta name="description" content={description} />
     <meta name="keywords" content="solar installation, UK solar installer, solar panels, EV chargers, solar finance, PPA solar, battery storage, clean energy, renewable energy UK" />
     <meta name="author" content="Open Energy Solutions" />
@@ -32,35 +34,18 @@ const { title, description = "Open Energy Solutions provides state-of-the-art so
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "Organization",
         "name": "Open Energy Solutions",
         "image": "https://openenergyservices.co.uk/OEMLogo.png",
         "@id": "https://openenergyservices.co.uk",
         "url": "https://openenergyservices.co.uk",
-        "telephone": "+44 800 123 4567",
+        "telephone": "+44 161 524 5535",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "123 Solar Way",
-          "addressLocality": "London",
-          "postalCode": "SW1A 1AA",
+          "streetAddress": "1 St Peter's Square",
+          "addressLocality": "Manchester",
+          "postalCode": "M2 3DE",
           "addressCountry": "GB"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 51.5074,
-          "longitude": -0.1278
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "09:00",
-          "closes": "18:00"
         },
         "sameAs": [
           "https://facebook.com/openenergysolutions",
@@ -73,9 +58,9 @@ const { title, description = "Open Energy Solutions provides state-of-the-art so
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "Solar Panel Installation",
+        "serviceType": "Solar Installer Comparison Service",
         "provider": {
-          "@type": "LocalBusiness",
+          "@type": "Organization",
           "name": "Open Energy Solutions"
         },
         "areaServed": {
@@ -84,27 +69,27 @@ const { title, description = "Open Energy Solutions provides state-of-the-art so
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Solar Services",
+          "name": "Clean Energy Services",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Residential Solar Panels"
+                "name": "Residential Solar Panels Matching"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Battery Storage Systems"
+                "name": "Battery Storage Systems Matching"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "EV Charger Installation"
+                "name": "EV Charger Installation Matching"
               }
             }
           ]
@@ -115,16 +100,16 @@ const { title, description = "Open Energy Solutions provides state-of-the-art so
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={`${title} | Open Energy Solutions`} />
+    <meta property="og:title" content={formattedTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/OEMLogo.png" />
+    <meta property="og:image" content={new URL("/OEMLogo.png", "https://openenergyservices.co.uk").href} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={`${title} | Open Energy Solutions`} />
+    <meta property="twitter:title" content={formattedTitle} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/OEMLogo.png" />
+    <meta property="twitter:image" content={new URL("/OEMLogo.png", "https://openenergyservices.co.uk").href} />
 
     <!-- Preload / Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

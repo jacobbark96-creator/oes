@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
       >
         {/* Base Architecture Image */}
         <img 
-          src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=bright+modern+minimalist+luxury+home+exterior+with+solar+panels+daytime+clear+sky+professional+architectural+photography+bright+lighting&image_size=landscape_16_9" 
+          src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format,compress&fit=crop&w=1920&q=80" 
           alt="Premium Solar Home" 
           className="w-full h-full object-cover opacity-[0.15]"
         />

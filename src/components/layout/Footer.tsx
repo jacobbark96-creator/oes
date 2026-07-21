@@ -14,12 +14,7 @@ export const Footer: React.FC = () => {
             <p className="text-slate-600 mb-6 font-medium tracking-tight">
               Leading the UK transition to clean energy by connecting you with the best vetted, independent solar professionals—100% free of charge.
             </p>
-            <div className="flex gap-4">
-              <a href="#" aria-label="Facebook" className="p-2 bg-white border border-slate-200 rounded-xl hover:border-solar-orange hover:text-solar-orange transition-colors shadow-sm"><Facebook size={20} /></a>
-              <a href="#" aria-label="Twitter" className="p-2 bg-white border border-slate-200 rounded-xl hover:border-solar-orange hover:text-solar-orange transition-colors shadow-sm"><Twitter size={20} /></a>
-              <a href="#" aria-label="Instagram" className="p-2 bg-white border border-slate-200 rounded-xl hover:border-solar-orange hover:text-solar-orange transition-colors shadow-sm"><Instagram size={20} /></a>
-              <a href="#" aria-label="LinkedIn" className="p-2 bg-white border border-slate-200 rounded-xl hover:border-solar-orange hover:text-solar-orange transition-colors shadow-sm"><Linkedin size={20} /></a>
-            </div>
+            {/* Social links removed until profiles are ready */}
           </div>
 
           <div>
@@ -35,10 +30,10 @@ export const Footer: React.FC = () => {
           <div>
             <h2 className="text-sm font-black mb-6 tracking-widest uppercase text-slate-400">Services</h2>
             <ul className="space-y-4 text-slate-600 font-medium">
-              <li><a href="#" className="hover:text-solar-orange transition-colors">Residential Solar</a></li>
-              <li><a href="#" className="hover:text-solar-orange transition-colors">Commercial Solar</a></li>
-              <li><a href="#" className="hover:text-solar-orange transition-colors">EV Charging</a></li>
-              <li><a href="#" className="hover:text-solar-orange transition-colors">Battery Storage</a></li>
+              <li><a href="/services#residential" className="hover:text-solar-orange transition-colors">Residential Solar</a></li>
+              <li><a href="/services#commercial" className="hover:text-solar-orange transition-colors">Commercial Solar</a></li>
+              <li><a href="/services#ev" className="hover:text-solar-orange transition-colors">EV Charging</a></li>
+              <li><a href="/services#battery" className="hover:text-solar-orange transition-colors">Battery Storage</a></li>
             </ul>
           </div>
 
@@ -55,7 +50,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <MapPin size={24} className="text-solar-orange flex-shrink-0" />
-                <span>20 Wenlock Road, London, N1 7GU</span>
+                <span>1 St Peter's Square, Manchester, M2 3DE</span>
               </li>
             </ul>
           </div>
