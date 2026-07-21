@@ -1,19 +1,42 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
   darkMode: "class",
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,astro}"],
   theme: {
     container: {
       center: true,
+      padding: '1rem',
+      screens: {
+        xl: '1280px',
+        '2xl': '1280px',
+      },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
-        solar: {
-          orange: "#F97316",
-          green: "#22C55E",
-          dark: "#0F172A", // Darker for a more premium feel
+        primary: {
+          navy: "#0E2341",
+          dark: "#08192E",
         },
+        emerald: {
+          DEFAULT: "#1AAE63",
+          light: "#EAF9F0",
+        },
+        bg: {
+          grey: "#F7F8FA",
+        },
+        text: {
+          DEFAULT: "#1F2937",
+        }
+      },
+      borderRadius: {
+        'xl': '20px',
+        '2xl': '24px',
+        '3xl': '32px',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
@@ -37,7 +60,12 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+        'emerald-gradient': 'linear-gradient(135deg, #1AAE63 0%, #158F50 100%)',
       },
+      boxShadow: {
+        'soft': '0 10px 40px -10px rgba(14, 35, 65, 0.08)',
+        'glass': '0 8px 32px 0 rgba(14, 35, 65, 0.05)',
+      }
     },
   },
   plugins: [],

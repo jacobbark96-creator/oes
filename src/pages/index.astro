@@ -1,21 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Hero } from '../components/sections/Hero';
-import { Services } from '../components/sections/Services';
-import { Finance } from '../components/sections/Finance';
-import { AboutSection } from '../components/sections/About';
-import { CTASection } from '../components/sections/CTA';
-import { ScrollProgress } from '../components/layout/ScrollProgress';
+import { TrustBar } from '../components/sections/TrustBar';
+import { HowWeHelp } from '../components/sections/HowWeHelp';
+import { HowItWorks } from '../components/sections/HowItWorks';
+import { ServicesGrid } from '../components/sections/ServicesGrid';
+import { FundingSection } from '../components/sections/FundingSection';
+import { WhyOES } from '../components/sections/WhyOES';
+import { UKCoverage } from '../components/sections/UKCoverage';
+import { Reviews } from '../components/sections/Reviews';
+import { Accreditations } from '../components/sections/Accreditations';
+import { FAQ } from '../components/sections/FAQ';
+import { CTASection } from '../components/sections/CTASection';
 ---
 
 <Layout 
-  title="Expert Solar Panel Installation UK | Open Energy Solutions" 
-  description="Open Energy Solutions (OES) provides premium solar panel installations, battery storage, and EV charging across the UK. Slash your energy bills with our expert solar solutions. Get a free quote!"
+  title="Independent Energy Consultancy | Open Energy Services" 
+  description="Open Energy Services helps homeowners, landlords, and businesses access government funding and connect with trusted, accredited installation partners across the UK."
 >
-  <ScrollProgress client:load />
   <Hero client:load />
-  <AboutSection client:visible />
-  <Services client:visible />
-  <Finance client:visible />
+  <TrustBar client:visible />
+  <HowWeHelp client:visible />
+  <HowItWorks client:visible />
+  <ServicesGrid client:visible />
+  <FundingSection client:visible />
+  <WhyOES client:visible />
+  <UKCoverage client:visible />
+  <Reviews client:visible />
+  <Accreditations client:visible />
+  <FAQ client:visible />
   <CTASection client:visible />
 </Layout>

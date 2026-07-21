@@ -8,9 +8,9 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Open Energy Solutions provides state-of-the-art solar systems, battery storage, and EV charging designed to slash your bills and carbon footprint across the UK." } = Astro.props;
+const { title, description = "Open Energy Services provides independent advice and connects you with trusted installers for state-of-the-art solar systems, battery storage, and insulation across the UK." } = Astro.props;
 
-const formattedTitle = title.includes('Open Energy Solutions') ? title : `${title} | Open Energy Solutions`;
+const formattedTitle = title.includes('Open Energy Services') ? title : `${title} | Open Energy Services`;
 ---
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ const formattedTitle = title.includes('Open Energy Solutions') ? title : `${titl
     <meta name="title" content={formattedTitle} />
     <meta name="description" content={description} />
     <meta name="keywords" content="solar installation, UK solar installer, solar panels, EV chargers, solar finance, PPA solar, battery storage, clean energy, renewable energy UK" />
-    <meta name="author" content="Open Energy Solutions" />
+    <meta name="author" content="Open Energy Services" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={new URL(Astro.url.pathname, "https://openenergyservices.co.uk").href} />
 
@@ -35,7 +35,7 @@ const formattedTitle = title.includes('Open Energy Solutions') ? title : `${titl
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Open Energy Solutions",
+        "name": "Open Energy Services",
         "image": "https://openenergyservices.co.uk/OEMLogo.png",
         "@id": "https://openenergyservices.co.uk",
         "url": "https://openenergyservices.co.uk",
@@ -61,7 +61,7 @@ const formattedTitle = title.includes('Open Energy Solutions') ? title : `${titl
         "serviceType": "Solar Installer Comparison Service",
         "provider": {
           "@type": "Organization",
-          "name": "Open Energy Solutions"
+          "name": "Open Energy Services"
         },
         "areaServed": {
           "@type": "Country",
@@ -114,12 +114,20 @@ const formattedTitle = title.includes('Open Energy Solutions') ? title : `${titl
     <!-- Preload / Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-white text-solar-dark overflow-x-hidden">
+  <body class="bg-bg-grey text-text overflow-x-hidden font-sans selection:bg-emerald/20 selection:text-emerald">
     <Navbar client:load />
     <main>
       <slot />
     </main>
     <Footer />
+    
+    <!-- Mobile Sticky CTA -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-xl border-t border-slate-200 z-50 transform transition-transform duration-300">
+      <a href="#eligibility" class="flex items-center justify-center w-full py-3.5 px-6 bg-emerald text-white rounded-xl font-bold shadow-lg shadow-emerald/20 active:scale-95 transition-all">
+        Check Eligibility
+      </a>
+    </div>
   </body>
 </html>

@@ -1,15 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { AboutSection } from '../components/sections/About';
-import { CTASection } from '../components/sections/CTA';
+import { WhyOES } from '../components/sections/WhyOES';
+import { CTASection } from '../components/sections/CTASection';
 ---
 
 <Layout 
-  title="About OES | Leading Solar Installers in the UK" 
-  description="Learn why Open Energy Solutions is the UK's most trusted solar installation partner. Discover our mission, MCS certification, and 10+ years of clean energy expertise."
+  title="About Open Energy Services | Independent Energy Consultancy" 
+  description="Learn why Open Energy Services is the UK's trusted independent energy consultancy. We connect you with vetted installers and guide you through funding applications."
 >
   <div class="pt-24">
-    <AboutSection client:load titleTag="h1" />
+    <WhyOES client:load />
   </div>
   <CTASection client:visible />
 </Layout>

@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { FundingSection } from '../components/sections/FundingSection';
+import { CTASection } from '../components/sections/CTASection';
+---
+
+<Layout 
+  title="Government Funding for Energy Upgrades | Open Energy Services" 
+  description="Find out if you qualify for government grants like ECO4 or GBIS. We help you navigate funding options for your home energy improvements."
+>
+  <div class="pt-24">
+    <FundingSection client:load />
+  </div>
+  <CTASection client:visible />
+</Layout>

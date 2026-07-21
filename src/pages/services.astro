@@ -1,15 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Services } from '../components/sections/Services';
-import { CTASection } from '../components/sections/CTA';
+import { ServicesGrid } from '../components/sections/ServicesGrid';
+import { CTASection } from '../components/sections/CTASection';
 ---
 
 <Layout 
-  title="Solar Panels, Battery Storage & EV Charging Services" 
-  description="Discover our comprehensive clean energy services. Expert installation of high-efficiency solar panels, home battery storage, and smart EV chargers across the UK."
+  title="Independent Energy Services & Advice | Open Energy Services" 
+  description="Discover our comprehensive independent energy services. We match you with accredited specialists for solar panels, heat pumps, insulation, and battery storage across the UK."
 >
   <div class="pt-24">
-    <Services client:load titleTag="h1" />
+    <ServicesGrid client:load />
   </div>
   <CTASection client:visible />
 </Layout>
