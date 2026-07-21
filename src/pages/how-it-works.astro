@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { HowItWorks } from '../components/sections/HowItWorks';
+import { CTASection } from '../components/sections/CTASection';
+---
+
+<Layout 
+  title="How It Works | Open Energy Services" 
+  description="Discover the simple 6-step process to improving your property's energy efficiency. We handle the assessment, funding, and matching you with accredited installers."
+>
+  <div class="pt-24">
+    <HowItWorks client:load />
+  </div>
+  <CTASection client:visible />
+</Layout>

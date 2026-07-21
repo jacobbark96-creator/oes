@@ -53,11 +53,11 @@ export const Footer: React.FC = () => {
           <div className="col-span-1 lg:col-span-2">
             <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Company</h3>
             <ul className="space-y-3.5 text-[15px] text-slate-300 font-medium">
-              <li><a href="#about" className="hover:text-emerald transition-colors">About Us</a></li>
-              <li><a href="#how-it-works" className="hover:text-emerald transition-colors">How It Works</a></li>
-              <li><a href="#accreditations" className="hover:text-emerald transition-colors">Accreditations</a></li>
-              <li><a href="#reviews" className="hover:text-emerald transition-colors">Reviews</a></li>
-              <li><a href="#faq" className="hover:text-emerald transition-colors">FAQ</a></li>
+              <li><a href="/about" className="hover:text-emerald transition-colors">About Us</a></li>
+              <li><a href="/how-it-works" className="hover:text-emerald transition-colors">How It Works</a></li>
+              <li><a href="/#accreditations" className="hover:text-emerald transition-colors">Accreditations</a></li>
+              <li><a href="/#reviews" className="hover:text-emerald transition-colors">Reviews</a></li>
+              <li><a href="/#faq" className="hover:text-emerald transition-colors">FAQ</a></li>
             </ul>
           </div>
 
@@ -65,11 +65,11 @@ export const Footer: React.FC = () => {
           <div className="col-span-1 lg:col-span-2">
             <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Services</h3>
             <ul className="space-y-3.5 text-[15px] text-slate-300 font-medium">
-              <li><a href="#services" className="hover:text-emerald transition-colors">Loft Insulation</a></li>
-              <li><a href="#services" className="hover:text-emerald transition-colors">Wall Insulation</a></li>
-              <li><a href="#services" className="hover:text-emerald transition-colors">Heat Pumps</a></li>
-              <li><a href="#services" className="hover:text-emerald transition-colors">Solar Panels</a></li>
-              <li><a href="#funding" className="hover:text-emerald transition-colors">Government Funding</a></li>
+              <li><a href="/services#loft" className="hover:text-emerald transition-colors">Loft Insulation</a></li>
+              <li><a href="/services#wall" className="hover:text-emerald transition-colors">Wall Insulation</a></li>
+              <li><a href="/services#heat-pumps" className="hover:text-emerald transition-colors">Heat Pumps</a></li>
+              <li><a href="/services#solar" className="hover:text-emerald transition-colors">Solar Panels</a></li>
+              <li><a href="/funding" className="hover:text-emerald transition-colors">Government Funding</a></li>
             </ul>
           </div>
 

@@ -41,14 +41,14 @@ export const CTASection: React.FC = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a 
-              href="#eligibility"
+              href="/#eligibility"
               className="w-full sm:w-auto bg-emerald text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-emerald-600 transition-all shadow-lg hover:shadow-emerald/20 flex items-center justify-center gap-2"
             >
               Check My Eligibility
               <ArrowRight size={20} />
             </a>
             <a 
-              href="#contact"
+              href="/contact"
               className="w-full sm:w-auto bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all backdrop-blur-sm border border-white/10 flex items-center justify-center gap-2"
             >
               <Calendar size={20} className="text-emerald" />

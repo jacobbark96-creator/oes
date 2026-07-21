@@ -37,14 +37,14 @@ export const Hero: React.FC = () => {
               
               <div className="flex flex-wrap items-center gap-4 mb-12">
                 <a 
-                  href="#eligibility"
+                  href="/#eligibility"
                   className="bg-emerald text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-600 transition-all shadow-soft hover:shadow-lg hover:shadow-emerald/20 flex items-center gap-2"
                 >
                   Check My Eligibility
                   <ArrowRight size={20} />
                 </a>
                 <a 
-                  href="#how-it-works"
+                  href="/how-it-works"
                   className="bg-white text-primary-navy px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-50 transition-all border border-slate-200 shadow-sm flex items-center gap-2"
                 >
                   <Play size={20} className="text-emerald" />

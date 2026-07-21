@@ -40,7 +40,7 @@ export const FundingSection: React.FC = () => {
               </div>
 
               <a 
-                href="#eligibility"
+                href="/#eligibility"
                 className="inline-flex items-center gap-2 bg-primary-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl"
               >
                 Check My Eligibility
