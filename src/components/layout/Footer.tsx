@@ -9,15 +9,12 @@ export const Footer: React.FC = () => {
           
           {/* Brand & Description (Takes up more space) */}
           <div className="col-span-1 lg:col-span-5 lg:pr-10">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="mb-6">
               <img 
                 src="/OEMLogo.png" 
                 alt="Open Energy Services Logo" 
-                className="h-10 w-auto object-contain bg-white rounded-lg p-1"
+                className="h-14 md:h-16 w-auto object-contain bg-white rounded-lg p-1.5"
               />
-              <span className="text-2xl font-bold tracking-tight text-white">
-                Open Energy Services
-              </span>
             </div>
             <p className="text-slate-300 mb-8 font-normal leading-relaxed text-[15px] max-w-md">
               Your independent energy consultancy. We help homeowners, landlords, and businesses access government funding and connect with trusted, accredited installation partners across the UK.
