@@ -19,33 +19,6 @@ export const Footer: React.FC = () => {
             <p className="text-slate-300 mb-8 font-normal leading-relaxed text-[15px] max-w-md">
               Your independent energy consultancy. We help homeowners, landlords, and businesses access government funding and connect with trusted, accredited installation partners across the UK.
             </p>
-            
-            {/* Trustpilot & Socials side-by-side */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-8">
-              <div className="flex flex-col gap-1.5">
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <div key={star} className="bg-[#00B67A] p-1 rounded-sm">
-                      <Star className="text-white w-3.5 h-3.5 fill-current" />
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs text-slate-300 font-medium">
-                  <span className="font-semibold text-white">Excellent</span> · 1,200+ reviews
-                </p>
-              </div>
-
-              <div className="hidden sm:block w-px h-8 bg-slate-700"></div>
-
-              {/* Social icons removed until real URLs exist to prevent dead links
-              <div className="flex gap-3">
-                <a href="#" aria-label="Facebook" className="p-2 bg-primary-dark rounded-lg hover:bg-emerald transition-colors text-slate-300 hover:text-white"><Facebook size={16} /></a>
-                <a href="#" aria-label="Twitter" className="p-2 bg-primary-dark rounded-lg hover:bg-emerald transition-colors text-slate-300 hover:text-white"><Twitter size={16} /></a>
-                <a href="#" aria-label="Instagram" className="p-2 bg-primary-dark rounded-lg hover:bg-emerald transition-colors text-slate-300 hover:text-white"><Instagram size={16} /></a>
-                <a href="#" aria-label="LinkedIn" className="p-2 bg-primary-dark rounded-lg hover:bg-emerald transition-colors text-slate-300 hover:text-white"><Linkedin size={16} /></a>
-              </div>
-              */}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -55,7 +28,6 @@ export const Footer: React.FC = () => {
               <li><a href="/about" className="hover:text-emerald transition-colors">About Us</a></li>
               <li><a href="/how-it-works" className="hover:text-emerald transition-colors">How It Works</a></li>
               <li><a href="/#accreditations" className="hover:text-emerald transition-colors">Accreditations</a></li>
-              <li><a href="/#reviews" className="hover:text-emerald transition-colors">Reviews</a></li>
               <li><a href="/#faq" className="hover:text-emerald transition-colors">FAQ</a></li>
             </ul>
           </div>

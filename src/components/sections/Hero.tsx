@@ -47,20 +47,6 @@ export const Hero: React.FC = () => {
                 </a>
               </div>
 
-              {/* Trust Row */}
-              <div className="flex items-center gap-4">
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <div key={star} className="bg-[#00B67A] p-1.5 rounded-sm">
-                      <Star className="text-white w-4 h-4 fill-current" />
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-primary-navy text-sm">Trustpilot</span>
-                  <span className="text-slate-500 text-xs font-medium">1,200+ Reviews</span>
-                </div>
-              </div>
             </motion.div>
           </div>
 
