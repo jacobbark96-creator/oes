@@ -59,8 +59,8 @@ export const Hero: React.FC = () => {
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/50 aspect-[4/3] lg:aspect-square group">
               <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format,compress&fit=crop&w=1200&q=80" 
-                alt="Energy Consultant meeting with homeowners" 
+                src="https://images.unsplash.com/photo-1509391366360-1e97b524fb66?auto=format,compress&fit=crop&w=1200&q=80" 
+                alt="Residential solar panels on a modern home roof" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/40 to-transparent" />
