@@ -35,12 +35,13 @@ export const Footer: React.FC = () => {
           {/* Services */}
           <div className="col-span-1 lg:col-span-2">
             <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Services</h3>
-            <ul className="space-y-3.5 text-[15px] text-slate-300 font-medium">
-              <li><a href="/services#loft" className="hover:text-emerald transition-colors">Loft Insulation</a></li>
-              <li><a href="/services#wall" className="hover:text-emerald transition-colors">Wall Insulation</a></li>
-              <li><a href="/services#heat-pumps" className="hover:text-emerald transition-colors">Heat Pumps</a></li>
-              <li><a href="/services#solar" className="hover:text-emerald transition-colors">Solar Panels</a></li>
-              <li><a href="/funding" className="hover:text-emerald transition-colors">Government Funding</a></li>
+            <ul className="space-y-4 text-[15px] font-medium text-slate-300">
+              <li><a href="/services/solar" className="hover:text-emerald transition-colors">Residential Solar</a></li>
+              <li><a href="/services/solar" className="hover:text-emerald transition-colors">Commercial Solar</a></li>
+              <li><a href="/services/heat-pumps" className="hover:text-emerald transition-colors">Heat Pumps</a></li>
+              <li><a href="/services/battery" className="hover:text-emerald transition-colors">Battery Storage</a></li>
+              <li><a href="/services/loft" className="hover:text-emerald transition-colors">Loft Insulation</a></li>
+              <li><a href="/services/wall" className="hover:text-emerald transition-colors">Wall Insulation</a></li>
             </ul>
           </div>
 

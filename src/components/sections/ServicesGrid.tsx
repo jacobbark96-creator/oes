@@ -80,7 +80,8 @@ export const ServicesGrid: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <motion.div 
+            <motion.a 
+              href={`/services/${service.id}`}
               key={index}
               id={service.id}
               initial={{ opacity: 0, y: 20 }}
@@ -88,14 +89,14 @@ export const ServicesGrid: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ y: -5 }}
-              className="bg-bg-grey p-8 rounded-3xl border border-slate-100 hover:border-emerald/30 hover:shadow-lg transition-all duration-300 group"
+              className="bg-bg-grey p-8 rounded-3xl border border-slate-100 hover:border-emerald/30 hover:shadow-lg transition-all duration-300 group block"
             >
               <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <service.icon className="text-emerald w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-primary-navy mb-3 tracking-tight group-hover:text-emerald transition-colors">{service.title}</h3>
               <p className="text-sm text-slate-600 font-medium leading-relaxed">{service.description}</p>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

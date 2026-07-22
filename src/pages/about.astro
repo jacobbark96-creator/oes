@@ -8,8 +8,16 @@ import { CTASection } from '../components/sections/CTASection';
   title="About Open Energy Services | Independent Energy Consultancy" 
   description="Learn why Open Energy Services is the UK's trusted independent energy consultancy. We connect you with vetted installers and guide you through funding applications."
 >
-  <div class="pt-24">
-    <WhyOES client:load />
+  <div class="pt-32 pb-12 bg-white text-center">
+    <div class="container max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary-navy tracking-tighter mb-6">
+        About Open Energy Services
+      </h1>
+      <p class="text-lg md:text-xl text-slate-600 font-medium leading-relaxed">
+        We are an independent energy consultancy dedicated to helping you improve your property's energy efficiency. We navigate the complexities of government funding and connect you with trusted, accredited installers completely free of charge.
+      </p>
+    </div>
   </div>
+  <WhyOES client:load />
   <CTASection client:visible />
 </Layout>

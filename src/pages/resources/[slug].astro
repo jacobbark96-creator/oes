@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { CTASection } from '../../components/sections/CTASection';
+
+export function getStaticPaths() {
+  const resources = [
+    {
+      slug: 'eco4-eligibility-guide',
+      title: 'ECO4 Eligibility Guide: Can You Get Free Insulation?',
+      description: 'A complete guide to the Energy Company Obligation (ECO4) scheme, including qualifying benefits and income thresholds.',
+      content: `
+        <h2>What is the ECO4 Scheme?</h2>
+        <p>The Energy Company Obligation (ECO4) is a government energy efficiency scheme in Great Britain. It is designed to tackle fuel poverty and help reduce carbon emissions. Under ECO4, medium and larger energy suppliers fund the installation of energy efficiency measures in British households.</p>
+        
+        <h2>Who is Eligible?</h2>
+        <p>Eligibility is primarily based on receiving certain means-tested benefits. These include:</p>
+        <ul>
+          <li>Income Based Jobseekers Allowance (JSA)</li>
+          <li>Income Related Employment and Support Allowance (ESA)</li>
+          <li>Income Support (IS)</li>
+          <li>Pension Credit Guarantee Credit</li>
+          <li>Working Tax Credit (WTC)</li>
+          <li>Child Tax Credit (CTC)</li>
+          <li>Universal Credit (UC)</li>
+          <li>Housing Benefit</li>
+          <li>Pension Credit Savings Credit</li>
+        </ul>
+        <p>Even if you don't receive these benefits, you might still qualify under the 'ECO4 Flex' rules through your Local Authority, which assesses households based on low income and property energy efficiency (EPC rating of D, E, F, or G).</p>
+        
+        <h2>What Improvements Are Covered?</h2>
+        <p>ECO4 takes a 'whole house' approach. This means the property will be assessed, and multiple measures may be installed to ensure the property is upgraded to a minimum standard. Measures often include:</p>
+        <ul>
+          <li>Loft Insulation</li>
+          <li>Cavity Wall Insulation</li>
+          <li>Solid Wall Insulation (Internal or External)</li>
+          <li>Air Source Heat Pumps</li>
+          <li>Boiler Upgrades (in limited circumstances)</li>
+          <li>Solar Panels</li>
+        </ul>
+        
+        <h2>How We Can Help</h2>
+        <p>Navigating the ECO4 scheme can be confusing. Open Energy Services provides independent advice to assess your eligibility. If you qualify, we will connect you with a TrustMark-registered, PAS2035-compliant installer from our trusted network to carry out the work, fully funded.</p>
+      `
+    },
+    {
+      slug: 'heat-pump-grants-uk',
+      title: 'Heat Pump Grants UK: The Boiler Upgrade Scheme (BUS)',
+      description: 'Learn how to get £7,500 off the cost of an Air Source or Ground Source Heat Pump in England and Wales.',
+      content: `
+        <h2>What is the Boiler Upgrade Scheme?</h2>
+        <p>The Boiler Upgrade Scheme (BUS) is a UK Government initiative designed to encourage property owners to install low carbon heating systems such as heat pumps. The scheme offers upfront capital grants to help cover the initial cost of installation.</p>
+        
+        <h2>How Much is the Grant?</h2>
+        <p>Currently, the scheme provides:</p>
+        <ul>
+          <li>£7,500 off the cost and installation of an air source heat pump</li>
+          <li>£7,500 off the cost and installation of a ground source heat pump</li>
+          <li>£5,000 off the cost and installation of a biomass boiler</li>
+        </ul>
+        
+        <h2>Who is Eligible?</h2>
+        <p>You can apply if you:</p>
+        <ul>
+          <li>Own the property you're applying for (including if it's a business, a second home, or a property you rent out to tenants)</li>
+          <li>Are replacing fossil fuel heating systems (such as oil, gas or electric)</li>
+          <li>Have a valid Energy Performance Certificate (EPC) with no outstanding recommendations for loft or cavity wall insulation</li>
+        </ul>
+        
+        <h2>How to Apply</h2>
+        <p>You don't apply for the grant yourself. You must use an MCS certified installer who will apply for the grant on your behalf. The value of the grant will be discounted off your final bill.</p>
+        
+        <h2>Our Independent Matching Service</h2>
+        <p>Because the grant requires an MCS certified installer, finding the right company is crucial. Open Energy Services assesses your home's suitability for a heat pump, advises you independently, and matches you with vetted, MCS certified installers in your local area who can process the BUS grant for you.</p>
+      `
+    }
+  ];
+
+  return resources.map(resource => ({
+    params: { slug: resource.slug },
+    props: { resource },
+  }));
+}
+
+const { resource } = Astro.props;
+---
+
+<Layout 
+  title={`${resource.title} | Open Energy Services`} 
+  description={resource.description}
+>
+  <div class="pt-32 pb-16 bg-bg-grey">
+    <div class="container max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-black text-primary-navy tracking-tighter mb-6">
+        {resource.title}
+      </h1>
+      <p class="text-lg text-slate-600 font-medium leading-relaxed mb-8">
+        {resource.description}
+      </p>
+    </div>
+  </div>
+
+  <article class="py-16 md:py-24 bg-white">
+    <div class="container max-w-3xl mx-auto">
+      <div class="prose prose-lg prose-slate prose-headings:text-primary-navy prose-h2:font-bold prose-h2:tracking-tight prose-a:text-emerald max-w-none" set:html={resource.content} />
+      
+      <div class="mt-16 bg-bg-grey p-8 rounded-2xl border border-slate-100 text-center">
+        <h3 class="text-2xl font-bold text-primary-navy mb-4">Want to see if you qualify?</h3>
+        <p class="text-slate-600 mb-6">Take our quick assessment to check your eligibility for this and other funding schemes.</p>
+        <a href="/eligibility" class="inline-block bg-primary-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-primary-dark transition-colors">
+          Check My Eligibility
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <CTASection client:visible />
+</Layout>

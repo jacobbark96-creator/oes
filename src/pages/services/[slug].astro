@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { CTASection } from '../../components/sections/CTASection';
+
+export function getStaticPaths() {
+  const services = [
+    {
+      slug: 'loft',
+      title: 'Loft Insulation',
+      description: 'We connect you with accredited specialists to trap heat and lower your energy bills.',
+      content: 'Proper loft insulation is one of the most effective ways to reduce heat loss in your property. As an independent consultancy, we assess your home\'s suitability and match you with vetted installers who use premium materials. This service often qualifies for government funding, and we guide you through the entire application process.'
+    },
+    {
+      slug: 'wall',
+      title: 'Cavity Wall Insulation',
+      description: 'Get matched with trusted installers to prevent heat loss through your property walls.',
+      content: 'Uninsulated cavity walls can account for up to a third of a home\'s heat loss. We connect you with certified professionals who can expertly fill these cavities, improving your property\'s energy efficiency and comfort. Our team will also check your eligibility for ECO4 and GBIS grants to help cover the costs.'
+    },
+    {
+      slug: 'solid-wall',
+      title: 'Solid Wall Insulation',
+      description: 'Access experts who provide internal and external solid wall insulation solutions.',
+      content: 'Older properties with solid walls lose heat rapidly. We coordinate with specialists in both internal and external wall insulation (EWI/IWI). By managing the matching process, we ensure you receive high-quality workmanship that respects your property\'s character while significantly reducing heating bills.'
+    },
+    {
+      slug: 'heat-pumps',
+      title: 'Air & Ground Source Heat Pumps',
+      description: 'We find you accredited partners for Air Source and Ground Source Heat Pump installations.',
+      content: 'Transitioning to a heat pump is a major step toward a sustainable, low-carbon home. Open Energy Services provides independent advice on whether an Air Source or Ground Source Heat Pump is right for your property. We then match you with MCS-certified installers and help you apply for the Boiler Upgrade Scheme (BUS).'
+    },
+    {
+      slug: 'solar',
+      title: 'Solar Panels',
+      description: 'Connect with top-rated solar professionals to generate your own clean, renewable energy.',
+      content: 'Generating your own electricity protects you from rising energy prices. We don\'t install solar panels ourselves; instead, we analyze your energy usage and roof suitability, then introduce you to our network of premium, vetted solar installers. We ensure you get a system perfectly tailored to your needs.'
+    },
+    {
+      slug: 'battery',
+      title: 'Battery Storage',
+      description: 'We match you with experts who can add battery storage to maximize your solar investment.',
+      content: 'Maximize the benefits of your solar panels by storing excess energy for use during peak hours. Our consultants help you determine the optimal battery capacity for your usage patterns and connect you with certified technicians for a safe, efficient installation.'
+    },
+    {
+      slug: 'boiler',
+      title: 'Boiler Upgrades',
+      description: 'Find trusted engineers for high-efficiency boiler replacements and central heating upgrades.',
+      content: 'If your boiler is old and inefficient, upgrading can significantly lower your heating costs. We work with Gas Safe registered engineers across the UK. Depending on your circumstances, you might be eligible for a fully funded replacement through government schemes, which our team will help you secure.'
+    },
+    {
+      slug: 'retrofit',
+      title: 'Retrofit Assessments',
+      description: 'Comprehensive property evaluations by independent, certified retrofit assessors.',
+      content: 'Before making major energy improvements, a professional Retrofit Assessment (in line with PAS2035) is crucial. We arrange for certified, independent assessors to evaluate your property, creating a tailored medium-term improvement plan that maximizes energy efficiency and funding eligibility.'
+    }
+  ];
+
+  return services.map(service => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+---
+
+<Layout 
+  title={`${service.title} | Open Energy Services`} 
+  description={service.description}
+>
+  <div class="pt-32 pb-16 bg-bg-grey">
+    <div class="container max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary-navy tracking-tighter mb-6">
+        {service.title}
+      </h1>
+      <p class="text-lg md:text-xl text-slate-600 font-medium leading-relaxed mb-8">
+        {service.description}
+      </p>
+    </div>
+  </div>
+
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container max-w-4xl mx-auto">
+      <div class="prose prose-lg prose-slate max-w-none">
+        <p class="text-slate-700 leading-relaxed text-lg font-medium">{service.content}</p>
+        
+        <div class="mt-12 bg-bg-grey p-8 rounded-2xl border border-slate-100">
+          <h2 class="text-2xl font-bold text-primary-navy mb-4 tracking-tight">Our Independent Approach</h2>
+          <p class="text-slate-600 mb-6">
+            Open Energy Services is an independent energy consultancy. We do not carry out installations ourselves. Our value lies in:
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-emerald font-bold">✓</span>
+              <span class="text-slate-700">Assessing your eligibility for government funding.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald font-bold">✓</span>
+              <span class="text-slate-700">Providing unbiased, property-specific advice.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald font-bold">✓</span>
+              <span class="text-slate-700">Matching you with our nationwide network of accredited installers.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald font-bold">✓</span>
+              <span class="text-slate-700">Supporting you throughout the entire process, completely free of charge.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection client:visible />
+</Layout>
