@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
               <img 
                 src="/OEMLogo.png" 
                 alt="Open Energy Services Logo" 
-                className="h-14 md:h-16 w-auto object-contain bg-white rounded-lg p-1.5"
+                className="h-20 md:h-24 lg:h-28 w-auto object-contain bg-white rounded-xl p-3"
               />
             </div>
             <p className="text-slate-300 mb-8 font-normal leading-relaxed text-[15px] max-w-md">

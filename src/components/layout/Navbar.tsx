@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
             <img 
               src="/OEMLogo.png" 
               alt="Open Energy Services Logo" 
-              className="h-12 md:h-14 w-auto object-contain"
+              className="h-20 md:h-24 lg:h-28 w-auto object-contain py-2"
             />
           </motion.a>
           
