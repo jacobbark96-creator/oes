@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/50 aspect-[4/3] lg:aspect-square group">
               <img 
-                src="https://images.unsplash.com/photo-1509391366360-1e97b524fb66?auto=format,compress&fit=crop&w=1200&q=80" 
+                src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format,compress&fit=crop&w=1200&q=80" 
                 alt="Residential solar panels on a modern home roof" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
