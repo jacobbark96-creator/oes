@@ -36,12 +36,12 @@ export const Navbar: React.FC = () => {
             href="/"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center group cursor-pointer relative h-12 md:h-14 lg:h-16 w-48 md:w-56 lg:w-64"
+            className="flex items-center group cursor-pointer relative h-12 md:h-14 lg:h-16 w-48 md:w-56 lg:w-64 overflow-hidden"
           >
             <img 
               src="/OEMLogo.png" 
               alt="Open Energy Services Logo" 
-              className="absolute h-40 md:h-48 lg:h-56 w-auto object-contain top-1/2 left-0 -translate-y-1/2"
+              className="absolute h-40 md:h-48 lg:h-56 w-auto object-contain top-1/2 left-0 -translate-y-1/2 max-w-none"
             />
           </motion.a>
           

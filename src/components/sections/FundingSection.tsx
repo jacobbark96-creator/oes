@@ -51,7 +51,7 @@ export const FundingSection: React.FC = () => {
             <div className="relative hidden lg:block h-full min-h-[400px]">
               <div className="absolute inset-0 rounded-3xl overflow-hidden border-2 border-white/20 shadow-glass transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <img 
-                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format,compress&fit=crop&w=1000&q=80" 
+                  src="/funding-documents.jpg" 
                   alt="Reviewing funding documents" 
                   className="w-full h-full object-cover"
                 />

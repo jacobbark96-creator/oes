@@ -38,36 +38,13 @@ export const UKCoverage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md aspect-square bg-bg-grey rounded-full border border-slate-100 shadow-glass flex items-center justify-center p-8">
-              {/* Abstract Map Representation */}
-              <div className="w-full h-full relative opacity-80">
-                <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-emerald/20">
-                  <path d="M150 450 C 150 450, 180 400, 200 350 C 220 300, 250 250, 250 200 C 250 150, 220 100, 180 50 C 140 0, 100 50, 80 100 C 60 150, 80 200, 100 250 C 120 300, 100 350, 150 450 Z" fill="currentColor"/>
-                </svg>
-                
-                {/* Pins */}
-                {[
-                  { top: '20%', left: '45%' },
-                  { top: '35%', left: '55%' },
-                  { top: '50%', left: '40%' },
-                  { top: '65%', left: '60%' },
-                  { top: '80%', left: '45%' },
-                  { top: '45%', left: '70%' },
-                  { top: '70%', left: '30%' },
-                ].map((pos, i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 + (i * 0.1) }}
-                    className="absolute w-4 h-4 bg-emerald rounded-full shadow-md shadow-emerald/50"
-                    style={pos}
-                  >
-                    <div className="absolute inset-0 bg-emerald rounded-full animate-ping opacity-50" />
-                  </motion.div>
-                ))}
-              </div>
+            <div className="relative w-full max-w-md aspect-square bg-bg-grey rounded-[2rem] border border-slate-100 shadow-glass overflow-hidden">
+              <img 
+                src="/uk-map.jpg" 
+                alt="Map representing our UK coverage" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-primary-navy/10 mix-blend-overlay" />
             </div>
           </motion.div>
 

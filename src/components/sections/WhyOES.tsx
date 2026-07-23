@@ -25,7 +25,7 @@ export const WhyOES: React.FC = () => {
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white aspect-[4/3]">
               <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format,compress&fit=crop&w=1200&q=80" 
+                src="/professional-consultant.jpg" 
                 alt="Professional Energy Consultant" 
                 className="w-full h-full object-cover"
               />
