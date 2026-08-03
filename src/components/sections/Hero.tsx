@@ -5,6 +5,21 @@ import { motion } from 'framer-motion';
 export const Hero: React.FC = () => {
   return (
     <section className="relative w-full py-24 pt-32 lg:py-32 lg:pt-40 flex items-center overflow-hidden bg-bg-grey">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <svg className="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M0 40L40 0H20L0 20M40 40V20L20 40" stroke="currentColor" strokeWidth="1" className="text-slate-200" fill="none" />
+              <rect width="40" height="40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-slate-200" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-grid)" />
+        </svg>
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-grey via-transparent to-bg-grey" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg-grey via-transparent to-bg-grey" />
+      </div>
+
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald/5 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3" />
@@ -22,8 +37,30 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.05] mb-6 tracking-tighter text-primary-navy">
-                Better energy solutions, <br />
-                <span className="text-emerald">the right way.</span>
+                <motion.span 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="inline-block"
+                >Better</motion.span>{' '}
+                <motion.span 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="inline-block"
+                >energy</motion.span>{' '}
+                <motion.span 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="inline-block"
+                >solutions,</motion.span> <br />
+                <motion.span 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="text-emerald inline-block"
+                >the right way.</motion.span>
               </h1>
               
               <p className="text-lg sm:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed font-normal">

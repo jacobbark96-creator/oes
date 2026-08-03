@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home, ThermometerSnowflake, Wind, Flame, Sun, Battery, Settings, ClipboardList } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SpotlightCard } from '../ui/SpotlightCard';
 
 export const ServicesGrid: React.FC = () => {
   const services = [
@@ -89,13 +90,15 @@ export const ServicesGrid: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ y: -5 }}
-              className="bg-bg-grey p-8 rounded-3xl border border-slate-100 hover:border-emerald/30 hover:shadow-lg transition-all duration-300 group block"
+              className="block group"
             >
-              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <service.icon className="text-emerald w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-primary-navy mb-3 tracking-tight group-hover:text-emerald transition-colors">{service.title}</h3>
-              <p className="text-sm text-slate-600 font-medium leading-relaxed">{service.description}</p>
+              <SpotlightCard className="bg-bg-grey p-8 rounded-3xl border border-slate-100 group-hover:border-emerald/30 group-hover:shadow-lg transition-all duration-300 h-full">
+                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="text-emerald w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-primary-navy mb-3 tracking-tight group-hover:text-emerald transition-colors">{service.title}</h3>
+                <p className="text-sm text-slate-600 font-medium leading-relaxed">{service.description}</p>
+              </SpotlightCard>
             </motion.a>
           ))}
         </div>
