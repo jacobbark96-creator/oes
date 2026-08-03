@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full min-h-[100dvh] lg:min-h-[85vh] flex items-center overflow-hidden bg-bg-grey pt-28 pb-12 md:py-16 md:pt-32">
+    <section className="relative w-full py-24 pt-32 lg:py-32 lg:pt-40 flex items-center overflow-hidden bg-bg-grey">
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald/5 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3" />
@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="absolute bottom-6 left-6 right-6 sm:left-auto sm:right-[-2rem] sm:bottom-12 bg-white/90 backdrop-blur-xl p-6 rounded-2xl shadow-glass border border-white/60 sm:w-72"
+                className="absolute bottom-6 left-6 right-6 sm:left-auto sm:right-6 sm:bottom-6 lg:right-[-2rem] lg:bottom-12 bg-white/90 backdrop-blur-xl p-6 rounded-2xl shadow-glass border border-white/60 sm:w-72"
               >
                 <div className="space-y-4">
                   {[

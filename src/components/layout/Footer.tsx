@@ -9,11 +9,11 @@ export const Footer: React.FC = () => {
           
           {/* Brand & Description (Takes up more space) */}
           <div className="col-span-1 lg:col-span-5 lg:pr-10">
-            <div className="mb-6 relative h-16 md:h-20 lg:h-24 w-56 md:w-64 overflow-hidden">
+            <div className="mb-8">
               <img 
                 src="/OEMLogo.png" 
                 alt="Open Energy Services Logo" 
-                className="absolute h-40 md:h-48 lg:h-56 w-auto object-contain top-1/2 left-0 -translate-y-1/2 max-w-none"
+                className="h-16 md:h-20 lg:h-24 w-auto object-contain"
               />
             </div>
             <p className="text-slate-300 mb-8 font-normal leading-relaxed text-[15px] max-w-md">
