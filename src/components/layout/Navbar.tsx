@@ -17,10 +17,10 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { name: 'About OES', href: '/about' },
     { name: 'Solutions', href: '/services' },
     { name: 'Funding', href: '/funding' },
     { name: 'Resources', href: '/resources' },
-    { name: 'About OES', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
 
