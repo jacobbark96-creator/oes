@@ -35,51 +35,54 @@ export const Hero: React.FC = () => {
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary-navy/10 bg-white/70 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-primary-navy/70 shadow-sm backdrop-blur-sm">
                 Independent Energy Consultancy
               </div>
-              <h1 className="mb-6 max-w-[11ch] text-[clamp(2.9rem,6vw,5.5rem)] font-bold leading-[0.96] tracking-[-0.05em] text-primary-navy">
+              <h1 className="mb-6 max-w-[15ch] text-[clamp(2.5rem,5.5vw,5rem)] font-bold leading-[1.05] tracking-[-0.03em] text-primary-navy">
                 <motion.span 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="inline-block"
-                >Better</motion.span>{' '}
+                >Reduce your</motion.span>{' '}
                 <motion.span 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="inline-block"
-                >energy</motion.span>{' '}
+                  className="text-emerald inline-block"
+                >energy costs.</motion.span>{' '}
                 <motion.span 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="inline-block"
-                >solutions,</motion.span> <br />
+                >Without</motion.span>{' '}
                 <motion.span 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="text-emerald inline-block"
-                >the right way.</motion.span>
+                  className="inline-block"
+                >navigating it alone.</motion.span>
               </h1>
               
               <p className="mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-[1.15rem]">
-                Open Energy Services helps homeowners, landlords and businesses plan smarter upgrades, secure funding support, and connect with trusted installation partners across the UK.
+                Open Energy Services independently assesses your energy needs, identifies the solutions that could work for you, and connects you with trusted accredited partners across the UK.
               </p>
               
               <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <div className="flex flex-col gap-2">
+                  <a 
+                    href="/eligibility"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-navy px-7 py-4 text-base font-semibold text-white shadow-soft transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-navy/20"
+                  >
+                    Check My Eligibility
+                    <ArrowRight size={20} />
+                  </a>
+                  <p className="text-xs text-center font-medium text-slate-500">Free • No obligation • Takes around 60 seconds</p>
+                </div>
                 <a 
-                  href="/eligibility"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-navy px-7 py-4 text-base font-semibold text-white shadow-soft transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-navy/20"
-                >
-                  Check My Eligibility
-                  <ArrowRight size={20} />
-                </a>
-                <a 
-                  href="/how-it-works"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white/85 px-7 py-4 text-base font-semibold text-primary-navy shadow-sm backdrop-blur-sm transition-all hover:border-slate-300 hover:bg-white"
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white/85 px-7 py-4 text-base font-semibold text-primary-navy shadow-sm backdrop-blur-sm transition-all hover:border-slate-300 hover:bg-white sm:mb-6"
                 >
                   <Play size={20} className="text-emerald" />
-                  How It Works
+                  Speak to an Energy Advisor
                 </a>
               </div>
 

@@ -18,11 +18,13 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'How It Works', href: '/how-it-works' },
-    { name: 'Services', href: '/services' },
+    { name: 'For Businesses', href: '/commercial-solar' },
+    { name: 'For Homeowners', href: '/#homeowners' },
+    { name: 'For Landlords', href: '/#landlords' },
+    { name: 'Solutions', href: '/services' },
     { name: 'Funding', href: '/funding' },
-    { name: 'About Us', href: '/about' },
     { name: 'Resources', href: '/resources' },
+    { name: 'About OES', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
 

@@ -6,32 +6,32 @@ export const HowItWorks: React.FC = () => {
     {
       num: '01',
       title: 'Tell us about your property',
-      desc: 'Complete our simple online eligibility checker or speak with one of our energy consultants to provide basic details about your home.'
+      desc: 'We collect the basic information about your home, business or property.'
     },
     {
       num: '02',
-      title: 'We assess your eligibility',
-      desc: 'Our experts determine if you qualify for fully-funded or partially-funded government grants like ECO4 or GBIS.'
+      title: 'We assess your needs',
+      desc: 'We look at your circumstances, energy usage and requirements.'
     },
     {
       num: '03',
-      title: 'We identify suitable improvements',
-      desc: 'We provide independent advice on the best energy efficiency upgrades (like insulation, solar, or heat pumps) for your specific needs.'
+      title: 'We identify your options',
+      desc: 'We identify the energy solutions and funding opportunities that may be relevant.'
     },
     {
       num: '04',
-      title: 'We match you with trusted local installers',
-      desc: 'We connect you with fully vetted, accredited installation partners from our nationwide network. We do not carry out installations ourselves.'
+      title: 'We match you with trusted partners',
+      desc: 'Where appropriate, we connect you with suitable accredited installation partners.'
     },
     {
       num: '05',
-      title: 'Receive quotations',
-      desc: 'Get competitive, transparent quotes from our trusted partners. We help you compare them objectively.'
+      title: 'Compare your options',
+      desc: 'You can understand the proposed solution, costs and available options before deciding.'
     },
     {
       num: '06',
-      title: 'Choose your installer and complete your project',
-      desc: 'Select the best partner for your needs. We coordinate the process and provide ongoing support until your installation is complete.'
+      title: 'Get the work completed',
+      desc: 'Your chosen installation partner handles the installation while OES helps guide the process.'
     }
   ];
 
@@ -45,17 +45,27 @@ export const HowItWorks: React.FC = () => {
             viewport={{ once: true }}
             className="mb-5 text-3xl font-bold tracking-tight text-primary-navy md:text-4xl lg:text-[3.1rem]"
           >
-            How the process works
+            How it works
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="mx-auto max-w-2xl text-lg text-slate-600"
+            className="mx-auto max-w-2xl text-lg text-slate-600 mb-8"
           >
-            We coordinate everything from initial assessment to connecting you with accredited installers, ensuring a smooth, hassle-free experience.
+            We guide you through every step—from assessing your needs to finding the right trusted installation partner.
           </motion.p>
+          <motion.a 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            href="/eligibility"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-navy px-8 py-4 text-base font-semibold text-white shadow-soft transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-navy/20"
+          >
+            Check My Eligibility
+          </motion.a>
         </div>
 
         <div className="relative">
