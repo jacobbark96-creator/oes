@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, CheckCircle } from 'lucide-react';
+import { Menu, X, Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { UploadBillModal } from '../ui/UploadBillModal';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,35 +27,35 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled ? 'py-4 bg-white/80 backdrop-blur-xl shadow-glass border-b border-slate-100' : 'py-6 bg-transparent'
-      }`}
-    >
+    <nav className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
       <div className="container">
-        <div className="flex justify-between items-center">
+        <div
+          className={`flex items-center justify-between rounded-[28px] border px-4 py-3 shadow-soft transition-all duration-500 md:px-6 ${
+            scrolled
+              ? 'border-slate-200/80 bg-white/88 backdrop-blur-xl'
+              : 'border-white/60 bg-white/72 backdrop-blur-lg'
+          }`}
+        >
           <motion.a 
             href="/"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center group cursor-pointer py-2"
+            className="group relative block h-[7rem] w-[27rem] overflow-hidden md:h-[8rem] md:w-[32rem] lg:h-[9rem] lg:w-[37rem]"
           >
             <img 
               src="/OEMLogo.png" 
               alt="Open Energy Services Logo" 
-              className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="pointer-events-none absolute left-[-3.5rem] top-[-5.4rem] h-[17.5rem] max-w-none object-contain transition-transform duration-300 group-hover:scale-[1.02] md:left-[-4rem] md:top-[-6rem] md:h-[20rem] lg:left-[-4.7rem] lg:top-[-7.1rem] lg:h-[23rem]"
             />
           </motion.a>
           
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((item) => (
               <motion.a 
                 key={item.name}
                 href={item.href} 
                 whileHover={{ y: -2 }}
-                className={`text-[15px] font-medium tracking-tight transition-colors duration-300 ${
-                  scrolled ? 'text-text hover:text-emerald' : 'text-primary-navy hover:text-emerald'
-                }`}
+                className="text-[15px] font-medium tracking-tight text-primary-navy/82 transition-colors duration-300 hover:text-primary-navy"
               >
                 {item.name}
               </motion.a>
@@ -62,19 +64,26 @@ export const Navbar: React.FC = () => {
               href="/eligibility"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="relative group overflow-hidden bg-emerald text-white px-6 py-2.5 rounded-xl font-semibold text-[15px] shadow-soft hover:shadow-lg hover:shadow-emerald/20 transition-all"
+              className="inline-flex items-center justify-center rounded-2xl bg-primary-navy px-5 py-3 text-[15px] font-semibold text-white shadow-soft transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-navy/15"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Check My Eligibility
-              </span>
+              <span className="relative z-10">Check My Eligibility</span>
             </motion.a>
+            <motion.button 
+              onClick={() => setIsModalOpen(true)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 text-[15px] font-semibold text-white shadow-soft transition-all hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              <Upload size={18} />
+              <span className="relative z-10">Upload Bill</span>
+            </motion.button>
           </div>
 
           <div className="lg:hidden">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
               aria-label="Toggle menu"
-              className="p-2 rounded-xl transition-colors text-primary-navy hover:bg-slate-100"
+              className="rounded-xl p-2 text-primary-navy transition-colors hover:bg-slate-100"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -89,14 +98,14 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-slate-100 overflow-hidden shadow-xl absolute top-full left-0 w-full"
+            className="absolute left-0 top-full mt-3 w-full overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-xl lg:hidden"
           >
-            <div className="px-6 pt-4 pb-8 space-y-4">
+            <div className="space-y-2 px-6 pb-6 pt-4">
               {navLinks.map((item) => (
                 <a 
                   key={item.name}
                   href={item.href} 
-                  className="block py-3 text-lg font-medium text-text hover:text-emerald transition-colors tracking-tight"
+                  className="block rounded-2xl px-3 py-3 text-base font-medium tracking-tight text-text transition-colors hover:bg-slate-50 hover:text-primary-navy"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -105,14 +114,23 @@ export const Navbar: React.FC = () => {
               <a 
                 href="/eligibility"
                 onClick={() => setIsOpen(false)}
-                className="w-full bg-emerald text-white px-6 py-4 rounded-xl font-bold text-lg shadow-soft flex justify-center items-center gap-2 mt-4"
+                className="mt-3 flex w-full items-center justify-center rounded-2xl bg-primary-navy px-6 py-4 text-base font-semibold text-white shadow-soft"
               >
                 Check My Eligibility
               </a>
+              <button 
+                onClick={() => { setIsOpen(false); setIsModalOpen(true); }}
+                className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-orange-500 px-6 py-4 text-base font-semibold text-white shadow-soft transition-colors hover:bg-orange-600"
+              >
+                <Upload size={20} />
+                Upload Bill
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <UploadBillModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </nav>
   );
 };

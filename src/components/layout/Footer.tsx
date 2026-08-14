@@ -1,27 +1,33 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Star } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-primary-navy text-white pt-16 pb-8">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12">
           
-          {/* Brand & Description (Takes up more space) */}
           <div className="col-span-1 lg:col-span-5 lg:pr-10">
-            <div className="mb-8">
+            <div className="mb-6 h-16 w-[14rem] overflow-hidden md:h-[4.5rem] md:w-[16rem] lg:h-20 lg:w-[18rem]">
               <img 
                 src="/OEMLogo.png" 
                 alt="Open Energy Services Logo" 
-                className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+                className="pointer-events-none relative left-[-1.75rem] top-[-2.55rem] h-[8.8rem] max-w-none object-contain md:left-[-1.95rem] md:top-[-2.9rem] md:h-[10rem] lg:left-[-2.15rem] lg:top-[-3.2rem] lg:h-[11rem]"
               />
             </div>
-            <p className="text-slate-300 mb-8 font-normal leading-relaxed text-[15px] max-w-md">
-              Your independent energy consultancy. We help homeowners, landlords, and businesses access government funding and connect with trusted, accredited installation partners across the UK.
+            <p className="mb-7 max-w-md text-[15px] leading-relaxed text-slate-300">
+              Independent guidance for homeowners, landlords and businesses seeking funding support and the right accredited installation partners.
             </p>
+            <div className="rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-light/80">
+                Trusted First Point of Contact
+              </p>
+              <p className="text-sm leading-relaxed text-slate-300">
+                We simplify the path from initial assessment to installer selection, with clear advice and no pressure.
+              </p>
+            </div>
           </div>
 
-          {/* Quick Links */}
           <div className="col-span-1 lg:col-span-2">
             <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Company</h3>
             <ul className="space-y-3.5 text-[15px] text-slate-300 font-medium">
@@ -32,7 +38,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div className="col-span-1 lg:col-span-2">
             <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Services</h3>
             <ul className="space-y-4 text-[15px] font-medium text-slate-300">
@@ -45,7 +50,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="col-span-1 lg:col-span-3">
             <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Contact</h3>
             <ul className="space-y-4 text-[15px] text-slate-300 font-medium">
@@ -78,9 +82,9 @@ export const Footer: React.FC = () => {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[13px] font-medium text-slate-400">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 text-[13px] font-medium text-slate-400 md:flex-row">
           <p>© {new Date().getFullYear()} Open Energy Services. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6">
             <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="/cookies" className="hover:text-white transition-colors">Cookie Policy</a>

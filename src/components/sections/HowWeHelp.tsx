@@ -37,15 +37,15 @@ export const HowWeHelp: React.FC = () => {
   ];
 
   return (
-    <section id="how-we-help" className="py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section id="how-we-help" className="relative overflow-hidden bg-white py-[4.5rem] md:py-20 lg:py-24">
       <div className="container relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-navy mb-6 tracking-tight leading-tight"
+            className="mb-5 text-3xl font-bold leading-tight tracking-tight text-primary-navy md:text-4xl lg:text-[3.2rem]"
           >
             Your independent energy consultancy.
           </motion.h2>
@@ -54,13 +54,13 @@ export const HowWeHelp: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-600 leading-relaxed font-normal"
+            className="text-lg leading-relaxed text-slate-600"
           >
             We guide you through the complex landscape of energy efficiency improvements, ensuring you get the best advice, funding, and trusted installers.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -69,15 +69,15 @@ export const HowWeHelp: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group bg-bg-grey rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-primary-navy/5 transition-all duration-300"
+              className="group rounded-[1.75rem] border border-slate-200/80 bg-gradient-to-b from-white to-slate-50/80 p-7 shadow-[0_18px_60px_-34px_rgba(14,35,65,0.22)] transition-all duration-300 hover:-translate-y-1 hover:border-emerald/20 hover:shadow-[0_30px_70px_-38px_rgba(14,35,65,0.28)]"
             >
-              <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-navy/[0.04] text-emerald transition-transform duration-300 group-hover:scale-105">
                 <card.icon className="text-emerald w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold text-primary-navy mb-3 tracking-tight">
+              <h3 className="mb-3 text-xl font-bold tracking-tight text-primary-navy">
                 {card.title}
               </h3>
-              <p className="text-slate-600 leading-relaxed font-medium">
+              <p className="leading-relaxed text-slate-600">
                 {card.description}
               </p>
             </motion.div>

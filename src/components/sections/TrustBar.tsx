@@ -12,9 +12,9 @@ export const TrustBar: React.FC = () => {
   ];
 
   return (
-    <section className="bg-primary-dark py-12 relative z-20">
+    <section className="relative z-20 -mt-3 bg-transparent pb-6 md:pb-8">
       <div className="container">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 gap-4 rounded-[2rem] border border-primary-navy/10 bg-white/88 p-5 shadow-[0_26px_80px_-34px_rgba(14,35,65,0.24)] backdrop-blur-xl md:grid-cols-3 md:gap-5 md:p-6 lg:grid-cols-5">
           {items.map((item, index) => (
             <motion.div
               key={index}
@@ -22,12 +22,12 @@ export const TrustBar: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col items-center text-center gap-3"
+              className="flex flex-col items-center gap-3 rounded-2xl px-3 py-2 text-center"
             >
-              <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-emerald mb-2">
+              <div className="mb-1 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-light text-emerald">
                 <item.icon size={24} strokeWidth={2} />
               </div>
-              <span className="text-white font-medium text-sm sm:text-base">{item.text}</span>
+              <span className="text-sm font-semibold text-primary-navy sm:text-[15px]">{item.text}</span>
             </motion.div>
           ))}
         </div>

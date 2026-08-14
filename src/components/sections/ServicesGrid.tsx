@@ -56,15 +56,15 @@ export const ServicesGrid: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-20 lg:py-24 bg-white relative">
+    <section id="services" className="relative bg-white py-[4.5rem] md:py-20 lg:py-24">
       <div className="container relative z-10">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-navy mb-6 tracking-tight"
+            className="mb-5 text-3xl font-bold tracking-tight text-primary-navy md:text-4xl lg:text-[3.1rem]"
           >
             Energy efficiency solutions, delivered by experts.
           </motion.h2>
@@ -73,13 +73,13 @@ export const ServicesGrid: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-600 font-medium"
+            className="text-lg text-slate-600"
           >
             We don't install these measures ourselves. Instead, we act as your independent guide, matching you with the perfect accredited specialists for your specific needs.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service, index) => (
             <motion.a 
               href={`/services/${service.id}`}
@@ -92,12 +92,12 @@ export const ServicesGrid: React.FC = () => {
               whileHover={{ y: -5 }}
               className="block group"
             >
-              <SpotlightCard className="bg-bg-grey p-8 rounded-3xl border border-slate-100 group-hover:border-emerald/30 group-hover:shadow-lg transition-all duration-300 h-full">
-                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <SpotlightCard className="h-full rounded-[1.75rem] border border-slate-200/80 bg-gradient-to-b from-white to-slate-50/70 p-7 shadow-[0_18px_60px_-36px_rgba(14,35,65,0.22)] transition-all duration-300 group-hover:border-emerald/30 group-hover:shadow-[0_30px_70px_-38px_rgba(14,35,65,0.28)]">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-navy/[0.04] shadow-sm transition-transform duration-300 group-hover:scale-105">
                   <service.icon className="text-emerald w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-primary-navy mb-3 tracking-tight group-hover:text-emerald transition-colors">{service.title}</h3>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">{service.description}</p>
+                <h3 className="mb-3 text-lg font-bold tracking-tight text-primary-navy transition-colors group-hover:text-emerald">{service.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-600">{service.description}</p>
               </SpotlightCard>
             </motion.a>
           ))}

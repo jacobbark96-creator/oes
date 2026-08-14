@@ -13,9 +13,9 @@ export const WhyOES: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-bg-grey relative overflow-hidden">
+    <section className="relative overflow-hidden bg-bg-grey py-[4.5rem] md:py-20 lg:py-24">
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+        <div className="grid items-center gap-8 md:gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -23,7 +23,7 @@ export const WhyOES: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white aspect-[4/3]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_30px_90px_-38px_rgba(14,35,65,0.3)]">
               <img 
                 src="/professional-consultant.jpg" 
                 alt="Professional Energy Consultant" 
@@ -41,20 +41,23 @@ export const WhyOES: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-navy mb-8 tracking-tight leading-tight">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-emerald">
+              Why Clients Start With Us
+            </p>
+            <h2 className="mb-6 text-3xl font-bold leading-tight tracking-tight text-primary-navy md:text-4xl lg:text-[3.1rem]">
               The smart way to improve your property.
             </h2>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed font-medium">
+            <p className="mb-8 text-lg leading-relaxed text-slate-600">
               We remove the stress and confusion from home energy improvements. By acting as your independent advisor, we ensure you get the right solution, the maximum available funding, and a flawless installation from a vetted partner.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-5">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-emerald-light flex items-center justify-center flex-shrink-0">
+                <div key={index} className="flex items-center gap-3 rounded-2xl border border-white/80 bg-white/72 px-4 py-3 shadow-sm backdrop-blur-sm">
+                  <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-emerald-light">
                     <CheckCircle2 size={14} className="text-emerald" />
                   </div>
-                  <span className="font-semibold text-primary-navy text-sm sm:text-base">{benefit}</span>
+                  <span className="text-sm font-semibold text-primary-navy sm:text-[15px]">{benefit}</span>
                 </div>
               ))}
             </div>

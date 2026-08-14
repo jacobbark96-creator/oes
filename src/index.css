@@ -23,6 +23,12 @@
   body {
     @apply bg-bg-grey text-text overflow-x-hidden;
   }
+  h1, h2, h3, h4 {
+    letter-spacing: -0.03em;
+  }
+  p {
+    text-wrap: pretty;
+  }
 }
 
 @layer components {
@@ -31,5 +37,8 @@
   }
   .container {
     @apply max-w-[1280px] mx-auto px-6 lg:px-8;
+  }
+  .surface-card {
+    @apply rounded-[1.75rem] border border-slate-200/80 bg-white shadow-[0_18px_60px_-34px_rgba(14,35,65,0.18)];
   }
 }

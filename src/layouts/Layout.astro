@@ -118,7 +118,7 @@ const formattedTitle = title.includes('Open Energy Services') ? title : `${title
   </head>
   <body class="bg-bg-grey text-text overflow-x-hidden font-sans selection:bg-emerald/20 selection:text-emerald">
     <Navbar client:load />
-    <main>
+    <main class="overflow-x-clip">
       <slot />
     </main>
     <Footer />

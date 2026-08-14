@@ -36,14 +36,14 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 md:py-20 lg:py-24 bg-bg-grey relative">
+    <section id="how-it-works" className="relative bg-bg-grey py-[4.5rem] md:py-20 lg:py-24">
       <div className="container max-w-5xl relative z-10">
-        <div className="text-center mb-16">
+        <div className="mb-14 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-navy mb-6 tracking-tight"
+            className="mb-5 text-3xl font-bold tracking-tight text-primary-navy md:text-4xl lg:text-[3.1rem]"
           >
             How the process works
           </motion.h2>
@@ -52,7 +52,7 @@ export const HowItWorks: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-slate-600 max-w-2xl mx-auto font-medium"
+            className="mx-auto max-w-2xl text-lg text-slate-600"
           >
             We coordinate everything from initial assessment to connecting you with accredited installers, ensuring a smooth, hassle-free experience.
           </motion.p>
@@ -60,7 +60,7 @@ export const HowItWorks: React.FC = () => {
 
         <div className="relative">
           {/* Central Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2" />
+          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-slate-200 to-transparent md:block" />
 
           <div className="space-y-12 md:space-y-0">
             {steps.map((step, index) => (
@@ -75,14 +75,14 @@ export const HowItWorks: React.FC = () => {
                 }`}
               >
                 {/* Center Node */}
-                <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-[3px] border-emerald items-center justify-center shadow-soft z-10">
+                <div className="absolute left-1/2 top-1/2 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-emerald bg-white shadow-soft z-10 md:flex">
                   <span className="text-emerald font-bold text-sm">{step.num}</span>
                 </div>
 
                 {/* Content Card */}
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12 text-left md:text-right'}`}>
-                  <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-lg transition-shadow duration-300">
-                    <div className="md:hidden w-10 h-10 bg-emerald-light rounded-xl flex items-center justify-center text-emerald font-bold mb-4">
+                  <div className="rounded-[1.75rem] border border-slate-200/80 bg-white p-7 shadow-[0_18px_60px_-34px_rgba(14,35,65,0.22)] transition-all duration-300 hover:shadow-[0_28px_70px_-38px_rgba(14,35,65,0.26)] md:p-8">
+                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-light font-bold text-emerald md:hidden">
                       {step.num}
                     </div>
                     <h3 className="text-xl font-bold text-primary-navy mb-3 tracking-tight">{step.title}</h3>

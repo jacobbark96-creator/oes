@@ -29,14 +29,14 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-16 md:py-20 lg:py-24 bg-white relative">
+    <section id="faq" className="relative bg-white py-[4.5rem] md:py-20 lg:py-24">
       <div className="container max-w-4xl">
-        <div className="text-center mb-16">
+        <div className="mb-14 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-navy mb-6 tracking-tight"
+            className="mb-5 text-3xl font-bold tracking-tight text-primary-navy md:text-4xl lg:text-[3.05rem]"
           >
             Frequently asked questions
           </motion.h2>
@@ -50,13 +50,13 @@ export const FAQ: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-bg-grey rounded-2xl border border-slate-100 overflow-hidden"
+              className="overflow-hidden rounded-[1.6rem] border border-slate-200 bg-bg-grey"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left"
+                className="flex w-full items-center justify-between p-6 text-left md:p-7"
               >
-                <span className="font-bold text-primary-navy text-lg pr-8">{faq.question}</span>
+                <span className="pr-8 text-lg font-bold text-primary-navy">{faq.question}</span>
                 <ChevronDown 
                   className={`text-emerald w-6 h-6 flex-shrink-0 transition-transform duration-300 ${
                     openIndex === index ? 'rotate-180' : ''
@@ -71,7 +71,7 @@ export const FAQ: React.FC = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="p-6 pt-0 text-slate-600 font-medium leading-relaxed border-t border-slate-100 mt-2">
+                    <div className="mt-2 border-t border-slate-200 p-6 pt-0 leading-relaxed text-slate-600 md:p-7 md:pt-0">
                       {faq.answer}
                     </div>
                   </motion.div>

@@ -12,32 +12,31 @@ export const Accreditations: React.FC = () => {
   ];
 
   return (
-    <section id="accreditations" className="py-12 md:py-16 bg-white border-y border-slate-100">
+    <section id="accreditations" className="border-y border-slate-100 bg-white py-14 md:py-16">
       <div className="container">
-        <div className="text-center mb-10">
-          <p className="text-sm font-bold tracking-widest uppercase text-slate-400 mb-2">
+        <div className="mb-10 text-center">
+          <p className="mb-2 text-sm font-bold uppercase tracking-[0.24em] text-slate-400">
             All our partner installers are MCS Certified
           </p>
-          <p className="text-xs font-semibold tracking-wider uppercase text-slate-400/80">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400/80">
             and hold industry-leading accreditations
           </p>
         </div>
         
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
           
-          {/* MCS Certified Badge */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-2 border-2 border-[#E3000F] p-1.5 rounded-lg bg-white"
+            className="col-span-2 flex items-center justify-center gap-2 rounded-[1.6rem] border border-slate-200 bg-bg-grey px-4 py-5 md:col-span-2"
           >
-            <div className="bg-[#E3000F] text-white font-black text-2xl px-3 py-1 rounded-md tracking-tighter">
+            <div className="rounded-md bg-[#E3000F] px-3 py-1 text-2xl font-black tracking-tighter text-white">
               MCS
             </div>
-            <div className="flex flex-col text-left leading-none pr-2">
-              <span className="font-black text-[11px] text-[#E3000F] tracking-widest">CERTIFIED</span>
-              <span className="font-bold text-[9px] text-[#E3000F]/80 tracking-wider">INSTALLER</span>
+            <div className="flex flex-col pr-2 text-left leading-none">
+              <span className="text-[11px] font-black tracking-widest text-[#E3000F]">CERTIFIED</span>
+              <span className="text-[9px] font-bold tracking-wider text-[#E3000F]/80">INSTALLER</span>
             </div>
           </motion.div>
 
@@ -48,7 +47,7 @@ export const Accreditations: React.FC = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex items-center justify-center font-black text-xl text-primary-navy tracking-tighter"
+              className="flex min-h-[88px] items-center justify-center rounded-[1.6rem] border border-slate-200 bg-bg-grey px-5 py-4 text-center text-lg font-black tracking-tighter text-primary-navy"
             >
               {logo}
             </motion.div>
