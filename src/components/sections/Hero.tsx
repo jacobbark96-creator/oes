@@ -164,6 +164,7 @@ export const Hero: React.FC = () => {
             <div className="absolute -bottom-10 -right-6 h-36 w-36 rounded-full bg-emerald/12 blur-3xl" />
             <div className="absolute -left-6 top-12 h-24 w-24 rounded-full bg-primary-navy/8 blur-2xl" />
             </div>
+          </motion.div>
         </div>
       </div>
     </section>
