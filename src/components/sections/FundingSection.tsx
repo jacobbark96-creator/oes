@@ -32,8 +32,8 @@ export const FundingSection: React.FC = () => {
                 {[
                   "ECO4 Scheme",
                   "Great British Insulation Scheme (GBIS)",
-                  "Local Authority Delivery",
-                  "Regional Energy Grants"
+                  "Boiler Upgrade Scheme",
+                  "Local Authority Funding"
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3 rounded-2xl border border-white/14 bg-white/10 p-4 backdrop-blur-md">
                     <CheckCircle2 size={20} className="text-white flex-shrink-0" />

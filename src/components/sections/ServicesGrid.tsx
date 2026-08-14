@@ -6,51 +6,39 @@ import { SpotlightCard } from '../ui/SpotlightCard';
 export const ServicesGrid: React.FC = () => {
   const services = [
     {
-      id: 'loft',
-      title: 'Loft Insulation',
-      description: 'We connect you with accredited specialists to trap heat and lower your energy bills.',
-      icon: Home,
-    },
-    {
-      id: 'wall',
-      title: 'Cavity Wall Insulation',
-      description: 'Get matched with trusted installers to prevent heat loss through your property walls.',
-      icon: Wind,
-    },
-    {
-      id: 'solid-wall',
-      title: 'Solid Wall Insulation',
-      description: 'Access experts who provide internal and external solid wall insulation solutions.',
-      icon: ThermometerSnowflake,
-    },
-    {
-      id: 'heat-pumps',
-      title: 'Heat Pumps',
-      description: 'We find you accredited partners for Air Source and Ground Source Heat Pump installations.',
-      icon: Settings,
-    },
-    {
       id: 'solar',
       title: 'Solar Panels',
-      description: 'Connect with top-rated solar professionals to generate your own clean, renewable energy.',
+      description: 'Generate your own clean energy and significantly reduce electricity costs.',
       icon: Sun,
     },
     {
       id: 'battery',
       title: 'Battery Storage',
-      description: 'We match you with experts who can add battery storage to maximize your solar investment.',
+      description: 'Store excess solar energy or cheap off-peak grid electricity for when you need it.',
       icon: Battery,
+    },
+    {
+      id: 'heat-pumps',
+      title: 'Heat Pumps',
+      description: 'Highly efficient, low-carbon heating systems for modern homes and businesses.',
+      icon: Settings,
+    },
+    {
+      id: 'insulation',
+      title: 'Insulation',
+      description: 'Stop heat escaping. Loft, cavity wall, and solid wall insulation solutions.',
+      icon: Wind,
     },
     {
       id: 'boiler',
       title: 'Boiler Upgrades',
-      description: 'Find trusted engineers for high-efficiency boiler replacements and central heating upgrades.',
+      description: 'High-efficiency boiler replacements to reduce gas consumption and heating bills.',
       icon: Flame,
     },
     {
       id: 'retrofit',
       title: 'Retrofit Assessments',
-      description: 'Comprehensive property evaluations by independent, certified retrofit assessors.',
+      description: 'Comprehensive property evaluations to identify the best efficiency improvements.',
       icon: ClipboardList,
     }
   ];
@@ -66,7 +54,7 @@ export const ServicesGrid: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="mb-5 text-3xl font-bold tracking-tight text-primary-navy md:text-4xl lg:text-[3.1rem]"
           >
-            Energy efficiency solutions, delivered by experts.
+            Our Solutions
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
@@ -75,11 +63,11 @@ export const ServicesGrid: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-600"
           >
-            We don't install these measures ourselves. Instead, we act as your independent guide, matching you with the perfect accredited specialists for your specific needs.
+            We help you understand which energy solutions make sense for your property, and then connect you with the right accredited installation partners.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
             <motion.a 
               href={`/services/${service.id}`}
