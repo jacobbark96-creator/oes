@@ -42,12 +42,12 @@ export const Navbar: React.FC = () => {
             href="/"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="group relative block h-[7rem] w-[27rem] overflow-hidden md:h-[8rem] md:w-[32rem] lg:h-[9rem] lg:w-[37rem]"
+            className="group relative block h-14 w-[12rem] sm:w-[14rem] md:h-16 md:w-[16rem] lg:h-[4.5rem] lg:w-[18rem]"
           >
             <img 
               src="/OEMLogo.png" 
               alt="Open Energy Services Logo" 
-              className="pointer-events-none absolute left-[-3.5rem] top-[-5.4rem] h-[17.5rem] max-w-none object-contain transition-transform duration-300 group-hover:scale-[1.02] md:left-[-4rem] md:top-[-6rem] md:h-[20rem] lg:left-[-4.7rem] lg:top-[-7.1rem] lg:h-[23rem]"
+              className="pointer-events-none absolute left-[-1.75rem] top-[-2.7rem] h-[8.75rem] max-w-none object-contain scale-[1.4] sm:scale-[1.5] origin-[25%_center] transition-transform duration-300 group-hover:scale-[1.45] sm:group-hover:scale-[1.55] md:left-[-2rem] md:top-[-3rem] md:h-[10rem] lg:left-[-2.35rem] lg:top-[-3.55rem] lg:h-[11.5rem]"
             />
           </motion.a>
           
