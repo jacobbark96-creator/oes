@@ -68,12 +68,13 @@ export const Navbar: React.FC = () => {
             </motion.a>
             <motion.button 
               onClick={() => setIsModalOpen(true)}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 text-[15px] font-semibold text-white shadow-soft transition-all hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/20"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Upload Bill"
+              title="Upload Bill"
+              className="inline-flex items-center justify-center rounded-2xl bg-orange-500 p-3 text-white shadow-soft transition-all hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/20"
             >
-              <Upload size={18} />
-              <span className="relative z-10">Upload Bill</span>
+              <Upload size={20} />
             </motion.button>
           </div>
 
