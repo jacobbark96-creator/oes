@@ -98,8 +98,8 @@ export const Hero: React.FC = () => {
               <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
               <div className="relative aspect-[4/3] overflow-hidden rounded-[1.6rem] border border-primary-navy/8 group">
                 <img 
-                  src="/solar-hero.jpg" 
-                  alt="Residential solar panels on a modern home roof" 
+                  src="/OESsurveyor.png" 
+                  alt="OES Surveyor" 
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 via-primary-dark/10 to-transparent" />
