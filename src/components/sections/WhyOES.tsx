@@ -39,7 +39,7 @@ export const WhyOES: React.FC = () => {
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_30px_90px_-38px_rgba(14,35,65,0.3)]">
               <img 
-                src="/professional-consultant.jpg" 
+                src="/homeimage.png" 
                 alt="Professional Energy Consultant" 
                 className="w-full h-full object-cover"
               />
