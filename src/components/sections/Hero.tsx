@@ -69,7 +69,7 @@ export const Hero: React.FC = () => {
               <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <div className="flex flex-col gap-2">
                   <a 
-                    href="/eligibility"
+                    href="/eligibility?utm_source=internal&utm_medium=website&utm_campaign=hero_cta"
                     className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-navy px-7 py-4 text-base font-semibold text-white shadow-soft transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-navy/20"
                   >
                     Check My Eligibility

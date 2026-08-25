@@ -19,5 +19,29 @@ import { CTASection } from '../components/sections/CTASection';
     </div>
   </div>
   <FundingSection client:load />
+
+  <div class="container mx-auto px-4 pb-20">
+    <div class="mt-16 text-center">
+      <a href="/eligibility?utm_source=internal&utm_medium=website&utm_campaign=funding_page" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-navy px-8 py-4 text-lg font-bold text-white shadow-soft transition-all hover:bg-primary-dark hover:scale-105">
+        Check My Eligibility Now
+      </a>
+      <p class="mt-4 text-slate-500 font-medium">Free • No obligation • Takes 60 seconds</p>
+    </div>
+
+    <div class="mt-20 pt-16 border-t border-slate-200">
+      <h2 class="text-3xl font-bold text-primary-navy mb-8 text-center">Related Funding Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <a href="/resources/eco4-eligibility-guide" class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-emerald/40 transition-colors shadow-sm">
+          <h3 class="font-bold text-xl text-primary-navy mb-2">ECO4 Eligibility Explained</h3>
+          <p class="text-slate-600">A deep dive into the income thresholds and qualifying benefits required for free ECO4 insulation and heating.</p>
+        </a>
+        <a href="/resources/gbis-vs-eco4" class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-emerald/40 transition-colors shadow-sm">
+          <h3 class="font-bold text-xl text-primary-navy mb-2">GBIS vs ECO4</h3>
+          <p class="text-slate-600">Confused by the different schemes? Learn which insulation grant is best suited for your property and income level.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <CTASection client:visible />
 </Layout>

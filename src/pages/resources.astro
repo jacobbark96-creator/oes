@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { CTASection } from '../components/sections/CTASection';
+import { resources } from '../data/resources';
 
 const seoTitle = "Energy Resources & Guides UK | Funding, Solar & Heat Pumps";
 const seoDescription = "Explore Open Energy Services' comprehensive guides on UK home energy efficiency, solar panels, heat pump grants, insulation, and government funding schemes like ECO4 and BUS.";
@@ -35,6 +36,9 @@ const faqSchema = {
     }
   ]
 };
+
+const fundingGuides = resources.filter(r => r.category === 'Funding' || r.category === 'Grants');
+const solarGuides = resources.filter(r => r.category === 'Solar' || r.category === 'Commercial' || r.category === 'Heat Pumps');
 ---
 
 <Layout 
@@ -57,32 +61,28 @@ const faqSchema = {
       <div class="mb-16">
         <h2 class="text-3xl font-bold text-primary-navy mb-8 border-b border-slate-200 pb-4">Funding & Government Grants</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          <a href="/resources/eco4-eligibility-guide" class="block bg-white p-8 rounded-3xl border border-slate-100 hover:border-emerald/30 hover:shadow-xl transition-all group">
-            <div class="inline-block px-3 py-1 bg-emerald-light text-emerald text-sm font-bold rounded-full mb-4">Funding</div>
-            <h3 class="text-2xl font-bold text-primary-navy mb-3 group-hover:text-emerald transition-colors tracking-tight">ECO4 Eligibility Guide: Can You Get Free Insulation?</h3>
-            <p class="text-slate-600 font-medium leading-relaxed mb-6">A complete guide to the Energy Company Obligation (ECO4) scheme, including qualifying benefits, income thresholds, and how to apply for free home upgrades.</p>
-            <span class="text-primary-navy font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Read Guide &rarr;</span>
-          </a>
-
-          <a href="/resources/heat-pump-grants-uk" class="block bg-white p-8 rounded-3xl border border-slate-100 hover:border-emerald/30 hover:shadow-xl transition-all group">
-            <div class="inline-block px-3 py-1 bg-emerald-light text-emerald text-sm font-bold rounded-full mb-4">Grants</div>
-            <h3 class="text-2xl font-bold text-primary-navy mb-3 group-hover:text-emerald transition-colors tracking-tight">Heat Pump Grants UK: The Boiler Upgrade Scheme (BUS)</h3>
-            <p class="text-slate-600 font-medium leading-relaxed mb-6">Learn how to get £7,500 off the cost of an Air Source or Ground Source Heat Pump in England and Wales. We cover eligibility, application steps, and property requirements.</p>
-            <span class="text-primary-navy font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Read Guide &rarr;</span>
-          </a>
+          {fundingGuides.map(guide => (
+            <a href={`/resources/${guide.slug}`} class="block bg-white p-8 rounded-3xl border border-slate-100 hover:border-emerald/30 hover:shadow-xl transition-all group">
+              <div class="inline-block px-3 py-1 bg-emerald-light text-emerald text-sm font-bold rounded-full mb-4">{guide.category}</div>
+              <h3 class="text-2xl font-bold text-primary-navy mb-3 group-hover:text-emerald transition-colors tracking-tight">{guide.title}</h3>
+              <p class="text-slate-600 font-medium leading-relaxed mb-6">{guide.description}</p>
+              <span class="text-primary-navy font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Read Guide &rarr;</span>
+            </a>
+          ))}
         </div>
       </div>
 
       <div class="mb-20">
         <h2 class="text-3xl font-bold text-primary-navy mb-8 border-b border-slate-200 pb-4">Solar & Renewable Tech</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          <a href="/commercial-solar" class="block bg-white p-8 rounded-3xl border border-slate-100 hover:border-emerald/30 hover:shadow-xl transition-all group">
-            <div class="inline-block px-3 py-1 bg-emerald-light text-emerald text-sm font-bold rounded-full mb-4">Solar</div>
-            <h3 class="text-2xl font-bold text-primary-navy mb-3 group-hover:text-emerald transition-colors tracking-tight">Commercial Solar Solutions & PPA</h3>
-            <p class="text-slate-600 font-medium leading-relaxed mb-6">Discover how businesses can reduce overheads and achieve net-zero targets through commercial solar panel installations and Power Purchase Agreements (PPA).</p>
-            <span class="text-primary-navy font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Explore Solutions &rarr;</span>
-          </a>
-          
+          {solarGuides.map(guide => (
+            <a href={`/resources/${guide.slug}`} class="block bg-white p-8 rounded-3xl border border-slate-100 hover:border-emerald/30 hover:shadow-xl transition-all group">
+              <div class="inline-block px-3 py-1 bg-emerald-light text-emerald text-sm font-bold rounded-full mb-4">{guide.category}</div>
+              <h3 class="text-2xl font-bold text-primary-navy mb-3 group-hover:text-emerald transition-colors tracking-tight">{guide.title}</h3>
+              <p class="text-slate-600 font-medium leading-relaxed mb-6">{guide.description}</p>
+              <span class="text-primary-navy font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Read Guide &rarr;</span>
+            </a>
+          ))}
           <a href="/eligibility" class="block bg-white p-8 rounded-3xl border border-emerald/20 bg-emerald/5 hover:border-emerald/50 hover:shadow-xl transition-all group">
             <div class="inline-block px-3 py-1 bg-emerald text-white text-sm font-bold rounded-full mb-4">Tool</div>
             <h3 class="text-2xl font-bold text-primary-navy mb-3 group-hover:text-emerald transition-colors tracking-tight">Check Your Energy Upgrade Eligibility</h3>
