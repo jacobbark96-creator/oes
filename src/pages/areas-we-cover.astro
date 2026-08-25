@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CTASection } from '../components/sections/CTASection';
+import { locations } from '../data/locations';
+
+const seoTitle = "Areas We Cover | UK-Wide Energy Installers | Open Energy Services";
+const seoDescription = "Find local, accredited solar, heat pump, and insulation installers in your area. Open Energy Services covers all major UK cities including London, Manchester, Birmingham, and more.";
+
+// Group locations by region
+const groupedLocations = locations.reduce((acc, loc) => {
+  if (!acc[loc.region]) {
+    acc[loc.region] = [];
+  }
+  acc[loc.region].push(loc);
+  return acc;
+}, {} as Record<string, typeof locations>);
+
+const regions = Object.keys(groupedLocations).sort();
+---
+
+<Layout 
+  title={seoTitle}
+  description={seoDescription}
+>
+  <div class="pt-32 pb-16 bg-bg-grey">
+    <div class="container max-w-5xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-primary-navy tracking-tighter mb-6">
+          Areas We Cover
+        </h1>
+        <p class="text-lg md:text-xl text-slate-600 mb-8 font-medium max-w-3xl mx-auto leading-relaxed">
+          Open Energy Services connects you with trusted, accredited energy installation partners across the United Kingdom. Select your local area below to discover tailored funding opportunities, solar, and heat pump solutions near you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {regions.map((region) => (
+          <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
+            <h2 class="text-2xl font-bold text-primary-navy mb-6 border-b border-slate-100 pb-4">{region}</h2>
+            <ul class="space-y-3">
+              {groupedLocations[region].sort((a, b) => a.city.localeCompare(b.city)).map((loc) => (
+                <li>
+                  <a 
+                    href={`/solar-panels-${loc.slug}`}
+                    class="group flex items-center text-slate-600 hover:text-emerald font-medium transition-colors"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-emerald mr-3 transition-colors"></span>
+                    {loc.city} Energy Solutions
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <article class="bg-primary-navy rounded-3xl p-8 md:p-12 shadow-sm border border-primary-navy mb-16 text-white text-center">
+        <h2 class="text-3xl font-bold mb-6">Don't see your city listed?</h2>
+        <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+          We operate a truly nationwide network of vetted installers. Even if your specific town or city isn't shown above, it's highly likely we have accredited partners in your area ready to help with your energy efficiency upgrades.
+        </p>
+        <a href="/eligibility" class="inline-block px-8 py-4 bg-emerald text-white rounded-xl font-bold hover:scale-105 transition-all shadow-lg shadow-emerald/20">
+          Check Your Eligibility Anywhere in the UK
+        </a>
+      </article>
+
+    </div>
+  </div>
+  <CTASection client:visible />
+</Layout>

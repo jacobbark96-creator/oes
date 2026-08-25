@@ -35,6 +35,7 @@ export const Footer: React.FC = () => {
               <li><a href="/#homeowners" className="hover:text-emerald transition-colors">For Homeowners</a></li>
               <li><a href="/#landlords" className="hover:text-emerald transition-colors">For Landlords</a></li>
               <li><a href="/funding" className="hover:text-emerald transition-colors">Funding Options</a></li>
+              <li><a href="/areas-we-cover" className="hover:text-emerald transition-colors">Areas We Cover</a></li>
               <li><a href="/about" className="hover:text-emerald transition-colors">About OES</a></li>
             </ul>
           </div>
