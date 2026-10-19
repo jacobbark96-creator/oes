@@ -123,6 +123,48 @@ import '../index.css';
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
 
+        // Helper to compress image
+        const compressImage = async (file) => {
+            if (!file.type.startsWith('image/')) return file;
+            
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.src = event.target.result;
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        
+                        // Max dimension to ensure fast uploads
+                        const MAX_SIZE = 1600;
+                        if (width > height && width > MAX_SIZE) {
+                            height *= MAX_SIZE / width;
+                            width = MAX_SIZE;
+                        } else if (height > MAX_SIZE) {
+                            width *= MAX_SIZE / height;
+                            height = MAX_SIZE;
+                        }
+                        
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        
+                        canvas.toBlob((blob) => {
+                            const compressedFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", {
+                                type: 'image/jpeg',
+                                lastModified: Date.now()
+                            });
+                            resolve(compressedFile);
+                        }, 'image/jpeg', 0.7); // 70% quality for good balance of size/readability
+                    };
+                };
+            });
+        };
+
         // Update UI
         function updateFileDisplay() {
             if (!fileList || !submitContainer || !dropZone) return;
@@ -169,7 +211,7 @@ import '../index.css';
                 if (selectedFiles.length === 0) return;
                 
                 const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="ph ph-spinner animate-spin text-xl"></i> Uploading...';
+                submitBtn.innerHTML = '<i class="ph ph-spinner animate-spin text-xl"></i> Processing...';
                 submitBtn.disabled = true;
                 submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
 
@@ -184,8 +226,15 @@ import '../index.css';
                     formData.append('_template', 'table'); // Format the email cleanly
                     formData.append('Name', userName);
                     
+                    // Compress images before upload to speed up submission
+                    const processedFiles = await Promise.all(
+                        selectedFiles.map(file => compressImage(file))
+                    );
+
+                    submitBtn.innerHTML = '<i class="ph ph-spinner animate-spin text-xl"></i> Uploading...';
+
                     // Append each file. FormSubmit expects "attachment" for files
-                    selectedFiles.forEach((file, index) => {
+                    processedFiles.forEach((file, index) => {
                         formData.append(`attachment_${index + 1}`, file);
                     });
                     
