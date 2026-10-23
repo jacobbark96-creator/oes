@@ -126,6 +126,16 @@ const formattedTitle = title.includes('Open Energy Services') ? title : `${title
       <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1534128591733108&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Facebook Pixel Code -->
+    
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9MLCZW2G3" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W9MLCZW2G3');
+    </script>
+    <!-- End Google Analytics -->
   </head>
   <body class="bg-bg-grey text-text overflow-x-hidden font-sans selection:bg-emerald/20 selection:text-emerald">
     <Navbar client:load />

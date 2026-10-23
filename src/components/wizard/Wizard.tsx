@@ -31,14 +31,54 @@ export const Wizard: React.FC = () => {
     setStep(s => s - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    
+    try {
+      const formPayload = new FormData();
+      formPayload.append('_subject', `New Eligibility Lead from ${formData.firstName} ${formData.lastName}`);
+      formPayload.append('_captcha', 'false');
+      formPayload.append('_template', 'table');
+      formPayload.append('First Name', formData.firstName);
+      formPayload.append('Last Name', formData.lastName);
+      formPayload.append('Email', formData.email);
+      formPayload.append('Phone', formData.phone);
+      formPayload.append('Postcode', formData.postcode);
+      formPayload.append('Property Type', formData.propertyType);
+      formPayload.append('Heating Source', formData.heatingSource);
+      formPayload.append('Ownership', formData.ownership);
+
+      const response = await fetch('https://formsubmit.co/ajax/jake@openenergyservices.co.uk', {
+        method: 'POST',
+        body: formPayload,
+        headers: {
+            'Accept': 'application/json'
+        }
+      });
+      
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error('Form submission failed');
+      }
+
+      // Track conversions
+      if (typeof window !== 'undefined') {
+        if ((window as any).fbq) {
+          (window as any).fbq('track', 'Lead');
+        }
+        if ((window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead');
+        }
+      }
+
       setIsSubmitting(false);
       nextStep();
-    }, 2000);
+    } catch (error) {
+      console.error('Submission error:', error);
+      setIsSubmitting(false);
+      alert('There was an issue submitting your details. Please try again.');
+    }
   };
 
   const propertyTypes = [
