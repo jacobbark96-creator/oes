@@ -5,60 +5,62 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-primary-navy text-white pt-16 pb-8">
       <div className="container">
-        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12">
+        <div className="mb-10 flex flex-col gap-10 md:flex-row md:flex-wrap lg:mb-12 lg:flex-nowrap lg:gap-8">
           
-          <div className="col-span-1 lg:col-span-5 lg:pr-10">
-            <div className="mb-6 h-16 w-[14rem] overflow-hidden md:h-[4.5rem] md:w-[16rem] lg:h-20 lg:w-[18rem]">
+          <div className="w-full md:w-[45%] lg:w-5/12 lg:pr-10">
+            <div className="mb-6 h-14 w-[12rem] overflow-hidden md:h-[4.5rem] md:w-[16rem] lg:h-20 lg:w-[18rem]">
               <img 
                 src="/OEMLogo.png" 
                 alt="Open Energy Services Logo" 
-                className="pointer-events-none relative left-[-1.75rem] top-[-2.55rem] h-[8.8rem] max-w-none object-contain md:left-[-1.95rem] md:top-[-2.9rem] md:h-[10rem] lg:left-[-2.15rem] lg:top-[-3.2rem] lg:h-[11rem]"
+                className="pointer-events-none relative left-[-1.5rem] top-[-2.2rem] h-[7.5rem] max-w-none object-contain md:left-[-1.95rem] md:top-[-2.9rem] md:h-[10rem] lg:left-[-2.15rem] lg:top-[-3.2rem] lg:h-[11rem]"
               />
             </div>
-            <p className="mb-7 max-w-md text-[15px] leading-relaxed text-slate-300">
+            <p className="mb-6 max-w-md text-[14px] md:text-[15px] leading-relaxed text-slate-300">
               Independent guidance for homeowners, landlords and businesses seeking funding support and the right accredited installation partners.
             </p>
-            <div className="rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-light/80">
+            <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm">
+              <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-light/80">
                 Trusted First Point of Contact
               </p>
-              <p className="text-sm leading-relaxed text-slate-300">
+              <p className="text-[13px] md:text-sm leading-relaxed text-slate-300">
                 We simplify the path from initial assessment to installer selection, with clear advice and no pressure.
               </p>
             </div>
           </div>
 
-          <div className="col-span-1 lg:col-span-2">
-            <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Quick Links</h3>
-            <ul className="space-y-3.5 text-[15px] text-slate-300 font-medium">
-              <li><a href="/commercial-solar" className="hover:text-emerald transition-colors">For Businesses</a></li>
-              <li><a href="/#homeowners" className="hover:text-emerald transition-colors">For Homeowners</a></li>
-              <li><a href="/#landlords" className="hover:text-emerald transition-colors">For Landlords</a></li>
-              <li><a href="/funding" className="hover:text-emerald transition-colors">Funding Options</a></li>
-              <li><a href="/areas-we-cover" className="hover:text-emerald transition-colors">Areas We Cover</a></li>
-              <li><a href="/blog" className="hover:text-emerald transition-colors">Energy Insights (Blog)</a></li>
-              <li><a href="/about" className="hover:text-emerald transition-colors">About OES</a></li>
-            </ul>
+          <div className="w-full grid grid-cols-2 gap-6 md:w-[45%] lg:w-4/12 lg:gap-8">
+            <div>
+              <h3 className="text-[11px] md:text-xs font-bold mb-4 md:mb-5 tracking-widest uppercase text-slate-400">Quick Links</h3>
+              <ul className="space-y-3 md:space-y-3.5 text-[14px] md:text-[15px] text-slate-300 font-medium">
+                <li><a href="/commercial-solar" className="hover:text-emerald transition-colors">For Businesses</a></li>
+                <li><a href="/#homeowners" className="hover:text-emerald transition-colors">For Homeowners</a></li>
+                <li><a href="/#landlords" className="hover:text-emerald transition-colors">For Landlords</a></li>
+                <li><a href="/funding" className="hover:text-emerald transition-colors">Funding Options</a></li>
+                <li><a href="/areas-we-cover" className="hover:text-emerald transition-colors">Areas We Cover</a></li>
+                <li><a href="/blog" className="hover:text-emerald transition-colors">Energy Insights</a></li>
+                <li><a href="/about" className="hover:text-emerald transition-colors">About OES</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-[11px] md:text-xs font-bold mb-4 md:mb-5 tracking-widest uppercase text-slate-400">Solutions</h3>
+              <ul className="space-y-3 md:space-y-4 text-[14px] md:text-[15px] font-medium text-slate-300">
+                <li><a href="/services" className="hover:text-emerald transition-colors">Solar Energy</a></li>
+                <li><a href="/services" className="hover:text-emerald transition-colors">Battery Storage</a></li>
+                <li><a href="/services" className="hover:text-emerald transition-colors">Heat Pumps</a></li>
+                <li><a href="/services" className="hover:text-emerald transition-colors">Energy Efficiency</a></li>
+              </ul>
+            </div>
           </div>
 
-          <div className="col-span-1 lg:col-span-2">
-            <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Solutions</h3>
-            <ul className="space-y-4 text-[15px] font-medium text-slate-300">
-              <li><a href="/services" className="hover:text-emerald transition-colors">Solar Energy</a></li>
-              <li><a href="/services" className="hover:text-emerald transition-colors">Battery Storage</a></li>
-              <li><a href="/services" className="hover:text-emerald transition-colors">Heat Pumps</a></li>
-              <li><a href="/services" className="hover:text-emerald transition-colors">Energy Efficiency</a></li>
-            </ul>
-          </div>
-
-          <div className="col-span-1 lg:col-span-3">
-            <h3 className="text-xs font-bold mb-5 tracking-widest uppercase text-slate-400">Contact</h3>
-            <ul className="space-y-4 text-[15px] text-slate-300 font-medium">
+          <div className="w-full md:w-full lg:w-3/12">
+            <h3 className="text-[11px] md:text-xs font-bold mb-4 md:mb-5 tracking-widest uppercase text-slate-400">Contact</h3>
+            <ul className="space-y-4 text-[14px] md:text-[15px] text-slate-300 font-medium">
               <li className="flex items-start gap-3">
                 <div className="p-1.5 bg-primary-dark rounded-lg flex-shrink-0">
                   <Mail size={16} className="text-emerald" />
                 </div>
-                <a href="mailto:welcome@openenergyservices.co.uk" className="hover:text-emerald transition-colors break-words pt-1">
+                <a href="mailto:welcome@openenergyservices.co.uk" className="hover:text-emerald transition-colors break-all md:break-words pt-1">
                   welcome@openenergyservices.co.uk
                 </a>
               </li>
