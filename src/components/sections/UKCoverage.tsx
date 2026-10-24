@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const generatePins = () => {
@@ -10,27 +10,27 @@ const generatePins = () => {
   };
   
   const regions = [
-    { cx: 45, cy: 25, rx: 12, ry: 15, count: 12 }, // Scotland
-    { cx: 52, cy: 45, rx: 8, ry: 10, count: 15 }, // North
-    { cx: 55, cy: 60, rx: 10, ry: 10, count: 14 }, // Midlands
-    { cx: 42, cy: 68, rx: 6, ry: 8, count: 6 }, // Wales
-    { cx: 40, cy: 80, rx: 10, ry: 6, count: 8 }, // South West
-    { cx: 65, cy: 75, rx: 12, ry: 10, count: 12 }, // South East
-    { cx: 25, cy: 42, rx: 4, ry: 4, count: 6 }, // NI
+    { cx: 45, cy: 30, rx: 6, ry: 6, count: 4 }, // Scotland
+    { cx: 55, cy: 55, rx: 8, ry: 8, count: 15 }, // North West / Manchester
+    { cx: 62, cy: 68, rx: 8, ry: 8, count: 12 }, // Midlands / Birmingham
+    { cx: 45, cy: 70, rx: 5, ry: 6, count: 3 }, // Wales
+    { cx: 50, cy: 85, rx: 8, ry: 5, count: 6 }, // South West
+    { cx: 72, cy: 82, rx: 8, ry: 6, count: 12 }, // South East / London
   ];
   
   const pins: { id: number; top: string; left: string; delay: string; isMajor: boolean }[] = [];
   let seed = 42;
   let id = 0;
 
-  // Add 6 major hubs
+  // Add major hubs exactly as seen in the image
   const majorHubs = [
-    { cx: 45, cy: 25 }, // Edinburgh/Glasgow
-    { cx: 55, cy: 50 }, // Manchester/Leeds
-    { cx: 60, cy: 65 }, // Birmingham
-    { cx: 45, cy: 75 }, // Cardiff
-    { cx: 75, cy: 80 }, // London
-    { cx: 25, cy: 45 }, // Belfast
+    { cx: 48, cy: 35 }, // Glasgow
+    { cx: 52, cy: 36 }, // Edinburgh
+    { cx: 42, cy: 55 }, // Isle of Man
+    { cx: 35, cy: 50 }, // Belfast / Ireland
+    { cx: 55, cy: 58 }, // Manchester
+    { cx: 62, cy: 68 }, // Birmingham
+    { cx: 72, cy: 82 }, // London
   ];
 
   majorHubs.forEach(hub => {
@@ -124,19 +124,15 @@ export const UKCoverage: React.FC = () => {
                     className="absolute flex flex-col items-center justify-center -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-125 hover:z-20 cursor-pointer"
                     style={{ top: pin.top, left: pin.left }}
                   >
-                    {pin.isMajor ? (
-                      <>
-                        <div 
-                          className="h-2 w-2 md:h-3 md:w-3 animate-ping rounded-full bg-emerald absolute opacity-75" 
-                          style={{ animationDelay: pin.delay }}
-                        />
-                        <MapPin className="w-4 h-4 md:w-6 md:h-6 text-emerald drop-shadow-md relative z-10" fill="#1AAE63" />
-                      </>
-                    ) : (
-                      <div 
-                        className="h-1 w-1 md:h-1.5 md:w-1.5 rounded-full bg-emerald shadow-[0_0_8px_rgba(26,174,99,0.8)] opacity-90 relative z-10" 
-                      />
-                    )}
+                    <div 
+                      className="absolute h-full w-full rounded-full animate-ping bg-blue-500 opacity-20" 
+                      style={{ animationDelay: pin.delay }}
+                    />
+                    <Star 
+                      className={`${pin.isMajor ? 'w-4 h-4 md:w-5 md:h-5' : 'w-3 h-3 md:w-4 md:h-4'} text-white drop-shadow-md relative z-10`} 
+                      fill="#3b82f6" 
+                      strokeWidth={1.5}
+                    />
                   </div>
                 ))}
               </div>
