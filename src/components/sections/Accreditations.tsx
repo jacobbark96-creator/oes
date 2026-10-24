@@ -3,12 +3,13 @@ import { motion } from 'framer-motion';
 
 export const Accreditations: React.FC = () => {
   const logos = [
-    "TrustMark",
-    "PAS2035",
-    "Constructionline",
-    "CHAS",
-    "ICO",
-    "FCA"
+    { name: "MCS", src: "/accreditations/mcs.png" },
+    { name: "TrustMark", src: "/accreditations/trustmark.png" },
+    { name: "PAS2035", src: "/accreditations/pas2035.png" },
+    { name: "Constructionline", src: "/accreditations/constructionline.png" },
+    { name: "CHAS", src: "/accreditations/chas.png" },
+    { name: "ICO", src: "/accreditations/ico.png" },
+    { name: "FCA", src: "/accreditations/fca.png" }
   ];
 
   return (
@@ -23,23 +24,7 @@ export const Accreditations: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="col-span-2 flex items-center justify-center gap-2 rounded-[1.6rem] border border-slate-200 bg-bg-grey px-4 py-5 md:col-span-2"
-          >
-            <div className="rounded-md bg-[#E3000F] px-3 py-1 text-2xl font-black tracking-tighter text-white">
-              MCS
-            </div>
-            <div className="flex flex-col pr-2 text-left leading-none">
-              <span className="text-[11px] font-black tracking-widest text-[#E3000F]">CERTIFIED</span>
-              <span className="text-[9px] font-bold tracking-wider text-[#E3000F]/80">INSTALLER</span>
-            </div>
-          </motion.div>
-
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 lg:gap-8">
           {logos.map((logo, index) => (
             <motion.div
               key={index}
@@ -47,9 +32,22 @@ export const Accreditations: React.FC = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex min-h-[88px] items-center justify-center rounded-[1.6rem] border border-slate-200 bg-bg-grey px-5 py-4 text-center text-lg font-black tracking-tighter text-primary-navy"
+              className="group flex h-[80px] w-[130px] md:h-[90px] md:w-[150px] items-center justify-center rounded-[1.6rem] border border-slate-200 bg-bg-grey px-4 py-3 transition-all duration-300 hover:border-emerald/30 hover:bg-white hover:shadow-[0_8px_30px_-12px_rgba(26,174,99,0.2)]"
             >
-              {logo}
+              <img 
+                src={logo.src} 
+                alt={`${logo.name} Accreditation`}
+                loading="lazy"
+                className="max-h-full max-w-full object-contain grayscale opacity-60 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'block';
+                }}
+              />
+              <span className="hidden text-center text-sm md:text-base font-black tracking-tighter text-slate-500 group-hover:text-primary-navy">
+                {logo.name}
+              </span>
             </motion.div>
           ))}
         </div>
