@@ -67,7 +67,10 @@ export const ServicesGrid: React.FC = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div 
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-5 py-4 -my-4 md:py-0 md:my-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {services.map((service, index) => (
             <motion.a 
               href={`/services/${service.id}`}
@@ -78,7 +81,7 @@ export const ServicesGrid: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ y: -5 }}
-              className="block group"
+              className="block group w-[85vw] sm:w-[320px] md:w-auto shrink-0 md:shrink snap-center snap-always"
             >
               <SpotlightCard className="h-full rounded-[1.75rem] border border-slate-200/80 bg-gradient-to-b from-white to-slate-50/70 p-7 shadow-[0_18px_60px_-36px_rgba(14,35,65,0.22)] transition-all duration-300 group-hover:border-emerald/30 group-hover:shadow-[0_30px_70px_-38px_rgba(14,35,65,0.28)]">
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-navy/[0.04] shadow-sm transition-transform duration-300 group-hover:scale-105">
