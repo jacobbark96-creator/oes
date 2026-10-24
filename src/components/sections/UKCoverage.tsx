@@ -10,12 +10,12 @@ const generatePins = () => {
   };
   
   const regions = [
-    { cx: 50, cy: 38, rx: 6, ry: 6, count: 4 }, // Scotland
-    { cx: 65, cy: 62, rx: 8, ry: 8, count: 15 }, // North West / Manchester
-    { cx: 67, cy: 71, rx: 8, ry: 8, count: 12 }, // Midlands / Birmingham
-    { cx: 56, cy: 75, rx: 5, ry: 6, count: 3 }, // Wales
-    { cx: 58, cy: 82, rx: 8, ry: 5, count: 6 }, // South West
-    { cx: 80, cy: 79, rx: 8, ry: 6, count: 12 }, // South East / London
+    { cx: 45, cy: 38, rx: 6, ry: 6, count: 4 }, // Scotland
+    { cx: 59, cy: 63, rx: 8, ry: 8, count: 15 }, // North West / Manchester
+    { cx: 61, cy: 71, rx: 8, ry: 8, count: 12 }, // Midlands / Birmingham
+    { cx: 45, cy: 75, rx: 5, ry: 6, count: 3 }, // Wales
+    { cx: 45, cy: 82, rx: 8, ry: 5, count: 6 }, // South West
+    { cx: 77, cy: 79, rx: 8, ry: 6, count: 12 }, // South East / London
   ];
   
   const pins: { id: number; top: string; left: string; delay: string; isMajor: boolean }[] = [];
@@ -24,13 +24,13 @@ const generatePins = () => {
 
   // Add major hubs exactly as seen in the image
   const majorHubs = [
-    { cx: 50, cy: 43 }, // Glasgow
-    { cx: 58, cy: 42.5 }, // Edinburgh
-    { cx: 48, cy: 56 }, // Isle of Man
-    { cx: 38, cy: 53 }, // Belfast / Ireland
-    { cx: 65, cy: 62.5 }, // Manchester
-    { cx: 67, cy: 71 }, // Birmingham
-    { cx: 80, cy: 79 }, // London
+    { cx: 41, cy: 43 }, // Glasgow
+    { cx: 50, cy: 42.5 }, // Edinburgh
+    { cx: 39, cy: 56 }, // Isle of Man
+    { cx: 27, cy: 53 }, // Belfast / Ireland
+    { cx: 59, cy: 63 }, // Manchester
+    { cx: 61, cy: 71 }, // Birmingham
+    { cx: 77, cy: 79 }, // London
   ];
 
   majorHubs.forEach(hub => {
@@ -107,12 +107,12 @@ export const UKCoverage: React.FC = () => {
           >
             <div className="relative w-full max-w-[360px] overflow-hidden rounded-2xl md:rounded-[2rem] border border-slate-200/60 bg-[#9ec0e9] shadow-[0_24px_80px_-36px_rgba(14,35,65,0.18)]">
               <img 
-                src="/uk-map.png" 
+                src="/uk-map.svg" 
                 alt="UK Map showing installer network coverage" 
-                width={800}
-                height={1066}
+                width={851}
+                height={1170}
                 loading="lazy"
-                className="aspect-[3/4] w-full object-cover object-center mix-blend-multiply opacity-90"
+                className="w-full h-auto object-contain mix-blend-multiply opacity-90"
               />
               <div className="absolute inset-0 bg-[#83b4c1]/10 mix-blend-overlay" />
               
