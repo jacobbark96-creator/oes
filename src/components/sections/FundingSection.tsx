@@ -12,8 +12,8 @@ export const FundingSection: React.FC = () => {
           viewport={{ once: true }}
           className="relative overflow-hidden rounded-[2.5rem] border border-emerald/20 bg-[linear-gradient(135deg,#0E2341_0%,#102C53_54%,#1AAE63_130%)] p-8 shadow-[0_30px_90px_-36px_rgba(14,35,65,0.42)] md:p-12 lg:p-14"
         >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-navy/10 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(255,255,255,0.08)_0%,transparent_70%)] translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[radial-gradient(circle,rgba(14,35,65,0.08)_0%,transparent_70%)] -translate-x-1/2 translate-y-1/2" />
           <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px)', backgroundSize: '36px 36px' }} />
           
           <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
@@ -55,8 +55,11 @@ export const FundingSection: React.FC = () => {
               <div className="absolute inset-0 overflow-hidden rounded-[2rem] border border-white/14 bg-white/8 shadow-glass backdrop-blur-sm">
                 <img 
                   src="/funding-documents.jpg" 
-                  alt="Reviewing funding documents" 
-                  className="w-full h-full object-cover"
+                  alt="Government funding and grants documentation"
+                  width={600}
+                  height={600}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-primary-navy/35 mix-blend-multiply" />
                 <div className="absolute bottom-6 left-6 right-6 rounded-[1.5rem] border border-white/14 bg-white/10 p-5 text-white backdrop-blur-md">

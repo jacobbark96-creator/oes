@@ -41,6 +41,9 @@ export const WhyOES: React.FC = () => {
               <img 
                 src="/homeimage.png" 
                 alt="Professional Energy Consultant" 
+                width={600}
+                height={600}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-navy/40 to-transparent" />

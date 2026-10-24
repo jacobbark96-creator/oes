@@ -45,6 +45,9 @@ export const UKCoverage: React.FC = () => {
               <img 
                 src="/uk-map.jpg" 
                 alt="Map representing our UK coverage" 
+                width={800}
+                height={600}
+                loading="lazy"
                 className="aspect-[0.95] w-full object-cover"
               />
               <div className="absolute inset-0 bg-primary-navy/18 mix-blend-overlay" />

@@ -19,9 +19,22 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-bg-grey via-transparent to-bg-grey" />
       </div>
 
-      <div className="absolute inset-0 z-0">
-        <div className="absolute right-[-10rem] top-[-12rem] h-[34rem] w-[34rem] rounded-full bg-emerald/10 blur-[130px]" />
-        <div className="absolute bottom-[-12rem] left-[-10rem] h-[28rem] w-[28rem] rounded-full bg-primary-navy/8 blur-[120px]" />
+      {/* Optimized radial gradients instead of expensive GPU blurs for better scroll performance */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute right-[-10rem] top-[-12rem] h-[34rem] w-[34rem] bg-[radial-gradient(circle,rgba(26,174,99,0.15)_0%,transparent_70%)]" />
+        <div className="absolute bottom-[-12rem] left-[-10rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle,rgba(14,35,65,0.12)_0%,transparent_70%)]" />
+      </div>
+
+      {/* Mobile Background Image */}
+      <div className="absolute inset-0 z-0 lg:hidden pointer-events-none">
+        <img 
+          src="/OESsurveyor.png" 
+          alt="Background" 
+          width={800}
+          height={600}
+          className="absolute inset-0 h-full w-full object-cover object-[70%_30%] opacity-[0.15]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-grey via-bg-grey/40 to-bg-grey/80" />
       </div>
 
       <div className="container relative z-10">
@@ -92,7 +105,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="order-1 relative lg:order-2 lg:col-span-6 lg:pl-6"
+            className="order-1 relative lg:order-2 lg:col-span-6 lg:pl-6 hidden lg:block"
           >
             <div className="relative mx-auto max-w-[42rem] rounded-[2rem] border border-white/70 bg-white/50 p-3 shadow-[0_30px_90px_-30px_rgba(14,35,65,0.28)] backdrop-blur-sm">
               <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
@@ -100,6 +113,8 @@ export const Hero: React.FC = () => {
                 <img 
                   src="/OESsurveyor.png" 
                   alt="OES Surveyor" 
+                  width={800}
+                  height={600}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 via-primary-dark/10 to-transparent" />
@@ -140,8 +155,8 @@ export const Hero: React.FC = () => {
                 </div>
               ))}
             </motion.div>
-            <div className="absolute -bottom-10 -right-6 h-36 w-36 rounded-full bg-emerald/12 blur-3xl" />
-            <div className="absolute -left-6 top-12 h-24 w-24 rounded-full bg-primary-navy/8 blur-2xl" />
+            <div className="absolute -bottom-10 -right-6 h-36 w-36 bg-[radial-gradient(circle,rgba(26,174,99,0.15)_0%,transparent_70%)]" />
+            <div className="absolute -left-6 top-12 h-24 w-24 bg-[radial-gradient(circle,rgba(14,35,65,0.12)_0%,transparent_70%)]" />
             </div>
           </motion.div>
         </div>
