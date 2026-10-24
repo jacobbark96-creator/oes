@@ -51,16 +51,7 @@ const PINS = [
     { id: 44, top: '51.22%', left: '69.18%', delay: '0.40s', isMajor: false },
     { id: 45, top: '50.32%', left: '68.00%', delay: '0.50s', isMajor: false },
     { id: 46, top: '42.30%', left: '50.27%', delay: '0.60s', isMajor: true }, // Edinburgh
-    { id: 47, top: '36.06%', left: '33.18%', delay: '0.70s', isMajor: false },
-    { id: 48, top: '34.60%', left: '33.73%', delay: '0.80s', isMajor: true }, // Glasgow
-    { id: 49, top: '32.74%', left: '34.18%', delay: '0.90s', isMajor: false },
-    { id: 50, top: '31.04%', left: '34.27%', delay: '1.00s', isMajor: false },
-    { id: 51, top: '29.50%', left: '34.27%', delay: '1.10s', isMajor: false },
-    { id: 52, top: '28.04%', left: '34.18%', delay: '1.20s', isMajor: false },
-    { id: 53, top: '26.50%', left: '33.91%', delay: '1.30s', isMajor: false },
     { id: 54, top: '25.45%', left: '49.55%', delay: '1.40s', isMajor: false },
-    { id: 55, top: '24.55%', left: '33.73%', delay: '1.50s', isMajor: false },
-    { id: 56, top: '16.61%', left: '36.45%', delay: '1.60s', isMajor: false },
   ];
 
 export const UKCoverage: React.FC = () => {
