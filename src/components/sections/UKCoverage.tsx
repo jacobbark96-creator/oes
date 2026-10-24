@@ -6,13 +6,13 @@ export const UKCoverage: React.FC = () => {
   return (
     <section className="relative overflow-hidden border-y border-slate-100 bg-white py-[4.5rem] md:py-20 lg:py-24">
       <div className="container relative z-10">
-        <div className="grid items-center gap-8 md:gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-14">
+        <div className="grid items-center gap-8 md:gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="order-2 lg:order-1"
+            className="order-1"
           >
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-emerald">
               Nationwide Delivery
@@ -39,18 +39,18 @@ export const UKCoverage: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="order-1 lg:order-2 relative flex justify-center lg:justify-end"
+            className="order-2 relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md overflow-hidden rounded-[2rem] border border-slate-200 bg-bg-grey shadow-[0_24px_80px_-36px_rgba(14,35,65,0.24)]">
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] overflow-hidden rounded-[2rem] border border-slate-200/60 bg-bg-grey shadow-[0_24px_80px_-36px_rgba(14,35,65,0.18)]">
               <img 
-                src="/uk-map.jpg" 
-                alt="Map representing our UK coverage" 
+                src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=A%20sleek%2C%20minimalist%20vector%20style%203D%20map%20of%20the%20United%20Kingdom%20isolated%20on%20a%20light%20gray%20background.%20The%20map%20features%20glowing%20emerald%20green%20location%20pins%20and%20subtle%20network%20lines%20connecting%20them%2C%20representing%20a%20nationwide%20installer%20network.%20High-end%2C%20clean%2C%20corporate%20SaaS%20aesthetic%2C%20highly%20detailed.&image_size=portrait_4_3" 
+                alt="UK Map showing installer network coverage with pins" 
                 width={800}
-                height={600}
+                height={1066}
                 loading="lazy"
-                className="aspect-[0.95] w-full object-cover"
+                className="aspect-[3/4] w-full object-cover"
               />
-              <div className="absolute inset-0 bg-primary-navy/18 mix-blend-overlay" />
+              <div className="absolute inset-0 bg-primary-navy/5 mix-blend-overlay" />
             </div>
           </motion.div>
 
