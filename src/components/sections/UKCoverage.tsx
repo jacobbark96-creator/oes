@@ -2,70 +2,66 @@ import React from 'react';
 import { MapPin, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const generatePins = () => {
-  // Simple seeded random to prevent hydration mismatch
-  const random = (seed: number) => {
-    const x = Math.sin(seed) * 10000;
-    return x - Math.floor(x);
-  };
-  
-  const regions = [
-    { cx: 40, cy: 30, rx: 6, ry: 6, count: 4 }, // Scotland
-    { cx: 56, cy: 65, rx: 8, ry: 8, count: 15 }, // North West / Manchester
-    { cx: 55, cy: 74, rx: 8, ry: 8, count: 12 }, // Midlands / Birmingham
-    { cx: 38, cy: 78, rx: 5, ry: 6, count: 3 }, // Wales
-    { cx: 42, cy: 90, rx: 8, ry: 5, count: 6 }, // South West
-    { cx: 68, cy: 83, rx: 8, ry: 6, count: 12 }, // South East / London
-    { cx: 18, cy: 52, rx: 4, ry: 4, count: 6 }, // NI
+// Extracted exact star coordinates from the provided map image
+const PINS = [
+    { id: 0, top: '95.38%', left: '54.64%', delay: '0.00s', isMajor: false },
+    { id: 1, top: '95.06%', left: '50.27%', delay: '0.10s', isMajor: false },
+    { id: 2, top: '94.49%', left: '54.91%', delay: '0.20s', isMajor: false },
+    { id: 3, top: '93.11%', left: '66.27%', delay: '0.30s', isMajor: false },
+    { id: 4, top: '91.17%', left: '57.55%', delay: '0.40s', isMajor: false },
+    { id: 5, top: '88.82%', left: '86.91%', delay: '0.50s', isMajor: true },
+    { id: 6, top: '87.28%', left: '63.91%', delay: '0.60s', isMajor: false },
+    { id: 7, top: '87.03%', left: '76.91%', delay: '0.70s', isMajor: false },
+    { id: 8, top: '86.71%', left: '61.27%', delay: '0.80s', isMajor: false },
+    { id: 9, top: '86.47%', left: '59.82%', delay: '0.90s', isMajor: false },
+    { id: 10, top: '86.14%', left: '61.91%', delay: '1.00s', isMajor: false },
+    { id: 11, top: '85.98%', left: '54.36%', delay: '1.10s', isMajor: false },
+    { id: 12, top: '85.41%', left: '83.09%', delay: '1.20s', isMajor: false },
+    { id: 13, top: '84.85%', left: '82.09%', delay: '1.30s', isMajor: false },
+    { id: 14, top: '84.44%', left: '52.73%', delay: '1.40s', isMajor: false },
+    { id: 15, top: '84.28%', left: '73.64%', delay: '1.50s', isMajor: false },
+    { id: 16, top: '83.23%', left: '79.18%', delay: '1.60s', isMajor: false },
+    { id: 17, top: '82.09%', left: '65.09%', delay: '1.70s', isMajor: false },
+    { id: 18, top: '78.44%', left: '83.45%', delay: '1.80s', isMajor: false },
+    { id: 19, top: '77.96%', left: '66.36%', delay: '1.90s', isMajor: false },
+    { id: 20, top: '77.31%', left: '69.73%', delay: '0.00s', isMajor: false },
+    { id: 21, top: '76.90%', left: '68.91%', delay: '0.10s', isMajor: false },
+    { id: 22, top: '74.15%', left: '62.45%', delay: '0.20s', isMajor: false },
+    { id: 23, top: '73.50%', left: '81.55%', delay: '0.30s', isMajor: false },
+    { id: 24, top: '72.12%', left: '69.00%', delay: '0.40s', isMajor: false },
+    { id: 25, top: '71.15%', left: '62.00%', delay: '0.50s', isMajor: false },
+    { id: 26, top: '70.42%', left: '63.36%', delay: '0.60s', isMajor: false },
+    { id: 27, top: '69.85%', left: '60.00%', delay: '0.70s', isMajor: false },
+    { id: 28, top: '69.77%', left: '57.82%', delay: '0.80s', isMajor: false },
+    { id: 29, top: '68.23%', left: '61.18%', delay: '0.90s', isMajor: false },
+    { id: 30, top: '67.83%', left: '69.00%', delay: '1.00s', isMajor: true }, // Manchester
+    { id: 31, top: '67.18%', left: '60.18%', delay: '1.10s', isMajor: false },
+    { id: 32, top: '66.61%', left: '70.91%', delay: '1.20s', isMajor: false },
+    { id: 33, top: '66.61%', left: '63.91%', delay: '1.30s', isMajor: false },
+    { id: 34, top: '66.53%', left: '62.18%', delay: '1.40s', isMajor: false },
+    { id: 35, top: '64.02%', left: '66.36%', delay: '1.50s', isMajor: false },
+    { id: 36, top: '63.05%', left: '71.82%', delay: '1.60s', isMajor: false },
+    { id: 37, top: '62.64%', left: '58.82%', delay: '1.70s', isMajor: false },
+    { id: 38, top: '61.99%', left: '69.64%', delay: '1.80s', isMajor: false },
+    { id: 39, top: '58.75%', left: '35.82%', delay: '1.90s', isMajor: false },
+    { id: 40, top: '57.21%', left: '38.00%', delay: '0.00s', isMajor: false },
+    { id: 41, top: '56.00%', left: '68.55%', delay: '0.10s', isMajor: false },
+    { id: 42, top: '54.21%', left: '70.45%', delay: '0.20s', isMajor: false },
+    { id: 43, top: '52.11%', left: '68.73%', delay: '0.30s', isMajor: false },
+    { id: 44, top: '51.22%', left: '69.18%', delay: '0.40s', isMajor: false },
+    { id: 45, top: '50.32%', left: '68.00%', delay: '0.50s', isMajor: false },
+    { id: 46, top: '42.30%', left: '50.27%', delay: '0.60s', isMajor: true }, // Edinburgh
+    { id: 47, top: '36.06%', left: '33.18%', delay: '0.70s', isMajor: false },
+    { id: 48, top: '34.60%', left: '33.73%', delay: '0.80s', isMajor: true }, // Glasgow
+    { id: 49, top: '32.74%', left: '34.18%', delay: '0.90s', isMajor: false },
+    { id: 50, top: '31.04%', left: '34.27%', delay: '1.00s', isMajor: false },
+    { id: 51, top: '29.50%', left: '34.27%', delay: '1.10s', isMajor: false },
+    { id: 52, top: '28.04%', left: '34.18%', delay: '1.20s', isMajor: false },
+    { id: 53, top: '26.50%', left: '33.91%', delay: '1.30s', isMajor: false },
+    { id: 54, top: '25.45%', left: '49.55%', delay: '1.40s', isMajor: false },
+    { id: 55, top: '24.55%', left: '33.73%', delay: '1.50s', isMajor: false },
+    { id: 56, top: '16.61%', left: '36.45%', delay: '1.60s', isMajor: false },
   ];
-  
-  const pins: { id: number; top: string; left: string; delay: string; isMajor: boolean }[] = [];
-  let seed = 42;
-  let id = 0;
-
-  // Add major hubs exactly as seen in the image
-  const majorHubs = [
-    { cx: 34, cy: 41 }, // Glasgow
-    { cx: 45, cy: 40 }, // Edinburgh
-    { cx: 32, cy: 57 }, // Isle of Man
-    { cx: 18, cy: 52 }, // Belfast / Ireland
-    { cx: 56, cy: 65 }, // Manchester
-    { cx: 55, cy: 74 }, // Birmingham
-    { cx: 68, cy: 83 }, // London
-  ];
-
-  majorHubs.forEach(hub => {
-    pins.push({
-      id: id++,
-      top: `${hub.cy}%`,
-      left: `${hub.cx}%`,
-      delay: `${(random(seed++) * 2).toFixed(2)}s`,
-      isMajor: true
-    });
-  });
-
-  // Add 73 minor pins
-  regions.forEach(r => {
-    for(let i=0; i<r.count; i++) {
-       const angle = random(seed++) * Math.PI * 2;
-       const radius = Math.sqrt(random(seed++));
-       const x = r.cx + radius * r.rx * Math.cos(angle);
-       const y = r.cy + radius * r.ry * Math.sin(angle);
-       
-       pins.push({
-         id: id++,
-         top: `${y.toFixed(2)}%`,
-         left: `${x.toFixed(2)}%`,
-         delay: `${(random(seed++) * 2).toFixed(2)}s`,
-         isMajor: false
-       });
-    }
-  });
-  
-  return pins;
-};
-
-const PINS = generatePins();
 
 export const UKCoverage: React.FC = () => {
   return (
