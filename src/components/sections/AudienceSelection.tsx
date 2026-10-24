@@ -42,7 +42,11 @@ export const AudienceSelection: React.FC = () => {
   return (
     <section className="relative z-20 -mt-8 pb-20">
       <div className="container">
-        <div className="grid gap-6 md:grid-cols-3">
+        {/* Changed from strict grid to a flex container that acts as a horizontal carousel on mobile and a grid on desktop */}
+        <div 
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:grid md:grid-cols-3 md:gap-6 py-4 -my-4 md:py-0 md:my-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden" 
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {audiences.map((audience, index) => (
             <motion.a
               key={audience.id}
@@ -51,7 +55,7 @@ export const AudienceSelection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group relative overflow-hidden rounded-[2rem] border border-slate-200/60 bg-gradient-to-br ${audience.color} p-8 shadow-soft transition-all hover:-translate-y-1 hover:shadow-xl`}
+              className={`w-[85vw] sm:w-[320px] md:w-auto shrink-0 md:shrink snap-center snap-always group relative overflow-hidden rounded-[2rem] border border-slate-200/60 bg-gradient-to-br ${audience.color} p-8 shadow-soft transition-all hover:-translate-y-1 hover:shadow-xl`}
             >
               <div className="relative z-10 flex flex-col h-full">
                 <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl ${audience.iconBg} ${audience.iconColor} transition-transform group-hover:scale-110`}>
