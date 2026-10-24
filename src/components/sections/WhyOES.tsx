@@ -29,15 +29,15 @@ export const WhyOES: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-bg-grey py-[4.5rem] md:py-20 lg:py-24">
       <div className="container relative z-10">
-        <div className="flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-10 lg:gap-16">
+        <div className="flex flex-row items-stretch gap-6 md:gap-10 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative w-full max-w-[320px] md:max-w-none md:w-[35%] lg:w-[30%] shrink-0"
+            className="relative w-[30%] sm:w-[35%] lg:w-[30%] shrink-0"
           >
-            <div className="relative h-full min-h-[300px] md:min-h-full overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_30px_90px_-38px_rgba(14,35,65,0.3)]">
+            <div className="relative h-full overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_30px_90px_-38px_rgba(14,35,65,0.3)]">
               <img 
                 src="/homeimage.png" 
                 alt="Professional Energy Consultant" 
@@ -59,19 +59,19 @@ export const WhyOES: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="flex-1 w-full"
           >
-            <h2 className="mb-8 text-3xl font-bold leading-tight tracking-tight text-primary-navy md:text-4xl lg:text-[3.1rem]">
+            <h2 className="mb-6 md:mb-8 text-2xl md:text-3xl font-bold leading-tight tracking-tight text-primary-navy lg:text-[3.1rem]">
               Why use OES?
             </h2>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4 md:gap-5">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start gap-4 rounded-3xl border border-white/80 bg-white/72 p-5 shadow-sm backdrop-blur-sm transition-all hover:bg-white">
-                  <div className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-emerald-light">
-                    <CheckCircle2 size={16} className="text-emerald" />
+                <div key={index} className="flex items-start gap-3 md:gap-4 rounded-[1.5rem] border border-white/80 bg-white/72 p-4 md:p-5 shadow-sm backdrop-blur-sm transition-all hover:bg-white">
+                  <div className="mt-1 flex h-6 w-6 md:h-8 md:w-8 flex-shrink-0 items-center justify-center rounded-full bg-emerald-light">
+                    <CheckCircle2 className="h-3 w-3 md:h-4 md:w-4 text-emerald" />
                   </div>
                   <div>
-                    <h3 className="text-[17px] font-bold text-primary-navy mb-1">{benefit.title}</h3>
-                    <p className="text-slate-600 text-[15px] leading-relaxed">{benefit.desc}</p>
+                    <h3 className="text-[15px] md:text-[17px] font-bold text-primary-navy mb-0.5 md:mb-1">{benefit.title}</h3>
+                    <p className="text-slate-600 text-[13px] md:text-[15px] leading-relaxed">{benefit.desc}</p>
                   </div>
                 </div>
               ))}
