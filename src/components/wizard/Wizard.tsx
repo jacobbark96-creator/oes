@@ -107,7 +107,7 @@ export const Wizard: React.FC = () => {
   const progress = ((step - 1) / totalSteps) * 100;
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-white rounded-[1.5rem] md:rounded-3xl shadow-glass border border-slate-100 overflow-hidden relative min-h-[400px] md:min-h-[500px]">
+    <div className="w-full max-w-2xl mx-auto bg-white rounded-[1.5rem] md:rounded-3xl shadow-glass border border-slate-100 overflow-hidden relative min-h-[300px] md:min-h-[500px]">
       {/* Progress Bar */}
       {step <= totalSteps && (
         <div className="absolute top-0 left-0 w-full h-1.5 md:h-2 bg-slate-100">
@@ -120,10 +120,10 @@ export const Wizard: React.FC = () => {
         </div>
       )}
 
-      <div className="p-5 sm:p-8 md:p-12">
+      <div className="p-4 sm:p-6 md:p-12">
         {step <= totalSteps && (
-          <div className="mb-5 md:mb-8">
-            <p className="text-xs md:text-sm font-bold text-emerald tracking-wider uppercase mb-2">Step {step} of {totalSteps}</p>
+          <div className="mb-3 md:mb-8">
+            <p className="text-[10px] md:text-sm font-bold text-emerald tracking-wider uppercase mb-1 md:mb-2">Step {step} of {totalSteps}</p>
           </div>
         )}
 
@@ -137,22 +137,22 @@ export const Wizard: React.FC = () => {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-primary-navy mb-5 md:mb-6 tracking-tight">What type of property is it?</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              <h2 className="text-xl md:text-3xl font-bold text-primary-navy mb-3 md:mb-6 tracking-tight">What type of property is it?</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4">
                 {propertyTypes.map((type) => (
                   <button
                     key={type.id}
                     onClick={() => { updateForm('propertyType', type.id); nextStep(); }}
-                    className={`flex items-center gap-3 md:gap-4 p-4 md:p-5 rounded-2xl border-2 text-left transition-all duration-200 ${
+                    className={`flex items-center gap-2 md:gap-4 p-3 md:p-5 rounded-2xl border-2 text-left transition-all duration-200 ${
                       formData.propertyType === type.id 
                         ? 'border-emerald bg-emerald-light/30' 
                         : 'border-slate-100 hover:border-emerald/30 hover:bg-slate-50'
                     }`}
                   >
-                    <div className={`p-2.5 md:p-3 rounded-xl ${formData.propertyType === type.id ? 'bg-emerald text-white' : 'bg-white text-slate-400 shadow-sm'}`}>
-                      <type.icon className="w-5 h-5 md:w-6 md:h-6" />
+                    <div className={`p-2 md:p-3 rounded-xl ${formData.propertyType === type.id ? 'bg-emerald text-white' : 'bg-white text-slate-400 shadow-sm'}`}>
+                      <type.icon className="w-4 h-4 md:w-6 md:h-6" />
                     </div>
-                    <span className={`font-semibold text-base md:text-lg ${formData.propertyType === type.id ? 'text-primary-navy' : 'text-slate-600'}`}>
+                    <span className={`font-semibold text-sm md:text-lg ${formData.propertyType === type.id ? 'text-primary-navy' : 'text-slate-600'}`}>
                       {type.label}
                     </span>
                   </button>
@@ -170,22 +170,22 @@ export const Wizard: React.FC = () => {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-primary-navy mb-5 md:mb-6 tracking-tight">What is your main heating source?</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              <h2 className="text-xl md:text-3xl font-bold text-primary-navy mb-3 md:mb-6 tracking-tight">What is your main heating source?</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4">
                 {heatingTypes.map((type) => (
                   <button
                     key={type.id}
                     onClick={() => { updateForm('heatingSource', type.id); nextStep(); }}
-                    className={`flex items-center gap-3 md:gap-4 p-4 md:p-5 rounded-2xl border-2 text-left transition-all duration-200 ${
+                    className={`flex items-center gap-2 md:gap-4 p-3 md:p-5 rounded-2xl border-2 text-left transition-all duration-200 ${
                       formData.heatingSource === type.id 
                         ? 'border-emerald bg-emerald-light/30' 
                         : 'border-slate-100 hover:border-emerald/30 hover:bg-slate-50'
                     }`}
                   >
-                    <div className={`p-2.5 md:p-3 rounded-xl ${formData.heatingSource === type.id ? 'bg-emerald text-white' : 'bg-white text-slate-400 shadow-sm'}`}>
-                      <type.icon className="w-5 h-5 md:w-6 md:h-6" />
+                    <div className={`p-2 md:p-3 rounded-xl ${formData.heatingSource === type.id ? 'bg-emerald text-white' : 'bg-white text-slate-400 shadow-sm'}`}>
+                      <type.icon className="w-4 h-4 md:w-6 md:h-6" />
                     </div>
-                    <span className={`font-semibold text-base md:text-lg ${formData.heatingSource === type.id ? 'text-primary-navy' : 'text-slate-600'}`}>
+                    <span className={`font-semibold text-sm md:text-lg ${formData.heatingSource === type.id ? 'text-primary-navy' : 'text-slate-600'}`}>
                       {type.label}
                     </span>
                   </button>
@@ -203,23 +203,23 @@ export const Wizard: React.FC = () => {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-primary-navy mb-5 md:mb-6 tracking-tight">Do you own the property?</h2>
-              <div className="space-y-3 md:space-y-4">
+              <h2 className="text-xl md:text-3xl font-bold text-primary-navy mb-3 md:mb-6 tracking-tight">Do you own the property?</h2>
+              <div className="space-y-2 md:space-y-4">
                 {ownershipTypes.map((type) => (
                   <button
                     key={type.id}
                     onClick={() => { updateForm('ownership', type.id); nextStep(); }}
-                    className={`w-full flex items-center justify-between p-5 md:p-6 rounded-2xl border-2 text-left transition-all duration-200 ${
+                    className={`w-full flex items-center justify-between p-3 md:p-6 rounded-2xl border-2 text-left transition-all duration-200 ${
                       formData.ownership === type.id 
                         ? 'border-emerald bg-emerald-light/30' 
                         : 'border-slate-100 hover:border-emerald/30 hover:bg-slate-50'
                     }`}
                   >
-                    <span className={`font-semibold text-base md:text-lg ${formData.ownership === type.id ? 'text-primary-navy' : 'text-slate-600'}`}>
+                    <span className={`font-semibold text-sm md:text-lg ${formData.ownership === type.id ? 'text-primary-navy' : 'text-slate-600'}`}>
                       {type.label}
                     </span>
-                    <div className={`w-5 h-5 md:w-6 md:h-6 rounded-full border-2 flex items-center justify-center shrink-0 ml-4 ${formData.ownership === type.id ? 'border-emerald' : 'border-slate-300'}`}>
-                      {formData.ownership === type.id && <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-emerald rounded-full" />}
+                    <div className={`w-4 h-4 md:w-6 md:h-6 rounded-full border-2 flex items-center justify-center shrink-0 ml-4 ${formData.ownership === type.id ? 'border-emerald' : 'border-slate-300'}`}>
+                      {formData.ownership === type.id && <div className="w-2 h-2 md:w-3 md:h-3 bg-emerald rounded-full" />}
                     </div>
                   </button>
                 ))}
@@ -236,91 +236,91 @@ export const Wizard: React.FC = () => {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-primary-navy mb-2 tracking-tight">Your Details</h2>
-              <p className="text-sm md:text-base text-slate-600 mb-6 md:mb-8 font-medium">Where should we send your eligibility results?</p>
+              <h2 className="text-xl md:text-3xl font-bold text-primary-navy mb-1 md:mb-2 tracking-tight">Your Details</h2>
+              <p className="text-xs md:text-base text-slate-600 mb-4 md:mb-8 font-medium">Where should we send your eligibility results?</p>
               
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-500">First Name</label>
+              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+                  <div className="space-y-1.5 md:space-y-2">
+                    <label className="text-xs md:text-sm font-bold text-slate-500">First Name</label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <User size={18} className="text-slate-400" />
+                      <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none">
+                        <User className="w-4 h-4 md:w-5 md:h-5 text-slate-400" />
                       </div>
                       <input 
                         type="text" 
                         required
                         value={formData.firstName}
                         onChange={(e) => updateForm('firstName', e.target.value)}
-                        className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium"
+                        className="w-full pl-9 md:pl-11 pr-3 md:pr-4 py-2.5 md:py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium text-sm md:text-base"
                         placeholder="John"
                       />
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-500">Last Name</label>
+                  <div className="space-y-1.5 md:space-y-2">
+                    <label className="text-xs md:text-sm font-bold text-slate-500">Last Name</label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <User size={18} className="text-slate-400" />
+                      <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none">
+                        <User className="w-4 h-4 md:w-5 md:h-5 text-slate-400" />
                       </div>
                       <input 
                         type="text" 
                         required
                         value={formData.lastName}
                         onChange={(e) => updateForm('lastName', e.target.value)}
-                        className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium"
+                        className="w-full pl-9 md:pl-11 pr-3 md:pr-4 py-2.5 md:py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium text-sm md:text-base"
                         placeholder="Doe"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-500">Email Address</label>
+                <div className="space-y-1.5 md:space-y-2">
+                  <label className="text-xs md:text-sm font-bold text-slate-500">Email Address</label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <Mail size={18} className="text-slate-400" />
+                    <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none">
+                      <Mail className="w-4 h-4 md:w-5 md:h-5 text-slate-400" />
                     </div>
                     <input 
                       type="email" 
                       required
                       value={formData.email}
                       onChange={(e) => updateForm('email', e.target.value)}
-                      className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium"
+                      className="w-full pl-9 md:pl-11 pr-3 md:pr-4 py-2.5 md:py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium text-sm md:text-base"
                       placeholder="john@example.com"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-500">Phone Number</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+                  <div className="space-y-1.5 md:space-y-2">
+                    <label className="text-xs md:text-sm font-bold text-slate-500">Phone Number</label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <Phone size={18} className="text-slate-400" />
+                      <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none">
+                        <Phone className="w-4 h-4 md:w-5 md:h-5 text-slate-400" />
                       </div>
                       <input 
                         type="tel" 
                         required
                         value={formData.phone}
                         onChange={(e) => updateForm('phone', e.target.value)}
-                        className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium"
+                        className="w-full pl-9 md:pl-11 pr-3 md:pr-4 py-2.5 md:py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium text-sm md:text-base"
                         placeholder="07700 900000"
                       />
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-500">Postcode</label>
+                  <div className="space-y-1.5 md:space-y-2">
+                    <label className="text-xs md:text-sm font-bold text-slate-500">Postcode</label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <MapPin size={18} className="text-slate-400" />
+                      <div className="absolute inset-y-0 left-0 pl-3 md:pl-4 flex items-center pointer-events-none">
+                        <MapPin className="w-4 h-4 md:w-5 md:h-5 text-slate-400" />
                       </div>
                       <input 
                         type="text" 
                         required
                         value={formData.postcode}
                         onChange={(e) => updateForm('postcode', e.target.value)}
-                        className="w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium uppercase"
+                        className="w-full pl-9 md:pl-11 pr-3 md:pr-4 py-2.5 md:py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-emerald/20 focus:border-emerald transition-all outline-none text-primary-navy font-medium uppercase text-sm md:text-base"
                         placeholder="M2 3DE"
                       />
                     </div>
@@ -331,12 +331,12 @@ export const Wizard: React.FC = () => {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-emerald text-white py-3.5 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-emerald-600 transition-all shadow-soft hover:shadow-lg hover:shadow-emerald/20 flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-emerald text-white py-3 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:bg-emerald-600 transition-all shadow-soft hover:shadow-lg hover:shadow-emerald/20 flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
-                      <><Loader2 className="animate-spin" size={24} /> Processing...</>
+                      <><Loader2 className="animate-spin" size={20} /> Processing...</>
                     ) : (
-                      <>Check My Eligibility <ArrowRight size={20} /></>
+                      <>Check My Eligibility <ArrowRight size={18} /></>
                     )}
                   </button>
                 </div>
@@ -350,18 +350,18 @@ export const Wizard: React.FC = () => {
               key="step5"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12"
+              className="text-center py-6 md:py-12"
             >
-              <div className="w-20 h-20 bg-emerald-light rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle2 size={40} className="text-emerald" />
+              <div className="w-14 h-14 md:w-20 md:h-20 bg-emerald-light rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                <CheckCircle2 className="w-8 h-8 md:w-10 md:h-10 text-emerald" />
               </div>
-              <h2 className="text-3xl font-bold text-primary-navy mb-4 tracking-tight">Details Received!</h2>
-              <p className="text-lg text-slate-600 mb-8 font-medium max-w-md mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary-navy mb-2 md:mb-4 tracking-tight">Details Received!</h2>
+              <p className="text-sm md:text-lg text-slate-600 mb-6 md:mb-8 font-medium max-w-md mx-auto">
                 Thank you, {formData.firstName}. Our funding specialists are reviewing your details and will be in touch shortly to confirm your eligibility.
               </p>
               <a 
                 href="/"
-                className="inline-flex bg-primary-navy text-white px-8 py-3.5 rounded-xl font-bold hover:bg-primary-dark transition-all"
+                className="inline-flex bg-primary-navy text-white px-6 py-2.5 md:px-8 md:py-3.5 rounded-xl font-bold hover:bg-primary-dark transition-all text-sm md:text-base"
               >
                 Return to Homepage
               </a>
