@@ -43,14 +43,48 @@ export const UKCoverage: React.FC = () => {
           >
             <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] overflow-hidden rounded-[2rem] border border-slate-200/60 bg-bg-grey shadow-[0_24px_80px_-36px_rgba(14,35,65,0.18)]">
               <img 
-                src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=A%20sleek%2C%20minimalist%20vector%20style%203D%20map%20of%20the%20United%20Kingdom%20isolated%20on%20a%20light%20gray%20background.%20The%20map%20features%20glowing%20emerald%20green%20location%20pins%20and%20subtle%20network%20lines%20connecting%20them%2C%20representing%20a%20nationwide%20installer%20network.%20High-end%2C%20clean%2C%20corporate%20SaaS%20aesthetic%2C%20highly%20detailed.&image_size=portrait_4_3" 
-                alt="UK Map showing installer network coverage with pins" 
+                src="/uk-map.jpg" 
+                alt="UK Map showing installer network coverage" 
                 width={800}
                 height={1066}
                 loading="lazy"
                 className="aspect-[3/4] w-full object-cover"
               />
-              <div className="absolute inset-0 bg-primary-navy/5 mix-blend-overlay" />
+              <div className="absolute inset-0 bg-primary-navy/20 mix-blend-overlay" />
+              
+              {/* Custom Map Pins */}
+              <div className="absolute inset-0">
+                {/* Scotland */}
+                <div className="absolute top-[25%] left-[45%] flex flex-col items-center">
+                  <div className="h-3 w-3 animate-ping rounded-full bg-emerald absolute opacity-75"></div>
+                  <MapPin size={24} className="text-emerald drop-shadow-md relative z-10" fill="#1AAE63" />
+                </div>
+                {/* North England / Manchester */}
+                <div className="absolute top-[50%] left-[55%] flex flex-col items-center">
+                  <div className="h-3 w-3 animate-ping rounded-full bg-emerald absolute opacity-75" style={{ animationDelay: '0.2s' }}></div>
+                  <MapPin size={28} className="text-emerald drop-shadow-md relative z-10" fill="#1AAE63" />
+                </div>
+                {/* Midlands / Birmingham */}
+                <div className="absolute top-[65%] left-[60%] flex flex-col items-center">
+                  <div className="h-3 w-3 animate-ping rounded-full bg-emerald absolute opacity-75" style={{ animationDelay: '0.4s' }}></div>
+                  <MapPin size={24} className="text-emerald drop-shadow-md relative z-10" fill="#1AAE63" />
+                </div>
+                {/* Wales / Cardiff */}
+                <div className="absolute top-[75%] left-[45%] flex flex-col items-center">
+                  <div className="h-3 w-3 animate-ping rounded-full bg-emerald absolute opacity-75" style={{ animationDelay: '0.6s' }}></div>
+                  <MapPin size={20} className="text-emerald drop-shadow-md relative z-10" fill="#1AAE63" />
+                </div>
+                {/* London / South East */}
+                <div className="absolute top-[80%] left-[75%] flex flex-col items-center">
+                  <div className="h-3 w-3 animate-ping rounded-full bg-emerald absolute opacity-75" style={{ animationDelay: '0.8s' }}></div>
+                  <MapPin size={32} className="text-emerald drop-shadow-md relative z-10" fill="#1AAE63" />
+                </div>
+                {/* Northern Ireland */}
+                <div className="absolute top-[45%] left-[25%] flex flex-col items-center">
+                  <div className="h-3 w-3 animate-ping rounded-full bg-emerald absolute opacity-75" style={{ animationDelay: '1s' }}></div>
+                  <MapPin size={20} className="text-emerald drop-shadow-md relative z-10" fill="#1AAE63" />
+                </div>
+              </div>
             </div>
           </motion.div>
 
