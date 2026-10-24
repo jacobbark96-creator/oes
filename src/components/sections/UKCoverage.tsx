@@ -10,12 +10,12 @@ const generatePins = () => {
   };
   
   const regions = [
-    { cx: 45, cy: 30, rx: 6, ry: 6, count: 4 }, // Scotland
-    { cx: 55, cy: 55, rx: 8, ry: 8, count: 15 }, // North West / Manchester
-    { cx: 62, cy: 68, rx: 8, ry: 8, count: 12 }, // Midlands / Birmingham
-    { cx: 45, cy: 70, rx: 5, ry: 6, count: 3 }, // Wales
-    { cx: 50, cy: 85, rx: 8, ry: 5, count: 6 }, // South West
-    { cx: 72, cy: 82, rx: 8, ry: 6, count: 12 }, // South East / London
+    { cx: 50, cy: 38, rx: 6, ry: 6, count: 4 }, // Scotland
+    { cx: 65, cy: 62, rx: 8, ry: 8, count: 15 }, // North West / Manchester
+    { cx: 67, cy: 71, rx: 8, ry: 8, count: 12 }, // Midlands / Birmingham
+    { cx: 56, cy: 75, rx: 5, ry: 6, count: 3 }, // Wales
+    { cx: 58, cy: 82, rx: 8, ry: 5, count: 6 }, // South West
+    { cx: 80, cy: 79, rx: 8, ry: 6, count: 12 }, // South East / London
   ];
   
   const pins: { id: number; top: string; left: string; delay: string; isMajor: boolean }[] = [];
@@ -24,13 +24,13 @@ const generatePins = () => {
 
   // Add major hubs exactly as seen in the image
   const majorHubs = [
-    { cx: 48, cy: 35 }, // Glasgow
-    { cx: 52, cy: 36 }, // Edinburgh
-    { cx: 42, cy: 55 }, // Isle of Man
-    { cx: 35, cy: 50 }, // Belfast / Ireland
-    { cx: 55, cy: 58 }, // Manchester
-    { cx: 62, cy: 68 }, // Birmingham
-    { cx: 72, cy: 82 }, // London
+    { cx: 50, cy: 43 }, // Glasgow
+    { cx: 58, cy: 42.5 }, // Edinburgh
+    { cx: 48, cy: 56 }, // Isle of Man
+    { cx: 38, cy: 53 }, // Belfast / Ireland
+    { cx: 65, cy: 62.5 }, // Manchester
+    { cx: 67, cy: 71 }, // Birmingham
+    { cx: 80, cy: 79 }, // London
   ];
 
   majorHubs.forEach(hub => {
@@ -105,16 +105,16 @@ export const UKCoverage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="order-2 w-[45%] sm:w-[40%] lg:w-[35%] relative flex justify-end"
           >
-            <div className="relative w-full max-w-[360px] overflow-hidden rounded-2xl md:rounded-[2rem] border border-slate-200/60 bg-bg-grey shadow-[0_24px_80px_-36px_rgba(14,35,65,0.18)]">
+            <div className="relative w-full max-w-[360px] overflow-hidden rounded-2xl md:rounded-[2rem] border border-slate-200/60 bg-[#9ec0e9] shadow-[0_24px_80px_-36px_rgba(14,35,65,0.18)]">
               <img 
-                src="/uk-map.jpg" 
+                src="/uk-map.png" 
                 alt="UK Map showing installer network coverage" 
                 width={800}
                 height={1066}
                 loading="lazy"
-                className="aspect-[3/4] w-full object-cover"
+                className="aspect-[3/4] w-full object-cover object-center mix-blend-multiply opacity-90"
               />
-              <div className="absolute inset-0 bg-primary-navy/20 mix-blend-overlay" />
+              <div className="absolute inset-0 bg-[#83b4c1]/10 mix-blend-overlay" />
               
               {/* Custom Map Pins */}
               <div className="absolute inset-0">
