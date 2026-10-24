@@ -29,15 +29,15 @@ export const WhyOES: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-bg-grey py-[4.5rem] md:py-20 lg:py-24">
       <div className="container relative z-10">
-        <div className="grid items-center gap-8 md:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+        <div className="flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-10 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative w-full max-w-[320px] md:max-w-none md:w-[35%] lg:w-[30%] shrink-0"
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_30px_90px_-38px_rgba(14,35,65,0.3)]">
+            <div className="relative h-full min-h-[300px] md:min-h-full overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_30px_90px_-38px_rgba(14,35,65,0.3)]">
               <img 
                 src="/homeimage.png" 
                 alt="Professional Energy Consultant" 
@@ -57,6 +57,7 @@ export const WhyOES: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="flex-1 w-full"
           >
             <h2 className="mb-8 text-3xl font-bold leading-tight tracking-tight text-primary-navy md:text-4xl lg:text-[3.1rem]">
               Why use OES?
