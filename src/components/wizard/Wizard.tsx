@@ -10,6 +10,7 @@ export const Wizard: React.FC = () => {
     propertyType: '',
     heatingSource: '',
     ownership: '',
+    hasMortgage: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -48,6 +49,7 @@ export const Wizard: React.FC = () => {
       formPayload.append('Property Type', formData.propertyType);
       formPayload.append('Heating Source', formData.heatingSource);
       formPayload.append('Ownership', formData.ownership);
+      formPayload.append('Has Halifax/Barclays/Lloyds Mortgage', formData.hasMortgage);
 
       const response = await fetch('https://formsubmit.co/ajax/jake@openenergyservices.co.uk', {
         method: 'POST',
@@ -103,7 +105,7 @@ export const Wizard: React.FC = () => {
     { id: 'tenant', label: 'Tenant (Rent from landlord)' },
   ];
 
-  const totalSteps = 4;
+  const totalSteps = 5;
   const progress = ((step - 1) / totalSteps) * 100;
 
   return (
@@ -227,10 +229,46 @@ export const Wizard: React.FC = () => {
             </motion.div>
           )}
 
-          {/* STEP 4: Contact Details */}
+          {/* STEP 4: Mortgage Question */}
           {step === 4 && (
             <motion.div
               key="step4"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h2 className="text-xl md:text-3xl font-bold text-primary-navy mb-3 md:mb-6 tracking-tight">Do you currently have a mortgage with Halifax, Barclays or Lloyds?</h2>
+              <div className="space-y-2 md:space-y-4">
+                {[
+                  { id: 'yes', label: 'Yes' },
+                  { id: 'no', label: 'No' }
+                ].map((type) => (
+                  <button
+                    key={type.id}
+                    onClick={() => { updateForm('hasMortgage', type.label); nextStep(); }}
+                    className={`w-full flex items-center justify-between p-3 md:p-6 rounded-2xl border-2 text-left transition-all duration-200 ${
+                      formData.hasMortgage === type.label 
+                        ? 'border-emerald bg-emerald-light/30' 
+                        : 'border-slate-100 hover:border-emerald/30 hover:bg-slate-50'
+                    }`}
+                  >
+                    <span className={`font-semibold text-sm md:text-lg ${formData.hasMortgage === type.label ? 'text-primary-navy' : 'text-slate-600'}`}>
+                      {type.label}
+                    </span>
+                    <div className={`w-4 h-4 md:w-6 md:h-6 rounded-full border-2 flex items-center justify-center shrink-0 ml-4 ${formData.hasMortgage === type.label ? 'border-emerald' : 'border-slate-300'}`}>
+                      {formData.hasMortgage === type.label && <div className="w-2 h-2 md:w-3 md:h-3 bg-emerald rounded-full" />}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* STEP 5: Contact Details */}
+          {step === 5 && (
+            <motion.div
+              key="step5"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
@@ -344,10 +382,10 @@ export const Wizard: React.FC = () => {
             </motion.div>
           )}
 
-          {/* STEP 5: Success */}
-          {step === 5 && (
+          {/* STEP 6: Success */}
+          {step === 6 && (
             <motion.div
-              key="step5"
+              key="step6"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-6 md:py-12"
