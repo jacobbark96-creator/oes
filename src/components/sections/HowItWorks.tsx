@@ -1,7 +1,10 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 export const HowItWorks: React.FC = () => {
+  const [activeStep, setActiveStep] = useState<number>(0);
+
   const steps = [
     {
       num: '01',
@@ -37,7 +40,7 @@ export const HowItWorks: React.FC = () => {
 
   return (
     <section id="how-it-works" className="relative bg-bg-grey py-[4.5rem] md:py-20 lg:py-24">
-      <div className="container max-w-5xl relative z-10">
+      <div className="container max-w-4xl relative z-10">
         <div className="mb-14 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -68,42 +71,65 @@ export const HowItWorks: React.FC = () => {
           </motion.a>
         </div>
 
-        <div className="relative">
-          {/* Central Line */}
-          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-slate-200 to-transparent md:block" />
-
-          <div className="space-y-12 md:space-y-0">
-            {steps.map((step, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
-                className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-8 md:gap-12 lg:gap-16 ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Center Node */}
-                <div className="absolute left-1/2 top-1/2 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-emerald bg-white shadow-soft z-10 md:flex">
-                  <span className="text-emerald font-bold text-sm">{step.num}</span>
-                </div>
-
-                {/* Content Card */}
-                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12 text-left md:text-right'}`}>
-                  <div className="rounded-[1.75rem] border border-slate-200/80 bg-white p-7 shadow-[0_18px_60px_-34px_rgba(14,35,65,0.22)] transition-all duration-300 hover:shadow-[0_28px_70px_-38px_rgba(14,35,65,0.26)] md:p-8">
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-light font-bold text-emerald md:hidden">
-                      {step.num}
+        <div className="relative mx-auto w-full rounded-[2rem] border border-slate-200/80 bg-white/50 p-3 shadow-glass backdrop-blur-xl">
+          <div className="flex flex-col gap-2">
+            {steps.map((step, index) => {
+              const isActive = activeStep === index;
+              return (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className={`group overflow-hidden rounded-[1.5rem] border transition-all duration-300 ${
+                    isActive 
+                      ? 'border-emerald/30 bg-white shadow-[0_20px_60px_-20px_rgba(26,174,99,0.15)]' 
+                      : 'border-slate-100 bg-white/80 hover:bg-white hover:border-slate-200'
+                  }`}
+                >
+                  <button
+                    onClick={() => setActiveStep(isActive ? -1 : index)}
+                    className="flex w-full items-center justify-between p-5 md:p-6 text-left outline-none"
+                  >
+                    <div className="flex items-center gap-4 md:gap-6">
+                      <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-bold transition-colors duration-300 ${
+                        isActive ? 'bg-emerald text-white' : 'bg-slate-100 text-slate-500 group-hover:bg-emerald-light group-hover:text-emerald'
+                      }`}>
+                        {step.num}
+                      </div>
+                      <h3 className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${
+                        isActive ? 'text-primary-navy' : 'text-slate-600 group-hover:text-primary-navy'
+                      }`}>
+                        {step.title}
+                      </h3>
                     </div>
-                    <h3 className="text-xl font-bold text-primary-navy mb-3 tracking-tight">{step.title}</h3>
-                    <p className="text-slate-600 font-medium leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-                
-                {/* Empty space for alignment */}
-                <div className="hidden md:block w-1/2" />
-              </motion.div>
-            ))}
+                    <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300 ${
+                      isActive ? 'rotate-180 bg-emerald-light text-emerald' : 'bg-slate-50 text-slate-400 group-hover:bg-slate-100'
+                    }`}>
+                      <ChevronDown size={18} strokeWidth={isActive ? 2.5 : 2} />
+                    </div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div className="px-5 pb-6 pt-0 md:px-6 md:pb-7 md:pl-[5.5rem]">
+                          <p className="text-[15px] leading-relaxed text-slate-600 md:text-base">
+                            {step.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
