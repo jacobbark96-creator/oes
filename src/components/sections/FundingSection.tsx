@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const FundingSection: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const options = [
+    "ECO4 Scheme",
+    "Great British Insulation Scheme (GBIS)",
+    "Boiler Upgrade Scheme",
+    "Local Authority Funding"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % options.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [options.length]);
+
   return (
     <section id="funding" className="bg-white py-[4.5rem] md:py-20 lg:py-24">
       <div className="container">
@@ -28,18 +43,20 @@ export const FundingSection: React.FC = () => {
                 We are specialists in navigating the complex landscape of UK energy grants. We can assess your property and circumstances to find out if you're eligible for free or partially funded upgrades.
               </p>
               
-              <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {[
-                  "ECO4 Scheme",
-                  "Great British Insulation Scheme (GBIS)",
-                  "Boiler Upgrade Scheme",
-                  "Local Authority Funding"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3 rounded-2xl border border-white/14 bg-white/10 p-4 backdrop-blur-md">
-                    <CheckCircle2 size={20} className="text-white flex-shrink-0" />
-                    <span className="font-semibold text-sm">{item}</span>
-                  </div>
-                ))}
+              <div className="mb-8 relative h-[60px] w-full max-w-sm">
+                <AnimatePresence mode="wait">
+                  <motion.div 
+                    key={currentIndex}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0 flex items-center gap-3 rounded-2xl border border-white/14 bg-white/10 p-4 backdrop-blur-md"
+                  >
+                    <CheckCircle2 size={20} className="text-emerald-light flex-shrink-0" />
+                    <span className="font-semibold text-sm text-white">{options[currentIndex]}</span>
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
               <a 
